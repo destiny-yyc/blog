@@ -3,8 +3,8 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 阳彦春的博客
-subtitle: ''
+title: 枫🍁川的博客
+subtitle: '枫🍁川的博客'
 description: ''
 keywords:
 author: John Doe
@@ -103,7 +103,7 @@ theme: fluid
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://gitee.com/fengchuan0/myblog.git
+  repo: https://gitee.com/destiny_yyc/myblog.git
   branch: master
 
 # Live2D
