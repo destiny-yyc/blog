@@ -1,35 +1,35 @@
 Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
-## Quick Start
+## 快速开始
 
-### Create a new post
-
+### 新建页
+**可在`/source/_posts/`新建`md`文件**
 ``` bash
 $ hexo new "My New Post"
 ```
 
-More info: [Writing](https://hexo.io/docs/writing.html)
+更多信息: [Writing](https://hexo.io/docs/writing.html)
 
 ### Run server
 
 ``` bash
-$ hexo server
+$ npm run server / hexo server
 ```
 
-More info: [Server](https://hexo.io/docs/server.html)
+更多信息: [Server](https://hexo.io/docs/server.html)
 
 ### Generate static files
 
 ``` bash
-$ hexo generate
+$ npm run generate / hexo generate
 ```
 
-More info: [Generating](https://hexo.io/docs/generating.html)
+更多信息: [Generating](https://hexo.io/docs/generating.html)
 
 ### Deploy to remote sites
 
 ``` bash
-$ hexo deploy
+$ npm run deploy / hexo clean && hexo deploy
 ```
 
-More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
+更多信息: [Deployment](https://hexo.io/docs/one-command-deployment.html)
