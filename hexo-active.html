@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/myblog/img/maple_leaf.png">
-  <link rel="icon" href="/myblog/img/maple_leaf.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/maple_leaf.png">
+  <link rel="icon" href="/img/maple_leaf.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -16,25 +16,26 @@
   <meta name="author" content="枫🍁川">
   <meta name="keywords" content="">
   
-    <meta name="description" content="vue优化 Vue-Router路由懒加载：Vue异步组件、Webpack的require.ensure()、ES6的import、 按需加载UI库 如果首屏为登录页，可以做成多入口 页面使用骨架屏Skeleton Screen 服务端渲染SSR（将组件或页面通过服务器生成html字符串，再发送到浏览器，最后将静态标记”混合”为客户端上完全交互的应用程序）  网络优化 减少 HTTP 请求数量 利">
+    <meta name="description" content="文章配置(文末有我一般配置)--- title: 文章标题 date: 2022&#x2F;7&#x2F;13 20:46:25 ---     参数 描述 默认值    layout 布局 config.default_layout   title 标题 文章的文件名   date 建立日期 文件建立日期   updated 更新日期 文件更新日期   comments 开启文章的评论功能 true   tags">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SEO 优化、前端优化">
-<meta property="og:url" content="https://destiny-yyc.gitee.io/myblog/myblog/seo-optimize.html">
+<meta property="og:title" content="Hexo 文章写作">
+<meta property="og:url" content="https://destiny-yyc.gitee.io/hexo-active.html">
 <meta property="og:site_name" content="枫🍁川的博客">
-<meta property="og:description" content="vue优化 Vue-Router路由懒加载：Vue异步组件、Webpack的require.ensure()、ES6的import、 按需加载UI库 如果首屏为登录页，可以做成多入口 页面使用骨架屏Skeleton Screen 服务端渲染SSR（将组件或页面通过服务器生成html字符串，再发送到浏览器，最后将静态标记”混合”为客户端上完全交互的应用程序）  网络优化 减少 HTTP 请求数量 利">
+<meta property="og:description" content="文章配置(文末有我一般配置)--- title: 文章标题 date: 2022&#x2F;7&#x2F;13 20:46:25 ---     参数 描述 默认值    layout 布局 config.default_layout   title 标题 文章的文件名   date 建立日期 文件建立日期   updated 更新日期 文件更新日期   comments 开启文章的评论功能 true   tags">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-02-09T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-03-14T06:48:36.539Z">
-<meta property="article:author" content="John Doe">
-<meta property="article:tag" content="seo优化">
-<meta property="article:tag" content="vue优化">
+<meta property="og:image" content="https://hexo.fluid-dev.com/docs/assets/img/group_image.c1b58381.png">
+<meta property="article:published_time" content="2022-01-20T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-03-14T07:08:27.826Z">
+<meta property="article:author" content="枫🍁川">
+<meta property="article:tag" content="hexo文章">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://hexo.fluid-dev.com/docs/assets/img/group_image.c1b58381.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>SEO 优化、前端优化 - 枫🍁川的博客</title>
+  <title>Hexo 文章写作 - 枫🍁川的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -58,12 +59,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/myblog/css/main.css" />
+<link  rel="stylesheet" href="/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/myblog/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/myblog/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
 
 
@@ -72,15 +73,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"destiny-yyc.gitee.io","root":"/myblog/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/myblog/local-search.xml"};
+    var CONFIG = {"hostname":"destiny-yyc.gitee.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/myblog/js/utils.js" ></script>
-  <script  src="/myblog/js/color-schema.js" ></script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
   
 
 
@@ -97,7 +98,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/myblog/">
+    <a class="navbar-brand" href="/">
       <strong>枫🍁川的博客</strong>
     </a>
 
@@ -116,7 +117,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/myblog/">
+              <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -128,7 +129,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/myblog/archives/">
+              <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -140,7 +141,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/myblog/categories/">
+              <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -152,7 +153,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/myblog/tags/">
+              <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -164,7 +165,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/myblog/about/">
+              <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -176,7 +177,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/myblog/links/">
+              <a class="nav-link" href="/links/">
                 <i class="iconfont icon-link-fill"></i>
                 友链
               </a>
@@ -205,13 +206,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/myblog/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="SEO 优化、前端优化"></span>
+            <span id="subtitle" data-typed-text="Hexo 文章写作"></span>
           
         </div>
 
@@ -227,8 +228,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-02-10 00:00" pubdate>
-          2022年2月10日
+        <time datetime="2022-01-21 00:00" pubdate>
+          2022年1月21日
         </time>
       </span>
     
@@ -239,7 +240,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          573 字
+          1k 字
         
       </span>
     
@@ -279,39 +280,160 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">SEO 优化、前端优化</h1>
+            <h1 style="display: none">Hexo 文章写作</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="vue优化"><a href="#vue优化" class="headerlink" title="vue优化"></a>vue优化</h2><ol>
-<li>Vue-Router路由懒加载：Vue异步组件、Webpack的require.ensure()、ES6的import、</li>
-<li>按需加载UI库</li>
-<li>如果首屏为登录页，可以做成多入口</li>
-<li>页面使用骨架屏Skeleton Screen</li>
-<li>服务端渲染SSR（将组件或页面通过服务器生成html字符串，再发送到浏览器，最后将静态标记”混合”为客户端上完全交互的应用程序）</li>
-</ol>
-<h2 id="网络优化"><a href="#网络优化" class="headerlink" title="网络优化"></a>网络优化</h2><ol>
-<li>减少 HTTP 请求数量</li>
-<li>利用浏览器缓存，减小<code>cookie</code>大小，尽量用<code>localStorage</code>代替</li>
-<li>CDN加速，托管静态文件</li>
-<li>开启 Gzip 压缩：Nginx的gzip缓存压缩、Webpack开启gzip压缩</li>
-</ol>
-<h2 id="js优化"><a href="#js优化" class="headerlink" title="js优化"></a>js优化</h2><ol>
-<li>节流、防抖</li>
-<li>动态加载、分页加载（大数据渲染）</li>
-<li>图片懒加载（data-src）减少占用网络带宽</li>
-<li>使用闭包时，在函数结尾手动删除不需要的局部变量，尤其在缓存dom节点的情况下</li>
-<li>异步加载js，async解析dom树同时加载js，加载完暂停解析执行js、defer解析dom树同时加载js，解析完执行js</li>
-</ol>
-<h2 id="css优化"><a href="#css优化" class="headerlink" title="css优化"></a>css优化</h2><p>不使用css表达式</p>
-<p>减少回流（重排）</p>
-<p>避免使用css文件嵌套过深</p>
-<h2 id="SEO优化"><a href="#SEO优化" class="headerlink" title="SEO优化"></a>SEO优化</h2><p>突出重要内容—合理的设计<code>title</code>、<code>description</code>和<code>keywords</code></p>
-<p>语义化书写HTML代码，符合W3C标准</p>
-<p>图片<code>img</code>标签添加<code>alt</code>和<code>title</code>属性</p>
-<p>链接<code>&lt;a&gt;</code>页内标签添加<code>title</code>属性</p>
-<p>使用h1标签自带权重</p>
+                <h2 id="文章配置-文末有我一般配置"><a href="#文章配置-文末有我一般配置" class="headerlink" title="文章配置(文末有我一般配置)"></a>文章配置(文末有我一般配置)</h2><div class="code-wrapper"><pre><code class="hljs markdown">---
+title: 文章标题
+<span class="hljs-section">date: 2022/7/13 20:46:25</span>
+<span class="hljs-section">---</span></code></pre></div>
+
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">描述</th>
+<th align="left">默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>layout</code></td>
+<td align="left">布局</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/configuration#%E6%96%87%E7%AB%A0"><code>config.default_layout</code></a></td>
+</tr>
+<tr>
+<td align="left"><code>title</code></td>
+<td align="left">标题</td>
+<td align="left">文章的文件名</td>
+</tr>
+<tr>
+<td align="left"><code>date</code></td>
+<td align="left">建立日期</td>
+<td align="left">文件建立日期</td>
+</tr>
+<tr>
+<td align="left"><code>updated</code></td>
+<td align="left">更新日期</td>
+<td align="left">文件更新日期</td>
+</tr>
+<tr>
+<td align="left"><code>comments</code></td>
+<td align="left">开启文章的评论功能</td>
+<td align="left">true</td>
+</tr>
+<tr>
+<td align="left"><code>tags</code></td>
+<td align="left">标签（不适用于分页）</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><code>categories</code></td>
+<td align="left">分类（不适用于分页）</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><code>permalink</code></td>
+<td align="left">覆盖文章的永久链接，永久链接应该以 <code>/</code> 或 <code>.html</code> 结尾</td>
+<td align="left"><code>null</code></td>
+</tr>
+<tr>
+<td align="left"><code>excerpt</code></td>
+<td align="left">纯文本的页面摘要。使用 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/tag-plugins#%E6%96%87%E7%AB%A0%E6%91%98%E8%A6%81%E5%92%8C%E6%88%AA%E6%96%AD">该插件</a> 来格式化文本</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><code>disableNunjucks</code></td>
+<td align="left">启用时禁用 Nunjucks 标签 <code>&#123;&#123; &#125;&#125;</code>&#x2F;<code>&#123;% %&#125;</code> 和 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/tag-plugins">标签插件</a> 的渲染功能</td>
+<td align="left">false</td>
+</tr>
+<tr>
+<td align="left"><code>lang</code></td>
+<td align="left">设置语言以覆盖 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/internationalization#%E8%B7%AF%E5%BE%84">自动检测</a></td>
+<td align="left">继承自 <code>_config.yml</code></td>
+</tr>
+<tr>
+<td align="left"><code>hide</code></td>
+<td align="left">首页隐藏文章</td>
+<td align="left">false</td>
+</tr>
+</tbody></table>
+<div class="code-wrapper"><pre><code class="hljs markdown">categories:
+<span class="hljs-bullet">-</span> 分类名称
+tags:
+<span class="hljs-bullet">-</span> 标签名称
+<span class="hljs-bullet">-</span> 标签名称2</code></pre></div>
+
+<h4 id="便签"><a href="#便签" class="headerlink" title="便签"></a>便签</h4><div class="code-wrapper"><pre><code class="hljs markdown">&#123;% note success %&#125;
+文字 或者 <span class="hljs-code">`markdown`</span> 均可
+&#123;% endnote %&#125;</code></pre></div>
+
+<p>可选便签：</p>
+<div class="note note-primary">
+            <p>primary</p>
+          </div>
+
+<div class="note note-secondary">
+            <p>secondary</p>
+          </div>
+
+<div class="note note-success">
+            <p>success</p>
+          </div>
+
+<div class="note note-danger">
+            <p>success</p>
+          </div>
+
+<div class="note note-warning">
+            <p>success</p>
+          </div>
+
+<div class="note note-info">
+            <p>success</p>
+          </div>
+
+<div class="note note-light">
+            <p>success</p>
+          </div>
+
+<h4 id="行内便签"><a href="#行内便签" class="headerlink" title="行内便签"></a>行内便签</h4><span class="label label-primary">你好</span>
+
+<div class="code-wrapper"><pre><code class="hljs markdown">&#123;% label primary @你好 %&#125;</code></pre></div>
+
+<p>可选 label ：</p>
+<span class="label label-primary">primary</span><span class="label label-default">default</span><span class="label label-info">info</span><span class="label label-success">success</span><span class="label label-warning">warning</span><span class="label label-danger">danger</span>
+
+<p><code>你好</code> &#x3D;  <span class="label label-default">你好</span></p>
+<div class="code-wrapper"><pre><code class="hljs markdown"><span class="hljs-code">`你好`</span> = &#123;% label default @你好 %&#125;</code></pre></div>
+
+
+
+<h4 id="按钮"><a href="#按钮" class="headerlink" title="按钮"></a>按钮</h4><div class="code-wrapper"><pre><code class="hljs markdown">&#123;% btn url路径, 显示的文字, 鼠标悬停的文字 %&#125;</code></pre></div>
+
+<a class="btn" href="#"  title="鼠标悬停的文字" target="_blank">显示的文字</a>
+
+<h4 id="组图"><a href="#组图" class="headerlink" title="组图"></a>组图</h4><p>如果想把多张图片按一定布局组合显示，你可以在 markdown 中按如下格式：</p>
+<div class="code-wrapper"><pre><code class="hljs markdown">&#123;% gi total n1-n2-... %&#125;
+  ![](<span class="hljs-link">url</span>)
+  ![](<span class="hljs-link">url</span>)
+  ![](<span class="hljs-link">url</span>)
+  ![](<span class="hljs-link">url</span>)
+  ![](<span class="hljs-link">url</span>)
+&#123;% endgi %&#125;</code></pre></div>
+
+<p>total：图片总数量，对应中间包含的图片 url 数量<br>n1-n2-…：每行的图片数量，可以省略，默认单行最多 3 张图，求和必须相等于 total，否则按默认样式</p>
+<p>如下图为 <code>&#123;% gi 5 3-2 %&#125;</code> 示例，代表共 5 张图，第一行 3 张图，第二行 2 张图。</p>
+<p><img src="https://hexo.fluid-dev.com/docs/assets/img/group_image.c1b58381.png" srcset="/img/loading.gif" lazyload alt="组图"></p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><div class="code-wrapper"><pre><code class="hljs markdown">title: 标题
+date: 时间
+tags: [标签, 标签1]
+categories: [分类]
+author: 作者
+permalink: 永久链接.html
+hide: false</code></pre></div>
+
 
                 
               </div>
@@ -330,7 +452,7 @@
     
       <span class="category-chain">
         
-  <a href="/myblog/categories/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" class="category-chain-item">性能优化</a>
+  <a href="/categories/hexo/" class="category-chain-item">hexo</a>
   
   
 
@@ -345,9 +467,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/myblog/tags/seo%E4%BC%98%E5%8C%96/">#seo优化</a>
-      
-        <a href="/myblog/tags/vue%E4%BC%98%E5%8C%96/">#vue优化</a>
+        <a href="/tags/hexo%E6%96%87%E7%AB%A0/">#hexo文章</a>
       
     </div>
   
@@ -361,21 +481,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/myblog/myblog/second-axios.html" title="二次封装 Axios">
+                      <a href="/flat-structure-conversion-tree-structure.html" title="扁平数组与JSON树结构互转">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">二次封装 Axios</span>
+                        <span class="hidden-mobile">扁平数组与JSON树结构互转</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
-                    
-                      <a href="/myblog/myblog/regexp-course.html" title="正则表达式到底是什么？">
-                        <span class="hidden-mobile">正则表达式到底是什么？</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
                     
                   </article>
                 </div>
@@ -522,8 +636,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/myblog/js/events.js" ></script>
-<script  src="/myblog/js/plugins.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -545,7 +659,7 @@
 
 
   
-    <script  src="/myblog/js/img-lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -617,7 +731,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/myblog/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
 
   <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
@@ -627,7 +741,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/myblog/js/boot.js" ></script>
+<script  src="/js/boot.js" ></script>
 
 
   
@@ -635,5 +749,5 @@
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
-<script src="/myblog/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/myblog/live2dw/assets/chitose.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/chitose.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
 </html>

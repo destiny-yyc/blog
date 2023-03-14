@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/myblog/img/maple_leaf.png">
-  <link rel="icon" href="/myblog/img/maple_leaf.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/maple_leaf.png">
+  <link rel="icon" href="/img/maple_leaf.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,7 +19,7 @@
     <meta name="description" content="本文将从以下十一个维度为读者总结前端基础知识   JS基础1. 如何在ES5环境下实现let 这个问题实质上是在回答let和var有什么区别，对于这个问题，我们可以直接查看babel转换前后的结果，看一下在循环中通过let定义的变量是如何解决变量提升的问题    babel在let定义的变量前加了道下划线，避免在块级作用域外访问到该变量，除了对变量名的转换，我们也可以通过自执行函数来模拟块级作用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端掌握知识程度">
-<meta property="og:url" content="https://destiny-yyc.gitee.io/myblog/myblog/front-end.html">
+<meta property="og:url" content="https://destiny-yyc.gitee.io/front-end.html">
 <meta property="og:site_name" content="枫🍁川的博客">
 <meta property="og:description" content="本文将从以下十一个维度为读者总结前端基础知识   JS基础1. 如何在ES5环境下实现let 这个问题实质上是在回答let和var有什么区别，对于这个问题，我们可以直接查看babel转换前后的结果，看一下在循环中通过let定义的变量是如何解决变量提升的问题    babel在let定义的变量前加了道下划线，避免在块级作用域外访问到该变量，除了对变量名的转换，我们也可以通过自执行函数来模拟块级作用">
 <meta property="og:locale" content="zh_CN">
@@ -47,8 +47,8 @@
 <meta property="og:image" content="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/5/171465b92f6ded5e~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp">
 <meta property="og:image" content="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/6/1714e0acba58457f~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp">
 <meta property="article:published_time" content="2022-02-26T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-03-14T06:47:42.374Z">
-<meta property="article:author" content="John Doe">
+<meta property="article:modified_time" content="2023-03-14T07:08:25.582Z">
+<meta property="article:author" content="枫🍁川">
 <meta property="article:tag" content="前端">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/6/17150295c4bb639b~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp">
@@ -81,12 +81,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/myblog/css/main.css" />
+<link  rel="stylesheet" href="/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/myblog/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/myblog/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
 
 
@@ -95,15 +95,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"destiny-yyc.gitee.io","root":"/myblog/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/myblog/local-search.xml"};
+    var CONFIG = {"hostname":"destiny-yyc.gitee.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/myblog/js/utils.js" ></script>
-  <script  src="/myblog/js/color-schema.js" ></script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
   
 
 
@@ -120,7 +120,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/myblog/">
+    <a class="navbar-brand" href="/">
       <strong>枫🍁川的博客</strong>
     </a>
 
@@ -139,7 +139,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/myblog/">
+              <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -151,7 +151,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/myblog/archives/">
+              <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -163,7 +163,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/myblog/categories/">
+              <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -175,7 +175,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/myblog/tags/">
+              <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -187,7 +187,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/myblog/about/">
+              <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -199,7 +199,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/myblog/links/">
+              <a class="nav-link" href="/links/">
                 <i class="iconfont icon-link-fill"></i>
                 友链
               </a>
@@ -228,7 +228,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/myblog/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -310,11 +310,11 @@
                 <blockquote>
 <p>本文将从以下十一个维度为读者总结前端基础知识</p>
 </blockquote>
-<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/6/17150295c4bb639b~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/myblog/img/loading.gif" lazyload></p>
+<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/6/17150295c4bb639b~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/img/loading.gif" lazyload></p>
 <h1 id="JS基础"><a href="#JS基础" class="headerlink" title="JS基础"></a>JS基础</h1><h2 id="1-如何在ES5环境下实现let"><a href="#1-如何在ES5环境下实现let" class="headerlink" title="1. 如何在ES5环境下实现let"></a>1. 如何在ES5环境下实现let</h2><blockquote>
 <p>这个问题实质上是在回答<code>let</code>和<code>var</code>有什么区别，对于这个问题，我们可以直接查看<code>babel</code>转换前后的结果，看一下在循环中通过<code>let</code>定义的变量是如何解决变量提升的问题</p>
 </blockquote>
-<p> <img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/5/1714616e2fd53bf8~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/myblog/img/loading.gif" lazyload></p>
+<p> <img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/5/1714616e2fd53bf8~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/img/loading.gif" lazyload></p>
 <p><code>babel</code>在<code>let</code>定义的变量前加了道下划线，避免在块级作用域外访问到该变量，除了对变量名的转换，我们也可以通过自执行函数来模拟块级作用域</p>
 <div class="code-wrapper"><pre><code class="hljs javascript">(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;
   <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">5</span>; i ++)&#123;
@@ -780,7 +780,7 @@ parent.<span class="hljs-title function_">getName</span>()                 <span
 
 <p>到这里我们就完成了ES5环境下的继承的实现，这种继承方式称为<code>寄生组合式继承</code>，是目前最成熟的继承方式，babel对ES6继承的转化也是使用了寄生组合式继承</p>
 <p>我们回顾一下实现过程：<br>一开始最容易想到的是<code>原型链继承</code>，通过把子类实例的原型指向父类实例来继承父类的属性和方法，但原型链继承的缺陷在于<code>对子类实例继承的引用类型的修改会影响到所有的实例对象</code>以及<code>无法向父类的构造方法传参</code>。<br>因此我们引入了<code>构造函数继承</code>, 通过在子类构造函数中调用父类构造函数并传入子类this来获取父类的属性和方法，但构造函数继承也存在缺陷，构造函数继承<code>不能继承到父类原型链上的属性和方法</code>。<br>所以我们综合了两种继承的优点，提出了<code>组合式继承</code>，但组合式继承也引入了新的问题，它<code>每次创建子类实例都执行了两次父类构造方法</code>，我们通过将<code>子类原型指向父类实例</code>改为<code>子类原型指向父类原型的浅拷贝</code>来解决这一问题，也就是最终实现 —— <code>寄生组合式继承</code></p>
-<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/6/1714fd86c8983189~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/myblog/img/loading.gif" lazyload></p>
+<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/6/1714fd86c8983189~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/img/loading.gif" lazyload></p>
 <h1 id="V8引擎机制"><a href="#V8引擎机制" class="headerlink" title="V8引擎机制"></a>V8引擎机制</h1><h2 id="1-V8如何执行一段JS代码"><a href="#1-V8如何执行一段JS代码" class="headerlink" title="1. V8如何执行一段JS代码"></a>1. V8如何执行一段JS代码</h2><ol>
 <li><strong>预解析</strong>：检查语法错误但不生成AST</li>
 <li><strong>生成AST</strong>：经过词法&#x2F;语法分析，生成抽象语法树</li>
@@ -798,12 +798,12 @@ parent.<span class="hljs-title function_">getName</span>()                 <span
 </li>
 </ul>
 <h2 id="3-V8如何进行垃圾回收"><a href="#3-V8如何进行垃圾回收" class="headerlink" title="3. V8如何进行垃圾回收"></a>3. V8如何进行垃圾回收</h2><p>JS引擎中对变量的存储主要有两种位置，栈内存和堆内存，栈内存存储基本类型数据以及引用类型数据的内存地址，堆内存储存引用类型的数据</p>
-<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/5/17149730709e41a4~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/myblog/img/loading.gif" lazyload></p>
+<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/5/17149730709e41a4~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/img/loading.gif" lazyload></p>
 <p><strong>栈内存的回收：</strong></p>
 <p>栈内存调用栈上下文切换后就被回收，比较简单</p>
 <p><strong>堆内存的回收：</strong></p>
 <p>V8的堆内存分为新生代内存和老生代内存，新生代内存是临时分配的内存，存在时间短，老生代内存存在时间长</p>
-<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/5/1714980cac75fc32~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/myblog/img/loading.gif" lazyload></p>
+<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/5/1714980cac75fc32~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/img/loading.gif" lazyload></p>
 <p>-<br>  新生代内存回收机制：</p>
 <ul>
 <li><p>新生代内存容量小，64位系统下仅有32M。新生代内存分为From、To两部分，进行垃圾回收时，先扫描From，将非存活对象回收，将存活对象顺序复制到To中，之后调换From&#x2F;To，等待下一次回收</p>
@@ -814,7 +814,7 @@ parent.<span class="hljs-title function_">getName</span>()                 <span
 </ul>
 </li>
 </ul>
-<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/5/1714a1f7c054c657~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/myblog/img/loading.gif" lazyload></p>
+<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/5/1714a1f7c054c657~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/img/loading.gif" lazyload></p>
 <blockquote>
 <p>参考资料：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903591510016007#heading-10">聊聊V8引擎的垃圾回收</a></p>
 </blockquote>
@@ -843,7 +843,7 @@ parent.<span class="hljs-title function_">getName</span>()                 <span
 <blockquote>
 <p>参考资料：<a href="https://link.juejin.cn/?target=https://zhuanlan.zhihu.com/p/27628685">为什么V8引擎这么快？</a></p>
 </blockquote>
-<h1 id="浏览器渲染机制"><a href="#浏览器渲染机制" class="headerlink" title="浏览器渲染机制"></a>浏览器渲染机制</h1><h2 id="1-浏览器的渲染过程是怎样的"><a href="#1-浏览器的渲染过程是怎样的" class="headerlink" title="1. 浏览器的渲染过程是怎样的"></a>1. 浏览器的渲染过程是怎样的</h2><p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/2/5/17013323c225bd62~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/myblog/img/loading.gif" lazyload></p>
+<h1 id="浏览器渲染机制"><a href="#浏览器渲染机制" class="headerlink" title="浏览器渲染机制"></a>浏览器渲染机制</h1><h2 id="1-浏览器的渲染过程是怎样的"><a href="#1-浏览器的渲染过程是怎样的" class="headerlink" title="1. 浏览器的渲染过程是怎样的"></a>1. 浏览器的渲染过程是怎样的</h2><p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/2/5/17013323c225bd62~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/img/loading.gif" lazyload></p>
 <p>大体流程如下：</p>
 <ol>
 <li><p>HTML和CSS经过各自解析，生成DOM树和CSSOM树</p>
@@ -888,7 +888,7 @@ parent.<span class="hljs-title function_">getName</span>()                 <span
 <li>避免触发同步布局事件，我们在获取<code>offsetWidth</code>这类属性的值时，可以使用变量将查询结果存起来，避免多次查询，每次对<code>offset/scroll/client</code>等属性进行查询时都会触发回流</li>
 <li>对于复杂动画效果,使用绝对定位让其脱离文档流，复杂的动画效果会频繁地触发回流重绘，我们可以将动画元素设置绝对定位从而脱离文档流避免反复回流重绘。</li>
 </ul>
-<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/5/1714a1d84ab05ba9~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/myblog/img/loading.gif" lazyload></p>
+<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/5/1714a1d84ab05ba9~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/img/loading.gif" lazyload></p>
 <blockquote>
 <p>参考资料：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903846834094094">必须明白的浏览器渲染机制</a></p>
 </blockquote>
@@ -943,11 +943,11 @@ parent.<span class="hljs-title function_">getName</span>()                 <span
 <ul>
 <li>如果什么缓存策略都没有设置，那么浏览器会取响应头中的 Date 减去 Last-Modified 值的 10% 作为缓存时间</li>
 </ul>
-<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/5/1714a298b93c3208~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/myblog/img/loading.gif" lazyload></p>
+<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/5/1714a298b93c3208~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/img/loading.gif" lazyload></p>
 <blockquote>
 <p>参考资料：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903473268391943">浏览器缓存机制剖析</a></p>
 </blockquote>
-<h1 id="网络相关"><a href="#网络相关" class="headerlink" title="网络相关"></a>网络相关</h1><h2 id="1-讲讲网络OSI七层模型，TCP-x2F-IP和HTTP分别位于哪一层"><a href="#1-讲讲网络OSI七层模型，TCP-x2F-IP和HTTP分别位于哪一层" class="headerlink" title="1. 讲讲网络OSI七层模型，TCP&#x2F;IP和HTTP分别位于哪一层"></a>1. 讲讲网络OSI七层模型，TCP&#x2F;IP和HTTP分别位于哪一层</h2><p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/1/28/16fec363208256b8~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/myblog/img/loading.gif" lazyload></p>
+<h1 id="网络相关"><a href="#网络相关" class="headerlink" title="网络相关"></a>网络相关</h1><h2 id="1-讲讲网络OSI七层模型，TCP-x2F-IP和HTTP分别位于哪一层"><a href="#1-讲讲网络OSI七层模型，TCP-x2F-IP和HTTP分别位于哪一层" class="headerlink" title="1. 讲讲网络OSI七层模型，TCP&#x2F;IP和HTTP分别位于哪一层"></a>1. 讲讲网络OSI七层模型，TCP&#x2F;IP和HTTP分别位于哪一层</h2><p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/1/28/16fec363208256b8~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/img/loading.gif" lazyload></p>
 <table>
 <thead>
 <tr>
@@ -1038,7 +1038,7 @@ parent.<span class="hljs-title function_">getName</span>()                 <span
 <p>参考资料：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903489127219214">HTTP｜GET 和 POST 区别？网上多数答案都是错的</a></p>
 </blockquote>
 <h2 id="4-HTTP的请求报文由哪几部分组成"><a href="#4-HTTP的请求报文由哪几部分组成" class="headerlink" title="4. HTTP的请求报文由哪几部分组成"></a>4. HTTP的请求报文由哪几部分组成</h2><p>一个HTTP请求报文由请求行（request line）、请求头（header）、空行和请求数据4个部分组成</p>
-<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/2/1/16ffe7606c8db5e7~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/myblog/img/loading.gif" lazyload></p>
+<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/2/1/16ffe7606c8db5e7~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/img/loading.gif" lazyload></p>
 <p>响应报文和请求报文结构类似，不再赘述</p>
 <h2 id="5-HTTP常见请求-x2F-响应头及其含义"><a href="#5-HTTP常见请求-x2F-响应头及其含义" class="headerlink" title="5. HTTP常见请求&#x2F;响应头及其含义"></a>5. HTTP常见请求&#x2F;响应头及其含义</h2><h3 id="通用头（请求头和响应头都有的首部）"><a href="#通用头（请求头和响应头都有的首部）" class="headerlink" title="通用头（请求头和响应头都有的首部）"></a>通用头（请求头和响应头都有的首部）</h3><table>
 <thead>
@@ -1198,20 +1198,20 @@ parent.<span class="hljs-title function_">getName</span>()                 <span
 </ul>
 <h2 id="11-HTTPS是如何进行加密的"><a href="#11-HTTPS是如何进行加密的" class="headerlink" title="11. HTTPS是如何进行加密的"></a>11. HTTPS是如何进行加密的</h2><p>我们通过分析几种加密方式，层层递进，理解HTTPS的加密方式以及为什么使用这种加密方式：</p>
 <h3 id="对称加密"><a href="#对称加密" class="headerlink" title="对称加密"></a>对称加密</h3><p>客户端和服务器公用一个密匙用来对消息加解密，这种方式称为对称加密。客户端和服务器约定好一个加密的密匙。客户端在发消息前用该密匙对消息加密，发送给服务器后，服务器再用该密匙进行解密拿到消息。</p>
-<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/2/3/170097ce30734773~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/myblog/img/loading.gif" lazyload></p>
+<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/2/3/170097ce30734773~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/img/loading.gif" lazyload></p>
 <p>这种方式一定程度上保证了数据的安全性，但密钥一旦泄露(密钥在传输过程中被截获)，传输内容就会暴露，因此我们要寻找一种安全传递密钥的方法。</p>
 <h3 id="非对称加密"><a href="#非对称加密" class="headerlink" title="非对称加密"></a>非对称加密</h3><p>采用非对称加密时，客户端和服务端均拥有一个公钥和私钥，公钥加密的内容只有对应的私钥能解密。私钥自己留着，公钥发给对方。这样在发送消息前，先用对方的公钥对消息进行加密，收到后再用自己的私钥进行解密。这样攻击者只拿到传输过程中的公钥也无法破解传输的内容</p>
-<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/2/3/1700980f4879f2b8~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/myblog/img/loading.gif" lazyload></p>
+<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/2/3/1700980f4879f2b8~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/img/loading.gif" lazyload></p>
 <p>尽管非对称加密解决了由于密钥被获取而导致传输内容泄露的问题，但中间人仍然可以用篡改公钥的方式来获取或篡改传输内容，而且非对称加密的性能比对称加密的性能差了不少</p>
-<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/2/3/17009369c26da64b~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/myblog/img/loading.gif" lazyload></p>
+<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/2/3/17009369c26da64b~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/img/loading.gif" lazyload></p>
 <h3 id="第三方认证"><a href="#第三方认证" class="headerlink" title="第三方认证"></a>第三方认证</h3><p>上面这种方法的弱点在于，客户端不知道公钥是由服务端返回，还是中间人返回的，因此我们再引入一个第三方认证的环节：即第三方使用私钥加密我们<code>自己的公钥</code>，浏览器已经内置一些权威第三方认证机构的公钥，浏览器会使用<code>第三方的公钥</code>来解开<code>第三方私钥加密过的我们自己的公钥</code>，从而获取公钥，如果能成功解密，就说明获取到的<code>自己的公钥</code>是正确的</p>
 <p>但第三方认证也未能完全解决问题，第三方认证是面向所有人的，中间人也能申请证书，如果中间人使用自己的证书掉包原证书，客户端还是无法确认公钥的真伪</p>
-<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/2/3/1700962e1949c343~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/myblog/img/loading.gif" lazyload></p>
+<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/2/3/1700962e1949c343~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/img/loading.gif" lazyload></p>
 <h3 id="数字签名"><a href="#数字签名" class="headerlink" title="数字签名"></a>数字签名</h3><p>为了让客户端能够验证公钥的来源，我们给公钥加上一个数字签名，这个数字签名是由企业、网站等各种信息和公钥经过单向hash而来，一旦构成数字签名的信息发生变化，hash值就会改变，这就构成了公钥来源的唯一标识。</p>
 <p>具体来说，服务端本地生成一对密钥，然后拿着公钥以及企业、网站等各种信息到CA(第三方认证中心)去申请数字证书，CA会通过一种单向hash算法(比如MD5)，生成一串摘要，这串摘要就是这堆信息的唯一标识，然后CA还会使用自己的私钥对摘要进行加密，连同我们自己服务器的公钥一同发送给我我们。</p>
 <p>浏览器拿到数字签名后，会使用浏览器本地内置的CA公钥解开数字证书并验证，从而拿到正确的公钥。由于非对称加密性能低下，拿到公钥以后，客户端会随机生成一个对称密钥，使用这个公钥加密并发送给服务端，服务端用自己的私钥解开对称密钥，此后的加密连接就通过这个对称密钥进行对称加密。</p>
 <p>综上所述，HTTPS在验证阶段使用非对称加密+第三方认证+数字签名获取正确的公钥，获取到正确的公钥后以对称加密的方式通信</p>
-<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/6/1714e043d3a1add2~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/myblog/img/loading.gif" lazyload></p>
+<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/6/1714e043d3a1add2~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/img/loading.gif" lazyload></p>
 <blockquote>
 <p>参考资料：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903608421449742#heading-5">看图学HTTPS</a></p>
 </blockquote>
@@ -1237,7 +1237,7 @@ parent.<span class="hljs-title function_">getName</span>()                 <span
 <li><strong>设置httpOnly</strong>：很多XSS攻击目标都是窃取用户cookie伪造身份认证，设置此属性可防止JS获取cookie</li>
 <li><strong>开启CSP</strong>：即开启白名单，可阻止白名单以外的资源加载和运行</li>
 </ul>
-<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/6/1714ff9939df9d71~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/myblog/img/loading.gif" lazyload></p>
+<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/6/1714ff9939df9d71~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/img/loading.gif" lazyload></p>
 <h1 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a>排序算法</h1><h2 id="1-手写冒泡排序"><a href="#1-手写冒泡排序" class="headerlink" title="1. 手写冒泡排序"></a>1. 手写冒泡排序</h2><blockquote>
 <p>冒泡排序应该是很多人第一个接触的排序，比较简单，不展开讲解了</p>
 </blockquote>
@@ -1294,7 +1294,7 @@ parent.<span class="hljs-title function_">getName</span>()                 <span
 
 <h2 id="4-如何优化一个快速排序"><a href="#4-如何优化一个快速排序" class="headerlink" title="4. 如何优化一个快速排序"></a>4. 如何优化一个快速排序</h2><h3 id="1-原地排序"><a href="#1-原地排序" class="headerlink" title="1. 原地排序"></a>1. 原地排序</h3><p>上边这个快排只是让读者找找感觉，我们不能这样写快排，如果每次都开两个数组，会消耗很多内存空间，数据量大时可能造成内存溢出，我们要避免开新的内存空间，即原地完成排序</p>
 <p>我们可以用元素交换来取代开新数组，在每一次分区的时候直接在原数组上交换元素，将小于基准数的元素挪到数组开头，以[<code>5,1,4,2,3]</code>为例：</p>
-<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/5/17148debd6e97be5~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/myblog/img/loading.gif" lazyload></p>
+<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/5/17148debd6e97be5~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/img/loading.gif" lazyload></p>
 <p>我们定义一个pos指针, 标识等待置换的元素的位置, 然后逐一遍历数组元素, 遇到比基准数小的就和arr[pos]交换位置, 然后pos++<br>代码实现：</p>
 <div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">quickSort</span>(<span class="hljs-params">arr, left, right</span>) &#123;          <span class="hljs-comment">//这个left和right代表分区后“新数组”的区间下标，因为这里没有新开数组，所以需要left/right来确认新数组的位置</span>
     <span class="hljs-keyword">if</span> (left &lt; right) &#123;
@@ -1331,7 +1331,7 @@ parent.<span class="hljs-title function_">getName</span>()                 <span
 <h2 id="5-手写归并排序"><a href="#5-手写归并排序" class="headerlink" title="5. 手写归并排序"></a>5. 手写归并排序</h2><blockquote>
 <p>归并排序和快排的思路类似，都是递归分治，区别在于快排边分区边排序，而归并在分区完成后才会排序</p>
 </blockquote>
-<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/2/2/1700388b88d9102c~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/myblog/img/loading.gif" lazyload></p>
+<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/2/2/1700388b88d9102c~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/img/loading.gif" lazyload></p>
 <div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">mergeSort</span>(<span class="hljs-params">arr</span>) &#123;
     <span class="hljs-keyword">if</span>(arr.<span class="hljs-property">length</span> &lt;= <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> arr		<span class="hljs-comment">//数组元素被划分到剩1个时，递归终止</span>
     <span class="hljs-keyword">const</span> midIndex = arr.<span class="hljs-property">length</span>/<span class="hljs-number">2</span> | <span class="hljs-number">0</span>
@@ -1364,7 +1364,7 @@ parent.<span class="hljs-title function_">getName</span>()                 <span
 </li>
 </ol>
 <p>以<code>[1,5,4,2,3</code>]为例构筑大根堆：</p>
-<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/5/17148e2325d08c76~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/myblog/img/loading.gif" lazyload></p>
+<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/5/17148e2325d08c76~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/img/loading.gif" lazyload></p>
 <p>代码实现：</p>
 <div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-comment">// 堆排序</span>
 <span class="hljs-keyword">const</span> <span class="hljs-title function_">heapSort</span> = array =&gt; &#123;
@@ -1447,7 +1447,7 @@ parent.<span class="hljs-title function_">getName</span>()                 <span
 <td>不稳定</td>
 </tr>
 </tbody></table>
-<p>其实从表格中我们可以看到，就时间复杂度而言，快排并没有很大优势，然而为什么快排会成为最常用的排序手段，这是因为时间复杂度只能说明<code>随着数据量的增加，算法时间代价增长的趋势</code>，并不直接代表实际执行时间，实际运行时间还包括了很多常数参数的差别，此外在面对不同类型数据(比如有序数据、大量重复数据)时，表现也不同，综合来说，快排的时间效率是最高的<br>在实际运用中, 并不只使用一种排序手段, 例如V8的<code>Array.sort()</code>就采取了<strong>当 n&lt;&#x3D;10 时, 采用插入排序, 当 n&gt;10 时，采用三路快排</strong>的排序策略<br><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/6/1714ffee2595a85c~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/myblog/img/loading.gif" lazyload></p>
+<p>其实从表格中我们可以看到，就时间复杂度而言，快排并没有很大优势，然而为什么快排会成为最常用的排序手段，这是因为时间复杂度只能说明<code>随着数据量的增加，算法时间代价增长的趋势</code>，并不直接代表实际执行时间，实际运行时间还包括了很多常数参数的差别，此外在面对不同类型数据(比如有序数据、大量重复数据)时，表现也不同，综合来说，快排的时间效率是最高的<br>在实际运用中, 并不只使用一种排序手段, 例如V8的<code>Array.sort()</code>就采取了<strong>当 n&lt;&#x3D;10 时, 采用插入排序, 当 n&gt;10 时，采用三路快排</strong>的排序策略<br><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/6/1714ffee2595a85c~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/img/loading.gif" lazyload></p>
 <h1 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h1><p>设计模式有许多种，这里挑出几个常用的：</p>
 <table>
 <thead>
@@ -1619,7 +1619,7 @@ man.<span class="hljs-property">name</span> <span class="hljs-comment">// 张三
 agent.<span class="hljs-property">phone</span>        <span class="hljs-comment">//经纪人电话:10010</span>
 agent.<span class="hljs-property">price</span> = <span class="hljs-number">100</span>  <span class="hljs-comment">//Uncaught Error: 报价过低</span></code></pre></div>
 
-<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/5/171465b92f6ded5e~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/myblog/img/loading.gif" lazyload></p>
+<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/5/171465b92f6ded5e~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/img/loading.gif" lazyload></p>
 <h1 id="HTML相关"><a href="#HTML相关" class="headerlink" title="HTML相关"></a>HTML相关</h1><h2 id="1-说说HTML5在标签、属性、存储、API上的新特性"><a href="#1-说说HTML5在标签、属性、存储、API上的新特性" class="headerlink" title="1. 说说HTML5在标签、属性、存储、API上的新特性"></a>1. 说说HTML5在标签、属性、存储、API上的新特性</h2><p>标签：新增语义化标签（<code>aside / figure / section / header / footer / nav</code>等），增加多媒体标签<code>video</code>和<code>audio</code>，使得样式和结构更加分离<br>属性：增强表单，主要是增强了<code>input</code>的type属性；<code>meta</code>增加charset以设置字符集；<code>script</code>增加async以异步加载脚本<br>存储：增加<code>localStorage</code>、<code>sessionStorage</code>和<code>indexedDB</code>，引入了<code>application cache</code>对web和应用进行缓存<br>API：增加<code>拖放API</code>、<code>地理定位</code>、<code>SVG绘图</code>、<code>canvas绘图</code>、<code>Web Worker</code>、<code>WebSocket</code></p>
 <h2 id="2-doctype的作用是什么？"><a href="#2-doctype的作用是什么？" class="headerlink" title="2. doctype的作用是什么？"></a>2. doctype的作用是什么？</h2><p>声明文档类型，告知浏览器用什么文档标准解析这个文档：</p>
 <ul>
@@ -1815,7 +1815,7 @@ agent.<span class="hljs-property">price</span> = <span class="hljs-number">100</
 <li><strong>避免某元素被浮动元素覆盖</strong>：BFC的区域不会与浮动元素的区域重叠</li>
 <li><strong>阻止外边距重叠</strong>：属于同一个BFC的两个相邻Box的margin会发生折叠，不同BFC不会发生折叠</li>
 </ul>
-<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/6/1714e0acba58457f~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/myblog/img/loading.gif" lazyload></p>
+<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/6/1714e0acba58457f~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/img/loading.gif" lazyload></p>
 <p>原文链接：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844904116552990727">2万字 | 前端基础拾遗90问</a></p>
 
                 
@@ -1835,7 +1835,7 @@ agent.<span class="hljs-property">price</span> = <span class="hljs-number">100</
     
       <span class="category-chain">
         
-  <a href="/myblog/categories/%E5%89%8D%E7%AB%AF/" class="category-chain-item">前端</a>
+  <a href="/categories/%E5%89%8D%E7%AB%AF/" class="category-chain-item">前端</a>
   
   
 
@@ -1850,7 +1850,7 @@ agent.<span class="hljs-property">price</span> = <span class="hljs-number">100</
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/myblog/tags/%E5%89%8D%E7%AB%AF/">#前端</a>
+        <a href="/tags/%E5%89%8D%E7%AB%AF/">#前端</a>
       
     </div>
   
@@ -1868,7 +1868,7 @@ agent.<span class="hljs-property">price</span> = <span class="hljs-number">100</
                   <article class="post-next col-6">
                     
                     
-                      <a href="/myblog/myblog/flex-layout.html" title="flex布局教程">
+                      <a href="/flex-layout.html" title="flex布局教程">
                         <span class="hidden-mobile">flex布局教程</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -2019,8 +2019,8 @@ agent.<span class="hljs-property">price</span> = <span class="hljs-number">100</
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/myblog/js/events.js" ></script>
-<script  src="/myblog/js/plugins.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -2042,7 +2042,7 @@ agent.<span class="hljs-property">price</span> = <span class="hljs-number">100</
 
 
   
-    <script  src="/myblog/js/img-lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -2114,7 +2114,7 @@ agent.<span class="hljs-property">price</span> = <span class="hljs-number">100</
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/myblog/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
 
   <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
@@ -2124,7 +2124,7 @@ agent.<span class="hljs-property">price</span> = <span class="hljs-number">100</
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/myblog/js/boot.js" ></script>
+<script  src="/js/boot.js" ></script>
 
 
   
@@ -2132,5 +2132,5 @@ agent.<span class="hljs-property">price</span> = <span class="hljs-number">100</
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
-<script src="/myblog/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/myblog/live2dw/assets/chitose.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/chitose.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
 </html>
