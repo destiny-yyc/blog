@@ -37,7 +37,7 @@ console.log(i)      // Uncaught ReferenceError: i is not defined
 2. `var`声明的变量存在变量提升，而`let`和`const`不会
 3. `let`和`const`声明形成块作用域，只能在块作用域里访问，不能跨块访问，也不能跨函数访问
 4. 同一作用域下`let`和`const`不能声明同名变量，而`var`可以
-5. 暂时性死区，`let`和`const`}声明的变量不能在声明前被使用
+5. 暂时性死区，`let`和`const`声明的变量不能在声明前被使用
 
 `babel`的转化，其实只实现了第2、3、5点
 
