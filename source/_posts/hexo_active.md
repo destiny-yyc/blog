@@ -1,11 +1,13 @@
 ---
 title: Hexo 文章写作
-date: 2022/01/21 09:32:45
-tags: []
-categories: []
+date: 2022/01/21
+tags: [hexo文章]
+categories: [hexo]
+author: 枫🍁川
+permalink: hexo-active.html
 ---
 
-## 文章配置
+## 文章配置(文末有我一般配置)
 
 ```markdown
 ---
@@ -87,13 +89,21 @@ success
 
 {% label primary @primary %}{% label default @default %}{% label info @info %}{% label success @success %}{% label warning @warning %}{% label danger @danger %}
 
+`你好` =  {% label default @你好 %}
+
+```markdown
+`你好` = {% label default @你好 %}
+```
+
+
+
 #### 按钮
 
 ```markdown
 {% btn url路径, 显示的文字, 鼠标悬停的文字 %}
 ```
 
-{% btn url, 显示的文字, 鼠标悬停的文字 %}
+{% btn #, 显示的文字, 鼠标悬停的文字 %}
 
 #### 组图
 
@@ -115,3 +125,16 @@ n1-n2-...：每行的图片数量，可以省略，默认单行最多 3 张图�
 如下图为 `{% gi 5 3-2 %}` 示例，代表共 5 张图，第一行 3 张图，第二行 2 张图。
 
 ![组图](https://hexo.fluid-dev.com/docs/assets/img/group_image.c1b58381.png)
+
+### 配置
+
+```markdown
+title: 标题
+date: 时间
+tags: [标签, 标签1]
+categories: [分类]
+author: 作者
+permalink: 永久链接.html
+hide: false
+```
+

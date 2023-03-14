@@ -52,7 +52,7 @@ code:
 
     # 代码块是否显示行号
     # If true, the code block display line numbers
-    line_number: true
+    line_number: false
 
     # 实现高亮的库，对应下面的设置
     # Highlight library
@@ -516,7 +516,7 @@ index:
   # 是否显示文章信息（时间、分类、标签）
   # Meta information of post
   post_meta:
-    date: true
+    date: false
     category: true
     tag: true
 
@@ -555,7 +555,7 @@ post:
       # 格式参照 ISO-8601 日期格式化
       # ISO-8601 date format
       # See: http://momentjs.cn/docs/#/parsing/string-format/
-      format: "LL HH:mm"
+      format: "LL"
 
     # 字数统计
     # Word count
