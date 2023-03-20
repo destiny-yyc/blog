@@ -5,7 +5,7 @@ tags: [es5, const]
 categories: [javascript]
 author: 枫🍁川
 permalink: const-for-es5.html
-hide: true
+hide: false
 ---
 
 ## 属性描述符：
