@@ -1,6 +1,6 @@
 ---
 title: 版本号的定义
-date: 2023/02/12
+date: 2022/05/12
 tags: [version]
 categories: [软件]
 author: 枫🍁川

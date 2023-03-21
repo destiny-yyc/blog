@@ -104,7 +104,9 @@ theme: fluid
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://gitee.com/destiny_yyc/myblog.git
+  repo:
+    gitee: https://gitee.com/destiny-yyc/destiny-yyc.git
+    github: git@github.com:destiny-yyc/destiny-yyc.github.io.git
   branch: master
 
 # Live2D

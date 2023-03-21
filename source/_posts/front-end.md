@@ -1641,4 +1641,4 @@ BFC全称 Block Formatting Context 即块级格式上下文，简单的说，BFC
 
 ![]( https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/6/1714e0acba58457f~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp )
 
-原文链接：[2万字 | 前端基础拾遗90问](https://juejin.cn/post/6844904116552990727)
+原文链接：[2万字 | 前端基础拾遗90问](https://juejin.cn/post/6844904116552990727) 
