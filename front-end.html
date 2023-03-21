@@ -47,7 +47,7 @@
 <meta property="og:image" content="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/5/171465b92f6ded5e~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp">
 <meta property="og:image" content="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/6/1714e0acba58457f~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp">
 <meta property="article:published_time" content="2022-02-26T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-03-14T07:27:08.982Z">
+<meta property="article:modified_time" content="2023-03-20T07:49:31.103Z">
 <meta property="article:author" content="枫🍁川">
 <meta property="article:tag" content="前端">
 <meta name="twitter:card" content="summary_large_image">
@@ -452,7 +452,7 @@ foo.<span class="hljs-title function_">myApply</span>(obj, [])     <span class="
 <p>但我们忽略了三点：</p>
 <ol>
 <li><code>bind()</code>除了this还接收其他参数，<code>bind() </code>返回的函数也接收参数，这两部分的参数都要传给返回的函数</li>
-<li>new会改变this指向：如果<code>bind </code>绑定后的函数被new了，那么this指向会发生改变，指向当前函数的实例</li>
+<li>new会改变this指向：如果<code>bind</code>绑定后的函数被new了，那么this指向会发生改变，指向当前函数的实例</li>
 <li>没有保留原函数在原型链上的属性和方法</li>
 </ol>
 <div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-title class_">Function</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">myBind</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params">thisArg, ...args</span>) &#123;
@@ -478,7 +478,7 @@ foo.<span class="hljs-title function_">myBind</span>(obj, <span class="hljs-stri
 
 <h2 id="6-手写一个防抖函数"><a href="#6-手写一个防抖函数" class="headerlink" title="6. 手写一个防抖函数"></a>6. 手写一个防抖函数</h2><p>防抖和节流的概念都比较简单，所以我们就不在“防抖节流是什么”这个问题上浪费过多篇幅了，简单点一下：</p>
 <blockquote>
-<p>防抖，即&#96;&#96;短时间内大量触发同一事件，只会执行一次函数 <code> </code>，实现原理为<code>设置一个定时器，约定在xx毫秒后再触发事件处理，每次触发事件都会重新设置计时器，直到xx毫秒内无第二次操作</code>，防抖常用于搜索框&#x2F;滚动条的监听事件处理，如果不做防抖，每输入一个字&#x2F;滚动屏幕，都会触发事件处理，造成性能浪费。</p>
+<p>防抖，即<code>短时间内大量触发同一事件，只会执行一次函数</code>，实现原理为<code>设置一个定时器，约定在xx毫秒后再触发事件处理，每次触发事件都会重新设置计时器，直到xx毫秒内无第二次操作</code>，防抖常用于搜索框&#x2F;滚动条的监听事件处理，如果不做防抖，每输入一个字&#x2F;滚动屏幕，都会触发事件处理，造成性能浪费。</p>
 </blockquote>
 <div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">debounce</span>(<span class="hljs-params">func, wait</span>) &#123;
     <span class="hljs-keyword">let</span> timeout = <span class="hljs-literal">null</span>
@@ -510,7 +510,7 @@ foo.<span class="hljs-title function_">myBind</span>(obj, <span class="hljs-stri
 &#125;</code></pre></div>
 
 <blockquote>
-<p>实现方式2：使用两个时间戳prev旧时间戳和now新时间戳，每次触发事件都判断二者的时间差，如果到达规定时间，执行函数并重置旧时间戳</p>
+<p>实现方式2：使用两个时间戳<code>prev旧时间戳</code>和<code>now新时间戳</code>，每次触发事件都判断二者的时间差，如果到达规定时间，执行函数并重置旧时间戳</p>
 </blockquote>
 <div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">throttle</span>(<span class="hljs-params">func, wait</span>) &#123;
     <span class="hljs-keyword">var</span> prev = <span class="hljs-number">0</span>;
@@ -528,16 +528,14 @@ foo.<span class="hljs-title function_">myBind</span>(obj, <span class="hljs-stri
 <h2 id="8-数组扁平化"><a href="#8-数组扁平化" class="headerlink" title="8. 数组扁平化"></a>8. 数组扁平化</h2><blockquote>
 <p>对于<code>[1, [1,2], [1,2,3]]</code>这样多层嵌套的数组，我们如何将其扁平化为<code>[1, 1, 2, 1, 2, 3]</code>]这样的一维数组呢：</p>
 </blockquote>
-<p><strong>1. ES6的flat()</strong></p>
-<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> arr = [<span class="hljs-number">1</span>, [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>], [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]]
+<h3 id="1-ES6的flat"><a href="#1-ES6的flat" class="headerlink" title="1. ES6的flat()"></a><strong>1. ES6的flat()</strong></h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> arr = [<span class="hljs-number">1</span>, [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>], [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]]
 arr.<span class="hljs-title function_">flat</span>(<span class="hljs-title class_">Infinity</span>)  <span class="hljs-comment">// [1, 1, 2, 1, 2, 3]</span></code></pre></div>
 
-<p><strong>2. 序列化后正则</strong></p>
-<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> arr = [<span class="hljs-number">1</span>, [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>], [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]]
+<h3 id="2-序列化后正则"><a href="#2-序列化后正则" class="headerlink" title="2. 序列化后正则"></a><strong>2. 序列化后正则</strong></h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> arr = [<span class="hljs-number">1</span>, [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>], [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]]
 <span class="hljs-keyword">const</span> str = <span class="hljs-string">`[<span class="hljs-subst">$&#123;<span class="hljs-built_in">JSON</span>.stringify(arr).replace(/(\[|\])/g, <span class="hljs-string">&#x27;&#x27;</span>)&#125;</span>]`</span>
 <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">parse</span>(str)   <span class="hljs-comment">// [1, 1, 2, 1, 2, 3]</span></code></pre></div>
 
-<p><strong>3. 递归</strong><br>对于树状结构的数据，最直接的处理方式就是递归</p>
+<h3 id="3-递归"><a href="#3-递归" class="headerlink" title="3. 递归"></a><strong>3. 递归</strong></h3><p>对于树状结构的数据，最直接的处理方式就是递归</p>
 <div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> arr = [<span class="hljs-number">1</span>, [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>], [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]]
 <span class="hljs-keyword">function</span> <span class="hljs-title function_">flat</span>(<span class="hljs-params">arr</span>) &#123;
   <span class="hljs-keyword">let</span> result = []
@@ -549,8 +547,7 @@ arr.<span class="hljs-title function_">flat</span>(<span class="hljs-title class
 
 <span class="hljs-title function_">flat</span>(arr) <span class="hljs-comment">// [1, 1, 2, 1, 2, 3]</span></code></pre></div>
 
-<p><strong>4. reduce()递归</strong></p>
-<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> arr = [<span class="hljs-number">1</span>, [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>], [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]]
+<h3 id="4-reduce-递归"><a href="#4-reduce-递归" class="headerlink" title="4. reduce()递归"></a><strong>4. reduce()递归</strong></h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> arr = [<span class="hljs-number">1</span>, [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>], [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]]
 <span class="hljs-keyword">function</span> <span class="hljs-title function_">flat</span>(<span class="hljs-params">arr</span>) &#123;
   <span class="hljs-keyword">return</span> arr.<span class="hljs-title function_">reduce</span>(<span class="hljs-function">(<span class="hljs-params">prev, cur</span>) =&gt;</span> &#123;
     <span class="hljs-keyword">return</span> prev.<span class="hljs-title function_">concat</span>(cur <span class="hljs-keyword">instanceof</span> <span class="hljs-title class_">Array</span> ? <span class="hljs-title function_">flat</span>(cur) : cur)
@@ -559,8 +556,7 @@ arr.<span class="hljs-title function_">flat</span>(<span class="hljs-title class
 
 <span class="hljs-title function_">flat</span>(arr)  <span class="hljs-comment">// [1, 1, 2, 1, 2, 3]</span></code></pre></div>
 
-<p><strong>5.迭代+展开运算符</strong></p>
-<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-comment">// 每次while都会合并一层的元素，这里第一次合并结果为[1, 1, 2, 1, 2, 3, [4,4,4]]</span>
+<h3 id="5-迭代-展开运算符"><a href="#5-迭代-展开运算符" class="headerlink" title="5.迭代+展开运算符"></a><strong>5.迭代+展开运算符</strong></h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-comment">// 每次while都会合并一层的元素，这里第一次合并结果为[1, 1, 2, 1, 2, 3, [4,4,4]]</span>
 <span class="hljs-comment">// 然后arr.some判定数组中是否存在数组，因为存在[4,4,4]，继续进入第二次循环进行合并</span>
 <span class="hljs-keyword">let</span> arr = [<span class="hljs-number">1</span>, [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>], [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,[<span class="hljs-number">4</span>,<span class="hljs-number">4</span>,<span class="hljs-number">4</span>]]]
 <span class="hljs-keyword">while</span> (arr.<span class="hljs-title function_">some</span>(<span class="hljs-title class_">Array</span>.<span class="hljs-property">isArray</span>)) &#123;
@@ -778,11 +774,12 @@ parent.<span class="hljs-title function_">getName</span>()                 <span
 <p><strong>栈内存的回收：</strong></p>
 <p>栈内存调用栈上下文切换后就被回收，比较简单</p>
 <p><strong>堆内存的回收：</strong></p>
-<p>V8的堆内存分为新生代内存和老生代内存，新生代内存是临时分配的内存，存在时间短，老生代内存存在时间长</p>
-<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/5/1714980cac75fc32~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/img/loading.gif" lazyload></p>
-<p>-<br>  新生代内存回收机制：</p>
+<p>V8的堆内存分为新生代内存和老生代内存，新生代内存是临时分配的内存，存在时间短，老生代内存存在时间长<img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/5/1714980cac75fc32~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/img/loading.gif" lazyload></p>
 <ul>
-<li><p>新生代内存容量小，64位系统下仅有32M。新生代内存分为From、To两部分，进行垃圾回收时，先扫描From，将非存活对象回收，将存活对象顺序复制到To中，之后调换From&#x2F;To，等待下一次回收</p>
+<li><p>新生代内存回收机制：</p>
+<ul>
+<li>新生代内存容量小，64位系统下仅有32M。新生代内存分为From、To两部分，进行垃圾回收时，先扫描From，将非存活对象回收，将存活对象顺序复制到To中，之后调换From&#x2F;To，等待下一次回收</li>
+</ul>
 </li>
 <li><p>老生代内存回收机制</p>
 <ul>
@@ -915,9 +912,11 @@ parent.<span class="hljs-title function_">getName</span>()                 <span
 </ul>
 </li>
 </ul>
-<h3 id="两者对比"><a href="#两者对比" class="headerlink" title="两者对比"></a>两者对比</h3><p>-<br>  ETag 比 Last-Modified 更准确：如果我们打开文件但并没有修改，Last-Modified 也会改变，并且 Last-Modified 的单位时间为一秒，如果一秒内修改完了文件，那么还是会命中缓存</p>
-<ul>
-<li>如果什么缓存策略都没有设置，那么浏览器会取响应头中的 Date 减去 Last-Modified 值的 10% 作为缓存时间</li>
+<h3 id="两者对比"><a href="#两者对比" class="headerlink" title="两者对比"></a>两者对比</h3><ul>
+<li><p>ETag 比 Last-Modified 更准确：如果我们打开文件但并没有修改，Last-Modified 也会改变，并且 Last-Modified 的单位时间为一秒，如果一秒内修改完了文件，那么还是会命中缓存</p>
+</li>
+<li><p>如果什么缓存策略都没有设置，那么浏览器会取响应头中的 Date 减去 Last-Modified 值的 10% 作为缓存时间</p>
+</li>
 </ul>
 <p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/5/1714a298b93c3208~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/img/loading.gif" lazyload></p>
 <blockquote>
@@ -1154,10 +1153,13 @@ parent.<span class="hljs-title function_">getName</span>()                 <span
 <li><p>header压缩： HTTP&#x2F;2压缩消息头，减少了传输数据的大小</p>
 </li>
 </ul>
-<h2 id="8-说说HTTP-x2F-2-0多路复用基本原理以及解决的问题"><a href="#8-说说HTTP-x2F-2-0多路复用基本原理以及解决的问题" class="headerlink" title="8. 说说HTTP&#x2F;2.0多路复用基本原理以及解决的问题"></a>8. 说说HTTP&#x2F;2.0多路复用基本原理以及解决的问题</h2><h3 id="HTTP-x2F-2解决的问题，就是HTTP-x2F-1-1存在的问题："><a href="#HTTP-x2F-2解决的问题，就是HTTP-x2F-1-1存在的问题：" class="headerlink" title="HTTP&#x2F;2解决的问题，就是HTTP&#x2F;1.1存在的问题："></a>HTTP&#x2F;2解决的问题，就是HTTP&#x2F;1.1存在的问题：</h3><p>-<br>  TCP慢启动： TCP连接建立后，会经历一个先慢后快的发送过程，就像汽车启动一般，如果我们的网页文件(HTML&#x2F;JS&#x2F;CSS&#x2F;icon)都经过一次慢启动，对性能是不小的损耗。另外慢启动是TCP为了减少网络拥塞的一种策略，我们是没有办法改变的。</p>
-<ul>
-<li>多条TCP连接竞争带宽： 如果同时建立多条TCP连接，当带宽不足时就会竞争带宽，影响关键资源的下载。</li>
-<li>HTTP&#x2F;1.1队头阻塞： 尽管HTTP&#x2F;1.1长链接可以通过一个TCP连接传输多个请求，但同一时刻只能处理一个请求，当前请求未结束前，其他请求只能处于阻塞状态。</li>
+<h2 id="8-说说HTTP-x2F-2-0多路复用基本原理以及解决的问题"><a href="#8-说说HTTP-x2F-2-0多路复用基本原理以及解决的问题" class="headerlink" title="8. 说说HTTP&#x2F;2.0多路复用基本原理以及解决的问题"></a>8. 说说HTTP&#x2F;2.0多路复用基本原理以及解决的问题</h2><h3 id="HTTP-x2F-2解决的问题，就是HTTP-x2F-1-1存在的问题："><a href="#HTTP-x2F-2解决的问题，就是HTTP-x2F-1-1存在的问题：" class="headerlink" title="HTTP&#x2F;2解决的问题，就是HTTP&#x2F;1.1存在的问题："></a>HTTP&#x2F;2解决的问题，就是HTTP&#x2F;1.1存在的问题：</h3><ul>
+<li><p>TCP慢启动： TCP连接建立后，会经历一个先慢后快的发送过程，就像汽车启动一般，如果我们的网页文件(HTML&#x2F;JS&#x2F;CSS&#x2F;icon)都经过一次慢启动，对性能是不小的损耗。另外慢启动是TCP为了减少网络拥塞的一种策略，我们是没有办法改变的。</p>
+</li>
+<li><p>多条TCP连接竞争带宽： 如果同时建立多条TCP连接，当带宽不足时就会竞争带宽，影响关键资源的下载。</p>
+</li>
+<li><p>HTTP&#x2F;1.1队头阻塞： 尽管HTTP&#x2F;1.1长链接可以通过一个TCP连接传输多个请求，但同一时刻只能处理一个请求，当前请求未结束前，其他请求只能处于阻塞状态。</p>
+</li>
 </ul>
 <p>为了解决以上几个问题，<strong>HTTP&#x2F;2一个域名只使用一个TCP⻓连接来传输数据，而且请求直接是并行的、非阻塞的，这就是多路复用</strong></p>
 <p><strong>实现原理</strong>： HTTP&#x2F;2引入了一个二进制分帧层，客户端和服务端进行传输时，数据会先经过二进制分帧层处理，转化为一个个带有请求ID的帧，这些帧在传输完成后根据ID组合成对应的数据。</p>
@@ -1250,11 +1252,15 @@ parent.<span class="hljs-title function_">getName</span>()                 <span
   <span class="hljs-keyword">return</span> arr
 &#125;</code></pre></div>
 
-<h2 id="3-手写快速排序"><a href="#3-手写快速排序" class="headerlink" title="3. 手写快速排序"></a>3. 手写快速排序</h2><h3 id="快排基本步骤："><a href="#快排基本步骤：" class="headerlink" title="快排基本步骤："></a>快排基本步骤：</h3><p>1.<br>   选取基准元素</p>
-<ol start="2">
-<li>比基准元素小的元素放到左边，大的放右边</li>
-<li>在左右子数组中重复步骤一二，直到数组只剩下一个元素</li>
-<li>向上逐级合并数组</li>
+<h2 id="3-手写快速排序"><a href="#3-手写快速排序" class="headerlink" title="3. 手写快速排序"></a>3. 手写快速排序</h2><h3 id="快排基本步骤："><a href="#快排基本步骤：" class="headerlink" title="快排基本步骤："></a>快排基本步骤：</h3><ol>
+<li><p>选取基准元素</p>
+</li>
+<li><p>比基准元素小的元素放到左边，大的放右边</p>
+</li>
+<li><p>在左右子数组中重复步骤一二，直到数组只剩下一个元素</p>
+</li>
+<li><p>向上逐级合并数组</p>
+</li>
 </ol>
 <div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">quickSort</span>(<span class="hljs-params">arr</span>) &#123;
     <span class="hljs-keyword">if</span>(arr.<span class="hljs-property">length</span> &lt;= <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> arr          <span class="hljs-comment">//递归终止条件</span>
@@ -1464,8 +1470,12 @@ parent.<span class="hljs-title function_">getName</span>()                 <span
 <td>事件代理、ES6的Proxy</td>
 </tr>
 </tbody></table>
-<h2 id="1-介绍一下单一职责原则和开放封闭原则"><a href="#1-介绍一下单一职责原则和开放封闭原则" class="headerlink" title="1. 介绍一下单一职责原则和开放封闭原则"></a>1. 介绍一下单一职责原则和开放封闭原则</h2><p>1.<br>   单一职责原则：一个类只负责一个功能领域中的相应职责，或者可以定义为：就一个类而言，应该只有一个引起它变化的原因。</p>
-<p>2.<br>   开放封闭原则：核心的思想是软件实体（类、模块、函数等）是可扩展的、但不可修改的。也就是说,对扩展是开放的,而对修改是封闭的。</p>
+<h2 id="1-介绍一下单一职责原则和开放封闭原则"><a href="#1-介绍一下单一职责原则和开放封闭原则" class="headerlink" title="1. 介绍一下单一职责原则和开放封闭原则"></a>1. 介绍一下单一职责原则和开放封闭原则</h2><ol>
+<li><p>单一职责原则：一个类只负责一个功能领域中的相应职责，或者可以定义为：就一个类而言，应该只有一个引起它变化的原因。</p>
+</li>
+<li><p>开放封闭原则：核心的思想是软件实体（类、模块、函数等）是可扩展的、但不可修改的。也就是说,对扩展是开放的,而对修改是封闭的。</p>
+</li>
+</ol>
 <h2 id="2-单例模式"><a href="#2-单例模式" class="headerlink" title="2. 单例模式"></a>2. 单例模式</h2><p>单例模式即一个类只能构造出唯一实例，单例模式的意义在于<strong>共享、唯一</strong>，<code>Redux/Vuex</code>中的<code>store</code>、<code>JQ</code>的<code>$</code>或者业务场景中的购物车、登录框都是单例模式的应用</p>
 <div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">class</span> <span class="hljs-title class_">SingletonLogin</span> &#123;
  <span class="hljs-title function_">constructor</span>(<span class="hljs-params">name,password</span>)&#123;
@@ -1634,11 +1644,15 @@ agent.<span class="hljs-property">price</span> = <span class="hljs-number">100</
 <span class="hljs-tag">    <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1, maximum-scale=1&quot;</span></span>
 <span class="hljs-tag">&gt;</span></code></pre></div>
 
-<h2 id="6-viewport有哪些参数，作用是什么"><a href="#6-viewport有哪些参数，作用是什么" class="headerlink" title="6. viewport有哪些参数，作用是什么"></a>6. viewport有哪些参数，作用是什么</h2><p>-<br>  width&#x2F;height，宽高，默认宽度980px</p>
-<ul>
-<li>initial-scale，初始缩放比例，1~10</li>
-<li>maximum-scale&#x2F;minimum-scale，允许用户缩放的最大&#x2F;小比例</li>
-<li>user-scalable，用户是否可以缩放 (yes&#x2F;no)</li>
+<h2 id="6-viewport有哪些参数，作用是什么"><a href="#6-viewport有哪些参数，作用是什么" class="headerlink" title="6. viewport有哪些参数，作用是什么"></a>6. viewport有哪些参数，作用是什么</h2><ul>
+<li><p>width&#x2F;height，宽高，默认宽度980px</p>
+</li>
+<li><p>initial-scale，初始缩放比例，1~10</p>
+</li>
+<li><p>maximum-scale&#x2F;minimum-scale，允许用户缩放的最大&#x2F;小比例</p>
+</li>
+<li><p>user-scalable，用户是否可以缩放 (yes&#x2F;no)</p>
+</li>
 </ul>
 <h2 id="7-http-equive属性的作用和参数"><a href="#7-http-equive属性的作用和参数" class="headerlink" title="7. http-equive属性的作用和参数"></a>7. http-equive属性的作用和参数</h2><ul>
 <li><strong>expires</strong>：指定过期时间</li>
@@ -1792,7 +1806,7 @@ agent.<span class="hljs-property">price</span> = <span class="hljs-number">100</
 <li><strong>阻止外边距重叠</strong>：属于同一个BFC的两个相邻Box的margin会发生折叠，不同BFC不会发生折叠</li>
 </ul>
 <p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/6/1714e0acba58457f~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" srcset="/img/loading.gif" lazyload></p>
-<p>原文链接：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844904116552990727">2万字 | 前端基础拾遗90问</a></p>
+<p>原文链接：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844904116552990727">2万字 | 前端基础拾遗90问</a> </p>
 
                 
               </div>
@@ -1839,6 +1853,12 @@ agent.<span class="hljs-property">price</span> = <span class="hljs-number">100</
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/const-for-es5.html" title="如何在 ES5 环境下实现一个const？">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">如何在 ES5 环境下实现一个const？</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
