@@ -1,0 +1,2225 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/blog/img/maple_leaf.png">
+  <link rel="icon" href="/blog/img/maple_leaf.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="枫🍁川">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="一、异步&amp;事件循环1. 代码输出结果const promise &#x3D; new Promise((resolve, reject) &#x3D;&gt; &amp;#123;   console.log(1);   console.log(2); &amp;#125;); promise.then(() &#x3D;&gt; &amp;#123;   console.log(3); &amp;#125;); console.log(4);  输">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试题汇总之代码输出">
+<meta property="og:url" content="https://destiny-yyc.github.io/interview-OutputCode.html">
+<meta property="og:site_name" content="枫🍁川的博客">
+<meta property="og:description" content="一、异步&amp;事件循环1. 代码输出结果const promise &#x3D; new Promise((resolve, reject) &#x3D;&gt; &amp;#123;   console.log(1);   console.log(2); &amp;#125;); promise.then(() &#x3D;&gt; &amp;#123;   console.log(3); &amp;#125;); console.log(4);  输">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8823cf14d07040379eb890c09255c35d~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp">
+<meta property="article:published_time" content="2022-08-19T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-03-24T08:04:12.302Z">
+<meta property="article:author" content="枫🍁川">
+<meta property="article:tag" content="javascript">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8823cf14d07040379eb890c09255c35d~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>面试题汇总之代码输出 - 枫🍁川的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/blog/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/blog/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/blog/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"destiny-yyc.github.io","root":"/blog/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/blog/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/blog/js/utils.js" ></script>
+  <script  src="/blog/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/blog/">
+      <strong>枫🍁川的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/blog/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="面试题汇总之代码输出"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        枫🍁川
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-08-20 00:00" pubdate>
+          2022年8月20日
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          34k 字
+        
+      </span>
+    
+
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">面试题汇总之代码输出</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="一、异步-amp-事件循环"><a href="#一、异步-amp-事件循环" class="headerlink" title="一、异步&amp;事件循环"></a>一、异步&amp;事件循环</h2><h3 id="1-代码输出结果"><a href="#1-代码输出结果" class="headerlink" title="1. 代码输出结果"></a>1. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> promise = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> &#123;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">1</span>);
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">2</span>);
+&#125;);
+promise.<span class="hljs-title function_">then</span>(<span class="hljs-function">() =&gt;</span> &#123;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">3</span>);
+&#125;);
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">4</span>);</code></pre></div>
+
+<p>输出结果如下：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-number">1</span> 
+<span class="hljs-number">2</span> 
+<span class="hljs-number">4</span></code></pre></div>
+
+<p>promise.then 是微任务，它会在所有的宏任务执行完之后才会执行，同时需要promise内部的状态发生变化，因为这里内部没有发生变化，一直处于pending状态，所以不输出3。</p>
+<h3 id="2-代码输出结果"><a href="#2-代码输出结果" class="headerlink" title="2. 代码输出结果"></a>2. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> promise1 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> &#123;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;promise1&#x27;</span>)
+  <span class="hljs-title function_">resolve</span>(<span class="hljs-string">&#x27;resolve1&#x27;</span>)
+&#125;)
+<span class="hljs-keyword">const</span> promise2 = promise1.<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(res)
+&#125;)
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;1&#x27;</span>, promise1);
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;2&#x27;</span>, promise2);</code></pre></div>
+
+<p>输出结果如下：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript">promise1
+<span class="hljs-number">1</span> <span class="hljs-title class_">Promise</span>&#123;&lt;resolved&gt;: resolve1&#125;
+<span class="hljs-number">2</span> <span class="hljs-title class_">Promise</span>&#123;&lt;pending&gt;&#125;
+resolve1</code></pre></div>
+
+<p>需要注意的是，直接打印promise1，会打印出它的状态值和参数。</p>
+<p>代码执行过程如下：</p>
+<ol>
+<li>script是一个宏任务，按照顺序执行这些代码；</li>
+<li>首先进入Promise，执行该构造函数中的代码，打印<code>promise1</code>；</li>
+<li>碰到<code>resolve</code>函数, 将<code>promise1</code>的状态改变为<code>resolved</code>, 并将结果保存下来；</li>
+<li>碰到<code>promise1.then</code>这个微任务，将它放入微任务队列；</li>
+<li><code>promise2</code>是一个新的状态为<code>pending</code>的<code>Promise</code>；</li>
+<li>执行同步代码1， 同时打印出<code>promise1</code>的状态是<code>resolved</code>；</li>
+<li>执行同步代码2，同时打印出<code>promise2</code>的状态是<code>pending</code>；</li>
+<li>宏任务执行完毕，查找微任务队列，发现<code>promise1.then</code>这个微任务且状态为<code>resolved</code>，执行它。</li>
+</ol>
+<h3 id="3-代码输出结果"><a href="#3-代码输出结果" class="headerlink" title="3. 代码输出结果"></a>3. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> promise = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> &#123;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">1</span>);
+  <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;timerStart&quot;</span>);
+    <span class="hljs-title function_">resolve</span>(<span class="hljs-string">&quot;success&quot;</span>);
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;timerEnd&quot;</span>);
+  &#125;, <span class="hljs-number">0</span>);
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">2</span>);
+&#125;);
+promise.<span class="hljs-title function_">then</span>(<span class="hljs-function">(<span class="hljs-params">res</span>) =&gt;</span> &#123;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(res);
+&#125;);
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">4</span>);</code></pre></div>
+
+<p>输出结果如下：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-number">1</span>
+<span class="hljs-number">2</span>
+<span class="hljs-number">4</span>
+timerStart
+timerEnd
+success</code></pre></div>
+
+<p>代码执行过程如下：</p>
+<ul>
+<li>首先遇到Promise构造函数，会先执行里面的内容，打印<code>1</code>；</li>
+<li>遇到定时器<code>steTimeout</code>，它是一个宏任务，放入宏任务队列；</li>
+<li>继续向下执行，打印出2；</li>
+<li>由于<code>Promise</code>的状态此时还是<code>pending</code>，所以<code>promise.then</code>先不执行；</li>
+<li>继续执行下面的同步任务，打印出4；</li>
+<li>此时微任务队列没有任务，继续执行下一轮宏任务，执行<code>steTimeout</code>；</li>
+<li>首先执行<code>timerStart</code>，然后遇到了<code>resolve</code>，将<code>promise</code>的状态改为<code>resolved</code>且保存结果并将之前的<code>promise.then</code>推入微任务队列，再执行<code>timerEnd</code>；</li>
+<li>执行完这个宏任务，就去执行微任务<code>promise.then</code>，打印出<code>resolve</code>的结果。</li>
+</ul>
+<h3 id="4-代码输出结果"><a href="#4-代码输出结果" class="headerlink" title="4. 代码输出结果"></a>4. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>().<span class="hljs-title function_">then</span>(<span class="hljs-function">() =&gt;</span> &#123;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;promise1&#x27;</span>);
+  <span class="hljs-keyword">const</span> timer2 = <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;timer2&#x27;</span>)
+  &#125;, <span class="hljs-number">0</span>)
+&#125;);
+<span class="hljs-keyword">const</span> timer1 = <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;timer1&#x27;</span>)
+  <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>().<span class="hljs-title function_">then</span>(<span class="hljs-function">() =&gt;</span> &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;promise2&#x27;</span>)
+  &#125;)
+&#125;, <span class="hljs-number">0</span>)
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;start&#x27;</span>);</code></pre></div>
+
+<p>输出结果如下：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript">start
+promise1
+timer1
+promise2
+timer2</code></pre></div>
+
+<p>代码执行过程如下：</p>
+<ol>
+<li>首先，<code>Promise.resolve().then</code>是一个微任务，加入微任务队列</li>
+<li>执行timer1，它是一个宏任务，加入宏任务队列</li>
+<li>继续执行下面的同步代码，打印出<code>start</code></li>
+<li>这样第一轮宏任务就执行完了，开始执行微任务<code>Promise.resolve().then</code>，打印出<code>promise1</code></li>
+<li>遇到<code>timer2</code>，它是一个宏任务，将其加入宏任务队列，此时宏任务队列有两个任务，分别是<code>timer1</code>、<code>timer2</code>；</li>
+<li>这样第一轮微任务就执行完了，开始执行第二轮宏任务，首先执行定时器<code>timer1</code>，打印<code>timer1</code>；</li>
+<li>遇到<code>Promise.resolve().then</code>，它是一个微任务，加入微任务队列</li>
+<li>开始执行微任务队列中的任务，打印<code>promise2</code>；</li>
+<li>最后执行宏任务<code>timer2</code>定时器，打印出<code>timer2</code>；</li>
+</ol>
+<h3 id="5-代码输出结果"><a href="#5-代码输出结果" class="headerlink" title="5. 代码输出结果"></a>5. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> promise = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> &#123;
+    <span class="hljs-title function_">resolve</span>(<span class="hljs-string">&#x27;success1&#x27;</span>);
+    <span class="hljs-title function_">reject</span>(<span class="hljs-string">&#x27;error&#x27;</span>);
+    <span class="hljs-title function_">resolve</span>(<span class="hljs-string">&#x27;success2&#x27;</span>);
+&#125;);
+promise.<span class="hljs-title function_">then</span>(<span class="hljs-function">(<span class="hljs-params">res</span>) =&gt;</span> &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;then:&#x27;</span>, res);
+&#125;).<span class="hljs-title function_">catch</span>(<span class="hljs-function">(<span class="hljs-params">err</span>) =&gt;</span> &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;catch:&#x27;</span>, err);
+&#125;)</code></pre></div>
+
+<p>输出结果如下：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript">then：success1</code></pre></div>
+
+<p>这个题目考察的就是<strong>Promise的状态在发生变化之后，就不会再发生变化</strong>。开始状态由<code>pending</code>变为<code>resolve</code>，说明已经变为已完成状态，下面的两个状态的就不会再执行，同时下面的catch也不会捕获到错误。</p>
+<h3 id="6-代码输出结果"><a href="#6-代码输出结果" class="headerlink" title="6. 代码输出结果"></a>6. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>(<span class="hljs-number">1</span>)
+  .<span class="hljs-title function_">then</span>(<span class="hljs-number">2</span>)
+  .<span class="hljs-title function_">then</span>(<span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>(<span class="hljs-number">3</span>))
+  .<span class="hljs-title function_">then</span>(<span class="hljs-variable language_">console</span>.<span class="hljs-property">log</span>)</code></pre></div>
+
+<p>输出结果如下：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-number">1</span>
+<span class="hljs-title class_">Promise</span> &#123;&lt;fulfilled&gt;: <span class="hljs-literal">undefined</span>&#125;</code></pre></div>
+
+<p>Promise.resolve方法的参数如果是一个原始值，或者是一个不具有then方法的对象，则Promise.resolve方法返回一个新的Promise对象，状态为resolved，Promise.resolve方法的参数，会同时传给回调函数。</p>
+<p>then方法接受的参数是函数，而如果传递的并非是一个函数，它实际上会将其解释为then(null)，这就会导致前一个Promise的结果会传递下面。</p>
+<h3 id="7-代码输出结果"><a href="#7-代码输出结果" class="headerlink" title="7. 代码输出结果"></a>7. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> promise1 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> &#123;
+  <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;
+    <span class="hljs-title function_">resolve</span>(<span class="hljs-string">&#x27;success&#x27;</span>)
+  &#125;, <span class="hljs-number">1000</span>)
+&#125;)
+<span class="hljs-keyword">const</span> promise2 = promise1.<span class="hljs-title function_">then</span>(<span class="hljs-function">() =&gt;</span> &#123;
+  <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&#x27;error!!!&#x27;</span>)
+&#125;)
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;promise1&#x27;</span>, promise1)
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;promise2&#x27;</span>, promise2)
+<span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;promise1&#x27;</span>, promise1)
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;promise2&#x27;</span>, promise2)
+&#125;, <span class="hljs-number">2000</span>)</code></pre></div>
+
+<p>输出结果如下：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript">promise1 <span class="hljs-title class_">Promise</span> &#123;&lt;pending&gt;&#125;
+promise2 <span class="hljs-title class_">Promise</span> &#123;&lt;pending&gt;&#125;
+
+<span class="hljs-title class_">Uncaught</span> (<span class="hljs-keyword">in</span> promise) <span class="hljs-title class_">Error</span>: error!!!
+promise1 <span class="hljs-title class_">Promise</span> &#123;&lt;fulfilled&gt;: <span class="hljs-string">&quot;success&quot;</span>&#125;
+promise2 <span class="hljs-title class_">Promise</span> &#123;&lt;rejected&gt;: <span class="hljs-title class_">Error</span>: error!!&#125;</code></pre></div>
+
+<h3 id="8-代码输出结果"><a href="#8-代码输出结果" class="headerlink" title="8. 代码输出结果"></a>8. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>(<span class="hljs-number">1</span>)
+  .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(res);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">2</span>;
+  &#125;)
+  .<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> &#123;
+    <span class="hljs-keyword">return</span> <span class="hljs-number">3</span>;
+  &#125;)
+  .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(res);
+  &#125;);</code></pre></div>
+
+<p>输出结果如下：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-number">1</span>   
+<span class="hljs-number">2</span></code></pre></div>
+
+<p>Promise是可以链式调用的，由于每次调用 <code>.then</code> 或者 <code>.catch</code> 都会返回一个新的 promise，从而实现了链式调用, 它并不像一般任务的链式调用一样return this。</p>
+<p>上面的输出结果之所以依次打印出1和2，是因为<code>resolve(1)</code>之后走的是第一个then方法，并没有进catch里，所以第二个then中的res得到的实际上是第一个then的返回值。并且return 2会被包装成<code>resolve(2)</code>，被最后的then打印输出2。</p>
+<h3 id="9-代码输出结果"><a href="#9-代码输出结果" class="headerlink" title="9. 代码输出结果"></a>9. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>().<span class="hljs-title function_">then</span>(<span class="hljs-function">() =&gt;</span> &#123;
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&#x27;error!!!&#x27;</span>)
+&#125;).<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;then: &quot;</span>, res)
+&#125;).<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> &#123;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;catch: &quot;</span>, err)
+&#125;)</code></pre></div>
+
+<p>输出结果如下：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-string">&quot;then: &quot;</span> <span class="hljs-string">&quot;Error: error!!!&quot;</span></code></pre></div>
+
+<p>返回任意一个非 promise 的值都会被包裹成 promise 对象，因此这里的<code>return new Error(&#39;error!!!&#39;)</code>也被包裹成了<code>return Promise.resolve(new Error(&#39;error!!!&#39;))</code>，因此它会被then捕获而不是catch。</p>
+<h3 id="10-代码输出结果"><a href="#10-代码输出结果" class="headerlink" title="10. 代码输出结果"></a>10. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> promise = <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>().<span class="hljs-title function_">then</span>(<span class="hljs-function">() =&gt;</span> &#123;
+  <span class="hljs-keyword">return</span> promise;
+&#125;)
+promise.<span class="hljs-title function_">catch</span>(<span class="hljs-variable language_">console</span>.<span class="hljs-property">err</span>)</code></pre></div>
+
+<p>输出结果如下：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-title class_">Uncaught</span> (<span class="hljs-keyword">in</span> promise) <span class="hljs-title class_">TypeError</span>: <span class="hljs-title class_">Chaining</span> cycle detected <span class="hljs-keyword">for</span> promise #&lt;<span class="hljs-title class_">Promise</span>&gt;</code></pre></div>
+
+<p>这里其实是一个坑，<code>.then</code> 或 <code>.catch</code> 返回的值不能是 promise 本身，否则会造成死循环。</p>
+<h3 id="11-代码输出结果"><a href="#11-代码输出结果" class="headerlink" title="11. 代码输出结果"></a>11. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>(<span class="hljs-number">1</span>)
+  .<span class="hljs-title function_">then</span>(<span class="hljs-number">2</span>)
+  .<span class="hljs-title function_">then</span>(<span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>(<span class="hljs-number">3</span>))
+  .<span class="hljs-title function_">then</span>(<span class="hljs-variable language_">console</span>.<span class="hljs-property">log</span>)</code></pre></div>
+
+<p>输出结果如下：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-number">1</span></code></pre></div>
+
+<p>看到这个题目，好多的then，实际上只需要记住一个原则：<code>.then</code> 或<code>.catch</code> 的参数期望是函数，传入非函数则会发生<strong>值透传</strong>。</p>
+<p>第一个then和第二个then中传入的都不是函数，一个是数字，一个是对象，因此发生了透传，将<code>resolve(1)</code> 的值直接传到最后一个then里，直接打印出1。</p>
+<h3 id="12-代码输出结果"><a href="#12-代码输出结果" class="headerlink" title="12. 代码输出结果"></a>12. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">reject</span>(<span class="hljs-string">&#x27;err!!!&#x27;</span>)
+  .<span class="hljs-title function_">then</span>(<span class="hljs-function">(<span class="hljs-params">res</span>) =&gt;</span> &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;success&#x27;</span>, res)
+  &#125;, <span class="hljs-function">(<span class="hljs-params">err</span>) =&gt;</span> &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;error&#x27;</span>, err)
+  &#125;).<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;catch&#x27;</span>, err)
+  &#125;)</code></pre></div>
+
+<p>输出结果如下：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript">error err!!!</code></pre></div>
+
+<p>我们知道，<code>.then</code>函数中的两个参数：</p>
+<ul>
+<li>第一个参数是用来处理Promise成功的函数</li>
+<li>第二个则是处理失败的函数</li>
+</ul>
+<p>也就是说<code>Promise.resolve(&#39;1&#39;)</code>的值会进入成功的函数，<code>Promise.reject(&#39;2&#39;)</code>的值会进入失败的函数。</p>
+<p>在这道题中，错误直接被<code>then</code>的第二个参数捕获了，所以就不会被<code>catch</code>捕获了，输出结果为：<code>error err!!!&#39;</code></p>
+<p>但是，如果是像下面这样：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>()
+  .<span class="hljs-title function_">then</span>(<span class="hljs-keyword">function</span> <span class="hljs-title function_">success</span> (res) &#123;
+    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&#x27;error!!!&#x27;</span>)
+  &#125;, <span class="hljs-keyword">function</span> <span class="hljs-title function_">fail1</span> (err) &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;fail1&#x27;</span>, err)
+  &#125;).<span class="hljs-title function_">catch</span>(<span class="hljs-keyword">function</span> <span class="hljs-title function_">fail2</span> (err) &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;fail2&#x27;</span>, err)
+  &#125;)</code></pre></div>
+
+<p>在<code>then</code>的第一参数中抛出了错误，那么他就不会被第二个参数不活了，而是被后面的<code>catch</code>捕获到。</p>
+<h3 id="13-代码输出结果"><a href="#13-代码输出结果" class="headerlink" title="13. 代码输出结果"></a>13. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>(<span class="hljs-string">&#x27;1&#x27;</span>)
+  .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(res)
+  &#125;)
+  .<span class="hljs-title function_">finally</span>(<span class="hljs-function">() =&gt;</span> &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;finally&#x27;</span>)
+  &#125;)
+<span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>(<span class="hljs-string">&#x27;2&#x27;</span>)
+  .<span class="hljs-title function_">finally</span>(<span class="hljs-function">() =&gt;</span> &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;finally2&#x27;</span>)
+  	<span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;我是finally2返回的值&#x27;</span>
+  &#125;)
+  .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;finally2后面的then函数&#x27;</span>, res)
+  &#125;)</code></pre></div>
+
+<p>输出结果如下：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-number">1</span>
+finally2
+<span class="hljs-keyword">finally</span>
+finally2后面的then函数 <span class="hljs-number">2</span></code></pre></div>
+
+<p><code>.finally()</code>一般用的很少，只要记住以下几点就可以了：</p>
+<ul>
+<li><code>.finally()</code>方法不管Promise对象最后的状态如何都会执行</li>
+<li><code>.finally()</code>方法的回调函数不接受任何的参数，也就是说你在<code>.finally()</code>函数中是无法知道Promise最终的状态是<code>resolved</code>还是<code>rejected</code>的</li>
+<li>它最终返回的默认会是一个上一次的Promise对象值，不过如果抛出的是一个异常则返回异常的Promise对象。</li>
+<li>finally本质上是then方法的特例</li>
+</ul>
+<p><code>.finally()</code>的错误捕获：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>(<span class="hljs-string">&#x27;1&#x27;</span>)
+  .<span class="hljs-title function_">finally</span>(<span class="hljs-function">() =&gt;</span> &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;finally1&#x27;</span>)
+    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&#x27;我是finally中抛出的异常&#x27;</span>)
+  &#125;)
+  .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;finally后面的then函数&#x27;</span>, res)
+  &#125;)
+  .<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;捕获错误&#x27;</span>, err)
+  &#125;)</code></pre></div>
+
+<p>输出结果为：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-string">&#x27;finally1&#x27;</span>
+<span class="hljs-string">&#x27;捕获错误&#x27;</span> <span class="hljs-title class_">Error</span>: 我是<span class="hljs-keyword">finally</span>中抛出的异常</code></pre></div>
+
+<h3 id="14-代码输出结果"><a href="#14-代码输出结果" class="headerlink" title="14. 代码输出结果"></a>14. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">runAsync</span> (x) &#123;
+    <span class="hljs-keyword">const</span> p = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function"><span class="hljs-params">r</span> =&gt;</span> <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-title function_">r</span>(x, <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(x)), <span class="hljs-number">1000</span>))
+    <span class="hljs-keyword">return</span> p
+&#125;
+
+<span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">all</span>([<span class="hljs-title function_">runAsync</span>(<span class="hljs-number">1</span>), <span class="hljs-title function_">runAsync</span>(<span class="hljs-number">2</span>), <span class="hljs-title function_">runAsync</span>(<span class="hljs-number">3</span>)]).<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(res))</code></pre></div>
+
+<p>输出结果如下：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-number">1</span>
+<span class="hljs-number">2</span>
+<span class="hljs-number">3</span>
+[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]</code></pre></div>
+
+<p>首先，定义了一个Promise，来异步执行函数runAsync，该函数传入一个值x，然后间隔一秒后打印出这个x。</p>
+<p>之后再使用<code>Promise.all</code>来执行这个函数，执行的时候，看到一秒之后输出了1，2，3，同时输出了数组[1, 2, 3]，三个函数是同步执行的，并且在一个回调函数中返回了所有的结果。并且结果和函数的执行顺序是一致的。</p>
+<h3 id="15-代码输出结果"><a href="#15-代码输出结果" class="headerlink" title="15. 代码输出结果"></a>15. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">runAsync</span> (x) &#123;
+  <span class="hljs-keyword">const</span> p = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function"><span class="hljs-params">r</span> =&gt;</span> <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-title function_">r</span>(x, <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(x)), <span class="hljs-number">1000</span>))
+  <span class="hljs-keyword">return</span> p
+&#125;
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">runReject</span> (x) &#123;
+  <span class="hljs-keyword">const</span> p = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function">(<span class="hljs-params">res, rej</span>) =&gt;</span> <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-title function_">rej</span>(<span class="hljs-string">`Error: <span class="hljs-subst">$&#123;x&#125;</span>`</span>, <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(x)), <span class="hljs-number">1000</span> * x))
+  <span class="hljs-keyword">return</span> p
+&#125;
+<span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">all</span>([<span class="hljs-title function_">runAsync</span>(<span class="hljs-number">1</span>), <span class="hljs-title function_">runReject</span>(<span class="hljs-number">4</span>), <span class="hljs-title function_">runAsync</span>(<span class="hljs-number">3</span>), <span class="hljs-title function_">runReject</span>(<span class="hljs-number">2</span>)])
+       .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(res))
+       .<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(err))</code></pre></div>
+
+<p>输出结果如下：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-comment">// 1s后输出</span>
+<span class="hljs-number">1</span>
+<span class="hljs-number">3</span>
+<span class="hljs-comment">// 2s后输出</span>
+<span class="hljs-number">2</span>
+<span class="hljs-title class_">Error</span>: <span class="hljs-number">2</span>
+<span class="hljs-comment">// 4s后输出</span>
+<span class="hljs-number">4</span></code></pre></div>
+
+<p>可以看到。catch捕获到了第一个错误，在这道题目中最先的错误就是<code>runReject(2)</code>的结果。如果一组异步操作中有一个异常都不会进入<code>.then()</code>的第一个回调函数参数中。会被<code>.then()</code>的第二个回调函数捕获。</p>
+<h3 id="16-代码输出结果"><a href="#16-代码输出结果" class="headerlink" title="16. 代码输出结果"></a>16. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">runAsync</span> (x) &#123;
+  <span class="hljs-keyword">const</span> p = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function"><span class="hljs-params">r</span> =&gt;</span> <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-title function_">r</span>(x, <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(x)), <span class="hljs-number">1000</span>))
+  <span class="hljs-keyword">return</span> p
+&#125;
+<span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">race</span>([<span class="hljs-title function_">runAsync</span>(<span class="hljs-number">1</span>), <span class="hljs-title function_">runAsync</span>(<span class="hljs-number">2</span>), <span class="hljs-title function_">runAsync</span>(<span class="hljs-number">3</span>)])
+  .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;result: &#x27;</span>, res))
+  .<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(err))</code></pre></div>
+
+<p>输出结果如下：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-number">1</span>
+<span class="hljs-string">&#x27;result: &#x27;</span> <span class="hljs-number">1</span>
+<span class="hljs-number">2</span>
+<span class="hljs-number">3</span></code></pre></div>
+
+<p>then只会捕获第一个成功的方法，其他的函数虽然还会继续执行，但是不是被then捕获了。</p>
+<h3 id="17-代码输出结果"><a href="#17-代码输出结果" class="headerlink" title="17. 代码输出结果"></a>17. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">runAsync</span>(<span class="hljs-params">x</span>) &#123;
+  <span class="hljs-keyword">const</span> p = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function"><span class="hljs-params">r</span> =&gt;</span>
+    <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-title function_">r</span>(x, <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(x)), <span class="hljs-number">1000</span>)
+  );
+  <span class="hljs-keyword">return</span> p;
+&#125;
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">runReject</span>(<span class="hljs-params">x</span>) &#123;
+  <span class="hljs-keyword">const</span> p = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function">(<span class="hljs-params">res, rej</span>) =&gt;</span>
+    <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-title function_">rej</span>(<span class="hljs-string">`Error: <span class="hljs-subst">$&#123;x&#125;</span>`</span>, <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(x)), <span class="hljs-number">1000</span> * x)
+  );
+  <span class="hljs-keyword">return</span> p;
+&#125;
+<span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">race</span>([<span class="hljs-title function_">runReject</span>(<span class="hljs-number">0</span>), <span class="hljs-title function_">runAsync</span>(<span class="hljs-number">1</span>), <span class="hljs-title function_">runAsync</span>(<span class="hljs-number">2</span>), <span class="hljs-title function_">runAsync</span>(<span class="hljs-number">3</span>)])
+  .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;result: &quot;</span>, res))
+  .<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(err));</code></pre></div>
+
+<p>输出结果如下：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-number">0</span>
+<span class="hljs-title class_">Error</span>: <span class="hljs-number">0</span>
+<span class="hljs-number">1</span>
+<span class="hljs-number">2</span>
+<span class="hljs-number">3</span></code></pre></div>
+
+<p>可以看到在catch捕获到第一个错误之后，后面的代码还不执行，不过不会再被捕获了。</p>
+<p>注意：<code>all</code>和<code>race</code>传入的数组中如果有会抛出异常的异步任务，那么只有最先抛出的错误会被捕获，并且是被then的第二个参数或者后面的catch捕获；但并不会影响数组中其它的异步任务的执行。</p>
+<h3 id="18-代码输出结果"><a href="#18-代码输出结果" class="headerlink" title="18. 代码输出结果"></a>18. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">async1</span>(<span class="hljs-params"></span>) &#123;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;async1 start&quot;</span>);
+  <span class="hljs-keyword">await</span> <span class="hljs-title function_">async2</span>();
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;async1 end&quot;</span>);
+&#125;
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">async2</span>(<span class="hljs-params"></span>) &#123;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;async2&quot;</span>);
+&#125;
+<span class="hljs-title function_">async1</span>();
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;start&#x27;</span>)</code></pre></div>
+
+<p>输出结果如下：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript">async1 start
+async2
+start
+async1 end</code></pre></div>
+
+<p>代码的执行过程如下：</p>
+<ol>
+<li>首先执行函数中的同步代码<code>async1 start</code>，之后遇到了<code>await</code>，它会阻塞<code>async1</code>后面代码的执行，因此会先去执行<code>async2</code>中的同步代码<code>async2</code>，然后跳出<code>async1</code>；</li>
+<li>跳出<code>async1</code>函数后，执行同步代码<code>start</code>；</li>
+<li>在一轮宏任务全部执行完之后，再来执行<code>await</code>后面的内容<code>async1 end</code>。</li>
+</ol>
+<p>这里可以理解为await后面的语句相当于放到了new Promise中，下一行及之后的语句相当于放在Promise.then中。</p>
+<h3 id="19-代码输出结果"><a href="#19-代码输出结果" class="headerlink" title="19. 代码输出结果"></a>19. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">async1</span>(<span class="hljs-params"></span>) &#123;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;async1 start&quot;</span>);
+  <span class="hljs-keyword">await</span> <span class="hljs-title function_">async2</span>();
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;async1 end&quot;</span>);
+  <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;timer1&#x27;</span>)
+  &#125;, <span class="hljs-number">0</span>)
+&#125;
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">async2</span>(<span class="hljs-params"></span>) &#123;
+  <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;timer2&#x27;</span>)
+  &#125;, <span class="hljs-number">0</span>)
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;async2&quot;</span>);
+&#125;
+<span class="hljs-title function_">async1</span>();
+<span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;timer3&#x27;</span>)
+&#125;, <span class="hljs-number">0</span>)
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;start&quot;</span>)</code></pre></div>
+
+<p>输出结果如下：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript">async1 start
+async2
+start
+async1 end
+timer2
+timer3
+timer1</code></pre></div>
+
+<p>代码的执行过程如下：</p>
+<ol>
+<li>首先进入<code>async1</code>，打印出<code>async1 start</code>；</li>
+<li>之后遇到<code>async2</code>，进入<code>async2</code>，遇到定时器<code>timer2</code>，加入宏任务队列，之后打印<code>async2</code>；</li>
+<li>由于<code>async2</code>阻塞了后面代码的执行，所以执行后面的定时器<code>timer3</code>，将其加入宏任务队列，之后打印<code>start</code>；</li>
+<li>然后执行async2后面的代码，打印出<code>async1 end</code>，遇到定时器timer1，将其加入宏任务队列；</li>
+<li>最后，宏任务队列有三个任务，先后顺序为<code>timer2</code>，<code>timer3</code>，<code>timer1</code>，没有微任务，所以直接所有的宏任务按照先进先出的原则执行。</li>
+</ol>
+<h3 id="20-代码输出结果"><a href="#20-代码输出结果" class="headerlink" title="20. 代码输出结果"></a>20. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">async1</span> () &#123;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;async1 start&#x27;</span>);
+  <span class="hljs-keyword">await</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function"><span class="hljs-params">resolve</span> =&gt;</span> &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;promise1&#x27;</span>)
+  &#125;)
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;async1 success&#x27;</span>);
+  <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;async1 end&#x27;</span>
+&#125;
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;srcipt start&#x27;</span>)
+<span class="hljs-title function_">async1</span>().<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(res))
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;srcipt end&#x27;</span>)</code></pre></div>
+
+<p>输出结果如下：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript">script start
+async1 start
+promise1
+script end</code></pre></div>
+
+<p>这里需要注意的是在<code>async1</code>中<code>await</code>后面的Promise是没有返回值的，也就是它的状态始终是<code>pending</code>状态，所以在<code>await</code>之后的内容是不会执行的，包括<code>async1</code>后面的 <code>.then</code>。</p>
+<h3 id="21-代码输出结果"><a href="#21-代码输出结果" class="headerlink" title="21. 代码输出结果"></a>21. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">async1</span> () &#123;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;async1 start&#x27;</span>);
+  <span class="hljs-keyword">await</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function"><span class="hljs-params">resolve</span> =&gt;</span> &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;promise1&#x27;</span>)
+    <span class="hljs-title function_">resolve</span>(<span class="hljs-string">&#x27;promise1 resolve&#x27;</span>)
+  &#125;).<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(res))
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;async1 success&#x27;</span>);
+  <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;async1 end&#x27;</span>
+&#125;
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;srcipt start&#x27;</span>)
+<span class="hljs-title function_">async1</span>().<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(res))
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;srcipt end&#x27;</span>)</code></pre></div>
+
+<p>这里是对上面一题进行了改造，加上了resolve。</p>
+<p>输出结果如下：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript">script start
+async1 start
+promise1
+script end
+promise1 resolve
+async1 success
+async1 end</code></pre></div>
+
+<h3 id="22-代码输出结果"><a href="#22-代码输出结果" class="headerlink" title="22. 代码输出结果"></a>22. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">async1</span>(<span class="hljs-params"></span>) &#123;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;async1 start&quot;</span>);
+  <span class="hljs-keyword">await</span> <span class="hljs-title function_">async2</span>();
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;async1 end&quot;</span>);
+&#125;
+
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">async2</span>(<span class="hljs-params"></span>) &#123;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;async2&quot;</span>);
+&#125;
+
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;script start&quot;</span>);
+
+<span class="hljs-built_in">setTimeout</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;setTimeout&quot;</span>);
+&#125;, <span class="hljs-number">0</span>);
+
+<span class="hljs-title function_">async1</span>();
+
+<span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function"><span class="hljs-params">resolve</span> =&gt;</span> &#123;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;promise1&quot;</span>);
+  <span class="hljs-title function_">resolve</span>();
+&#125;).<span class="hljs-title function_">then</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;promise2&quot;</span>);
+&#125;);
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;script end&#x27;</span>)</code></pre></div>
+
+<p>输出结果如下：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript">script start
+async1 start
+async2
+promise1
+script end
+async1 end
+promise2
+<span class="hljs-built_in">setTimeout</span></code></pre></div>
+
+<p>代码执行过程如下：</p>
+<ol>
+<li>开头定义了async1和async2两个函数，但是并未执行，执行script中的代码，所以打印出script start；</li>
+<li>遇到定时器Settimeout，它是一个宏任务，将其加入到宏任务队列；</li>
+<li>之后执行函数async1，首先打印出async1 start；</li>
+<li>遇到await，执行async2，打印出async2，并阻断后面代码的执行，将后面的代码加入到微任务队列；</li>
+<li>然后跳出async1和async2，遇到Promise，打印出promise1；</li>
+<li>遇到resolve，将其加入到微任务队列，然后执行后面的script代码，打印出script end；</li>
+<li>之后就该执行微任务队列了，首先打印出async1 end，然后打印出promise2；</li>
+<li>执行完微任务队列，就开始执行宏任务队列中的定时器，打印出setTimeout。</li>
+</ol>
+<h3 id="23-代码输出结果"><a href="#23-代码输出结果" class="headerlink" title="23. 代码输出结果"></a>23. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">async1</span> () &#123;
+  <span class="hljs-keyword">await</span> <span class="hljs-title function_">async2</span>();
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;async1&#x27;</span>);
+  <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;async1 success&#x27;</span>
+&#125;
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">async2</span> () &#123;
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;async2&#x27;</span>)
+    <span class="hljs-title function_">reject</span>(<span class="hljs-string">&#x27;error&#x27;</span>)
+  &#125;)
+&#125;
+<span class="hljs-title function_">async1</span>().<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(res))</code></pre></div>
+
+<p>输出结果如下：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript">async2
+<span class="hljs-title class_">Uncaught</span> (<span class="hljs-keyword">in</span> promise) error</code></pre></div>
+
+<p>可以看到，如果async函数中抛出了错误，就会终止错误结果，不会继续向下执行。</p>
+<p>如果想要让错误不足之处后面的代码执行，可以使用catch来捕获：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">async1</span> () &#123;
+  <span class="hljs-keyword">await</span> <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">reject</span>(<span class="hljs-string">&#x27;error!!!&#x27;</span>).<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(e))
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;async1&#x27;</span>);
+  <span class="hljs-keyword">return</span> <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>(<span class="hljs-string">&#x27;async1 success&#x27;</span>)
+&#125;
+<span class="hljs-title function_">async1</span>().<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(res))
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;script start&#x27;</span>)</code></pre></div>
+
+<p>这样的输出结果就是：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript">script start
+error!!!
+async1
+async1 success</code></pre></div>
+
+<h3 id="24-代码输出结果"><a href="#24-代码输出结果" class="headerlink" title="24. 代码输出结果"></a>24. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> <span class="hljs-title function_">first</span> = (<span class="hljs-params"></span>) =&gt; (<span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">3</span>);
+    <span class="hljs-keyword">let</span> p = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> &#123;
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">7</span>);
+        <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;
+            <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">5</span>);
+            <span class="hljs-title function_">resolve</span>(<span class="hljs-number">6</span>);
+            <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(p)
+        &#125;, <span class="hljs-number">0</span>)
+        <span class="hljs-title function_">resolve</span>(<span class="hljs-number">1</span>);
+    &#125;);
+    <span class="hljs-title function_">resolve</span>(<span class="hljs-number">2</span>);
+    p.<span class="hljs-title function_">then</span>(<span class="hljs-function">(<span class="hljs-params">arg</span>) =&gt;</span> &#123;
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(arg);
+    &#125;);
+&#125;));
+<span class="hljs-title function_">first</span>().<span class="hljs-title function_">then</span>(<span class="hljs-function">(<span class="hljs-params">arg</span>) =&gt;</span> &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(arg);
+&#125;);
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">4</span>);</code></pre></div>
+
+<p>输出结果如下：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-number">3</span>
+<span class="hljs-number">7</span>
+<span class="hljs-number">4</span>
+<span class="hljs-number">1</span>
+<span class="hljs-number">2</span>
+<span class="hljs-number">5</span>
+<span class="hljs-title class_">Promise</span>&#123;&lt;resolved&gt;: <span class="hljs-number">1</span>&#125;</code></pre></div>
+
+<p>代码的执行过程如下：</p>
+<ol>
+<li>首先会进入Promise，打印出3，之后进入下面的Promise，打印出7；</li>
+<li>遇到了定时器，将其加入宏任务队列；</li>
+<li>执行Promise  p中的resolve，状态变为resolved，返回值为1；</li>
+<li>执行Promise first中的resolve，状态变为resolved，返回值为2；</li>
+<li>遇到p.then，将其加入微任务队列，遇到first().then，将其加入任务队列；</li>
+<li>执行外面的代码，打印出4；</li>
+<li>这样第一轮宏任务就执行完了，开始执行微任务队列中的任务，先后打印出1和2；</li>
+<li>这样微任务就执行完了，开始执行下一轮宏任务，宏任务队列中有一个定时器，执行它，打印出5，由于执行已经变为resolved状态，所以<code>resolve(6)</code>不会再执行；</li>
+<li>最后<code>console.log(p)</code>打印出<code>Promise&#123;&lt;resolved&gt;: 1&#125;</code>；</li>
+</ol>
+<h3 id="25-代码输出结果"><a href="#25-代码输出结果" class="headerlink" title="25. 代码输出结果"></a>25. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> <span class="hljs-title function_">async1</span> = <span class="hljs-keyword">async</span> (<span class="hljs-params"></span>) =&gt; &#123;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;async1&#x27;</span>);
+  <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;timer1&#x27;</span>)
+  &#125;, <span class="hljs-number">2000</span>)
+  <span class="hljs-keyword">await</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function"><span class="hljs-params">resolve</span> =&gt;</span> &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;promise1&#x27;</span>)
+  &#125;)
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;async1 end&#x27;</span>)
+  <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;async1 success&#x27;</span>
+&#125; 
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;script start&#x27;</span>);
+<span class="hljs-title function_">async1</span>().<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(res));
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;script end&#x27;</span>);
+<span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>(<span class="hljs-number">1</span>)
+  .<span class="hljs-title function_">then</span>(<span class="hljs-number">2</span>)
+  .<span class="hljs-title function_">then</span>(<span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>(<span class="hljs-number">3</span>))
+  .<span class="hljs-title function_">catch</span>(<span class="hljs-number">4</span>)
+  .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(res))
+<span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;timer2&#x27;</span>)
+&#125;, <span class="hljs-number">1000</span>)</code></pre></div>
+
+<p>输出结果如下：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript">script start
+async1
+promise1
+script end
+<span class="hljs-number">1</span>
+timer2
+timer1</code></pre></div>
+
+<p>代码的执行过程如下：</p>
+<ol>
+<li>首先执行同步带吗，打印出script start；</li>
+<li>遇到定时器timer1将其加入宏任务队列；</li>
+<li>之后是执行Promise，打印出promise1，由于Promise没有返回值，所以后面的代码不会执行；</li>
+<li>然后执行同步代码，打印出script end；</li>
+<li>继续执行下面的Promise，.then和.catch期望参数是一个函数，这里传入的是一个数字，因此就会发生值渗透，将resolve(1)的值传到最后一个then，直接打印出1；</li>
+<li>遇到第二个定时器，将其加入到微任务队列，执行微任务队列，按顺序依次执行两个定时器，但是由于定时器时间的原因，会在两秒后先打印出timer2，在四秒后打印出timer1。</li>
+</ol>
+<h3 id="26-代码输出结果"><a href="#26-代码输出结果" class="headerlink" title="26. 代码输出结果"></a>26. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> p1 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve</span>) =&gt;</span> &#123;
+  <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;
+    <span class="hljs-title function_">resolve</span>(<span class="hljs-string">&#x27;resolve3&#x27;</span>);
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;timer1&#x27;</span>)
+  &#125;, <span class="hljs-number">0</span>)
+  <span class="hljs-title function_">resolve</span>(<span class="hljs-string">&#x27;resovle1&#x27;</span>);
+  <span class="hljs-title function_">resolve</span>(<span class="hljs-string">&#x27;resolve2&#x27;</span>);
+&#125;).<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(res)  <span class="hljs-comment">// resolve1</span>
+  <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(p1)
+  &#125;, <span class="hljs-number">1000</span>)
+&#125;).<span class="hljs-title function_">finally</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;finally&#x27;</span>, res)
+&#125;)</code></pre></div>
+
+<p>执行结果为如下：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript">resolve1
+<span class="hljs-keyword">finally</span>  <span class="hljs-literal">undefined</span>
+timer1
+<span class="hljs-title class_">Promise</span>&#123;&lt;resolved&gt;: <span class="hljs-literal">undefined</span>&#125;</code></pre></div>
+
+<p>需要注意的是最后一个定时器打印出的p1其实是<code>.finally</code>的返回值，我们知道<code>.finally</code>的返回值如果在没有抛出错误的情况下默认会是上一个Promise的返回值，而这道题中<code>.finally</code>上一个Promise是<code>.then()</code>，但是这个<code>.then()</code>并没有返回值，所以p1打印出来的Promise的值会是<code>undefined</code>，如果在定时器的下面加上一个<code>return 1</code>，则值就会变成1。</p>
+<h3 id="27-代码输出结果"><a href="#27-代码输出结果" class="headerlink" title="27. 代码输出结果"></a>27. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;1&#x27;</span>);
+
+<span class="hljs-built_in">setTimeout</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;2&#x27;</span>);
+    process.<span class="hljs-title function_">nextTick</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;3&#x27;</span>);
+    &#125;)
+    <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params">resolve</span>) &#123;
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;4&#x27;</span>);
+        <span class="hljs-title function_">resolve</span>();
+    &#125;).<span class="hljs-title function_">then</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;5&#x27;</span>)
+    &#125;)
+&#125;)
+process.<span class="hljs-title function_">nextTick</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;6&#x27;</span>);
+&#125;)
+<span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params">resolve</span>) &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;7&#x27;</span>);
+    <span class="hljs-title function_">resolve</span>();
+&#125;).<span class="hljs-title function_">then</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;8&#x27;</span>)
+&#125;)
+
+<span class="hljs-built_in">setTimeout</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;9&#x27;</span>);
+    process.<span class="hljs-title function_">nextTick</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;10&#x27;</span>);
+    &#125;)
+    <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params">resolve</span>) &#123;
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;11&#x27;</span>);
+        <span class="hljs-title function_">resolve</span>();
+    &#125;).<span class="hljs-title function_">then</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;12&#x27;</span>)
+    &#125;)
+&#125;)</code></pre></div>
+
+<p>输出结果如下：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-number">1</span>
+<span class="hljs-number">7</span>
+<span class="hljs-number">6</span>
+<span class="hljs-number">8</span>
+<span class="hljs-number">2</span>
+<span class="hljs-number">4</span>
+<span class="hljs-number">3</span>
+<span class="hljs-number">5</span>
+<span class="hljs-number">9</span>
+<span class="hljs-number">11</span>
+<span class="hljs-number">10</span>
+<span class="hljs-number">12</span></code></pre></div>
+
+<p><strong>（1）第一轮事件循环流程分析如下：</strong></p>
+<ul>
+<li>整体script作为第一个宏任务进入主线程，遇到<code>console.log</code>，输出1。</li>
+<li>遇到<code>setTimeout</code>，其回调函数被分发到宏任务Event Queue中。暂且记为<code>setTimeout1</code>。</li>
+<li>遇到<code>process.nextTick()</code>，其回调函数被分发到微任务Event Queue中。记为<code>process1</code>。</li>
+<li>遇到<code>Promise</code>，<code>new Promise</code>直接执行，输出7。<code>then</code>被分发到微任务Event Queue中。记为<code>then1</code>。</li>
+<li>又遇到了<code>setTimeout</code>，其回调函数被分发到宏任务Event Queue中，记为<code>setTimeout2</code>。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>宏任务Event Queue</th>
+<th>微任务Event Queue</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>setTimeout1</td>
+<td>process1</td>
+</tr>
+<tr>
+<td>setTimeout2</td>
+<td>then1</td>
+</tr>
+</tbody></table>
+<p>上表是第一轮事件循环宏任务结束时各Event Queue的情况，此时已经输出了1和7。发现了<code>process1</code>和<code>then1</code>两个微任务：</p>
+<ul>
+<li>执行<code>process1</code>，输出6。</li>
+<li>执行<code>then1</code>，输出8。</li>
+</ul>
+<p>第一轮事件循环正式结束，这一轮的结果是输出1，7，6，8。</p>
+<p><strong>（2）第二轮时间循环从</strong><code>**setTimeout1**</code><strong>宏任务开始：</strong></p>
+<ul>
+<li>首先输出2。接下来遇到了<code>process.nextTick()</code>，同样将其分发到微任务Event Queue中，记为<code>process2</code>。</li>
+<li><code>new Promise</code>立即执行输出4，<code>then</code>也分发到微任务Event Queue中，记为<code>then2</code>。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>宏任务Event Queue</th>
+<th>微任务Event Queue</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>setTimeout2</td>
+<td>process2</td>
+</tr>
+<tr>
+<td></td>
+<td>then2</td>
+</tr>
+</tbody></table>
+<p>第二轮事件循环宏任务结束，发现有<code>process2</code>和<code>then2</code>两个微任务可以执行：</p>
+<ul>
+<li>输出3。</li>
+<li>输出5。</li>
+</ul>
+<p>第二轮事件循环结束，第二轮输出2，4，3，5。</p>
+<p><strong>（3）第三轮事件循环开始，此时只剩setTimeout2了，执行。</strong></p>
+<ul>
+<li>直接输出9。</li>
+<li>将<code>process.nextTick()</code>分发到微任务Event Queue中。记为<code>process3</code>。</li>
+<li>直接执行<code>new Promise</code>，输出11。</li>
+<li>将<code>then</code>分发到微任务Event Queue中，记为<code>then3</code>。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>宏任务Event Queue</th>
+<th>微任务Event Queue</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td>process3</td>
+</tr>
+<tr>
+<td></td>
+<td>then3</td>
+</tr>
+</tbody></table>
+<p>第三轮事件循环宏任务执行结束，执行两个微任务<code>process3</code>和<code>then3</code>：</p>
+<ul>
+<li>输出10。</li>
+<li>输出12。</li>
+</ul>
+<p>第三轮事件循环结束，第三轮输出9，11，10，12。</p>
+<p>整段代码，共进行了三次事件循环，完整的输出为1，7，6，8，2，4，3，5，9，11，10，12。</p>
+<h3 id="28-代码输出结果"><a href="#28-代码输出结果" class="headerlink" title="28. 代码输出结果"></a>28. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">1</span>)
+
+<span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">2</span>)
+&#125;)
+
+<span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function"><span class="hljs-params">resolve</span> =&gt;</span>  &#123;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">3</span>)
+  <span class="hljs-title function_">resolve</span>(<span class="hljs-number">4</span>)
+&#125;).<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">d</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(d))
+
+<span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">5</span>)
+  <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function"><span class="hljs-params">resolve</span> =&gt;</span>  &#123;
+    <span class="hljs-title function_">resolve</span>(<span class="hljs-number">6</span>)
+  &#125;).<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">d</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(d))
+&#125;)
+
+<span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">7</span>)
+&#125;)
+
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">8</span>)</code></pre></div>
+
+<p>输出结果如下：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-number">1</span>
+<span class="hljs-number">3</span>
+<span class="hljs-number">8</span>
+<span class="hljs-number">4</span>
+<span class="hljs-number">2</span>
+<span class="hljs-number">5</span>
+<span class="hljs-number">6</span>
+<span class="hljs-number">7</span></code></pre></div>
+
+<p>代码执行过程如下：</p>
+<ol>
+<li>首先执行script代码，打印出1；</li>
+<li>遇到第一个定时器，加入到宏任务队列；</li>
+<li>遇到Promise，执行代码，打印出3，遇到resolve，将其加入到微任务队列；</li>
+<li>遇到第二个定时器，加入到宏任务队列；</li>
+<li>遇到第三个定时器，加入到宏任务队列；</li>
+<li>继续执行script代码，打印出8，第一轮执行结束；</li>
+<li>执行微任务队列，打印出第一个Promise的resolve结果：4；</li>
+<li>开始执行宏任务队列，执行第一个定时器，打印出2；</li>
+<li>此时没有微任务，继续执行宏任务中的第二个定时器，首先打印出5，遇到Promise，首选打印出6，遇到resolve，将其加入到微任务队列；</li>
+<li>执行微任务队列，打印出6；</li>
+<li>执行宏任务队列中的最后一个定时器，打印出7。</li>
+</ol>
+<h3 id="29-代码输出结果"><a href="#29-代码输出结果" class="headerlink" title="29. 代码输出结果"></a>29. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">1</span>);
+    
+<span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">2</span>);
+  <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>().<span class="hljs-title function_">then</span>(<span class="hljs-function">() =&gt;</span> &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">3</span>)
+  &#125;);
+&#125;);
+
+<span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> &#123;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">4</span>)
+  <span class="hljs-title function_">resolve</span>(<span class="hljs-number">5</span>)
+&#125;).<span class="hljs-title function_">then</span>(<span class="hljs-function">(<span class="hljs-params">data</span>) =&gt;</span> &#123;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(data);
+&#125;)
+
+<span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">6</span>);
+&#125;)
+
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">7</span>);</code></pre></div>
+
+<p>代码输出结果如下：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-number">1</span>
+<span class="hljs-number">4</span>
+<span class="hljs-number">7</span>
+<span class="hljs-number">5</span>
+<span class="hljs-number">2</span>
+<span class="hljs-number">3</span>
+<span class="hljs-number">6</span></code></pre></div>
+
+<p>代码执行过程如下：</p>
+<ol>
+<li>首先执行scrip代码，打印出1；</li>
+<li>遇到第一个定时器setTimeout，将其加入到宏任务队列；</li>
+<li>遇到Promise，执行里面的同步代码，打印出4，遇到resolve，将其加入到微任务队列；</li>
+<li>遇到第二个定时器setTimeout，将其加入到红任务队列；</li>
+<li>执行script代码，打印出7，至此第一轮执行完成；</li>
+<li>指定微任务队列中的代码，打印出resolve的结果：5；</li>
+<li>执行宏任务中的第一个定时器setTimeout，首先打印出2，然后遇到 Promise.resolve().then()，将其加入到微任务队列；</li>
+<li>执行完这个宏任务，就开始执行微任务队列，打印出3；</li>
+<li>继续执行宏任务队列中的第二个定时器，打印出6。</li>
+</ol>
+<h3 id="30-代码输出结果"><a href="#30-代码输出结果" class="headerlink" title="30. 代码输出结果"></a>30. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>().<span class="hljs-title function_">then</span>(<span class="hljs-function">() =&gt;</span> &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;1&#x27;</span>);
+    <span class="hljs-keyword">throw</span> <span class="hljs-string">&#x27;Error&#x27;</span>;
+&#125;).<span class="hljs-title function_">then</span>(<span class="hljs-function">() =&gt;</span> &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;2&#x27;</span>);
+&#125;).<span class="hljs-title function_">catch</span>(<span class="hljs-function">() =&gt;</span> &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;3&#x27;</span>);
+    <span class="hljs-keyword">throw</span> <span class="hljs-string">&#x27;Error&#x27;</span>;
+&#125;).<span class="hljs-title function_">then</span>(<span class="hljs-function">() =&gt;</span> &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;4&#x27;</span>);
+&#125;).<span class="hljs-title function_">catch</span>(<span class="hljs-function">() =&gt;</span> &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;5&#x27;</span>);
+&#125;).<span class="hljs-title function_">then</span>(<span class="hljs-function">() =&gt;</span> &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;6&#x27;</span>);
+&#125;);</code></pre></div>
+
+<p>执行结果如下：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-number">1</span> 
+<span class="hljs-number">3</span> 
+<span class="hljs-number">5</span> 
+<span class="hljs-number">6</span></code></pre></div>
+
+<p>在这道题目中，我们需要知道，无论是thne还是catch中，只要throw 抛出了错误，就会被catch捕获，如果没有throw出错误，就被继续执行后面的then。</p>
+<h3 id="31-代码输出结果"><a href="#31-代码输出结果" class="headerlink" title="31. 代码输出结果"></a>31. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-built_in">setTimeout</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">1</span>);
+&#125;, <span class="hljs-number">100</span>);
+
+<span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params">resolve</span>) &#123;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">2</span>);
+  <span class="hljs-title function_">resolve</span>();
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">3</span>);
+&#125;).<span class="hljs-title function_">then</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">4</span>);
+  <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resove, reject</span>) =&gt;</span> &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">5</span>);
+    <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span>  &#123;
+      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">6</span>);
+    &#125;, <span class="hljs-number">10</span>);
+  &#125;)
+&#125;);
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">7</span>);
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">8</span>);</code></pre></div>
+
+<p>输出结果为：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-number">2</span>
+<span class="hljs-number">3</span>
+<span class="hljs-number">7</span>
+<span class="hljs-number">8</span>
+<span class="hljs-number">4</span>
+<span class="hljs-number">5</span>
+<span class="hljs-number">6</span>
+<span class="hljs-number">1</span></code></pre></div>
+
+<p>代码执行过程如下：</p>
+<ol>
+<li>首先遇到定时器，将其加入到宏任务队列；</li>
+<li>遇到Promise，首先执行里面的同步代码，打印出2，遇到resolve，将其加入到微任务队列，执行后面同步代码，打印出3；</li>
+<li>继续执行script中的代码，打印出7和8，至此第一轮代码执行完成；</li>
+<li>执行微任务队列中的代码，首先打印出4，如遇到Promise，执行其中的同步代码，打印出5，遇到定时器，将其加入到宏任务队列中，此时宏任务队列中有两个定时器；</li>
+<li>执行宏任务队列中的代码，这里我们需要注意是的第一个定时器的时间为100ms，第二个定时器的时间为10ms，所以先执行第二个定时器，打印出6；</li>
+<li>此时微任务队列为空，继续执行宏任务队列，打印出1。</li>
+</ol>
+<p>做完这道题目，我们就需要格外注意，每个定时器的时间，并不是所有定时器的时间都为0哦。</p>
+<h2 id="二、this"><a href="#二、this" class="headerlink" title="二、this"></a>二、this</h2><h3 id="1-代码输出结果-1"><a href="#1-代码输出结果-1" class="headerlink" title="1. 代码输出结果"></a>1. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">foo</span>(<span class="hljs-params"></span>) &#123;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>( <span class="hljs-variable language_">this</span>.<span class="hljs-property">a</span> );
+&#125;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">doFoo</span>(<span class="hljs-params"></span>) &#123;
+  <span class="hljs-title function_">foo</span>();
+&#125;
+
+<span class="hljs-keyword">var</span> obj = &#123;
+  <span class="hljs-attr">a</span>: <span class="hljs-number">1</span>,
+  <span class="hljs-attr">doFoo</span>: doFoo
+&#125;;
+
+<span class="hljs-keyword">var</span> a = <span class="hljs-number">2</span>; 
+obj.<span class="hljs-title function_">doFoo</span>()</code></pre></div>
+
+<p>输出结果：2</p>
+<p>在Javascript中，this指向函数执行时的当前对象。在执行foo的时候，执行环境就是doFoo函数，执行环境为全局。所以，foo中的this是指向window的，所以会打印出2。</p>
+<h3 id="2-代码输出结果-1"><a href="#2-代码输出结果-1" class="headerlink" title="2. 代码输出结果"></a>2. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> a = <span class="hljs-number">10</span>
+<span class="hljs-keyword">var</span> obj = &#123;
+  <span class="hljs-attr">a</span>: <span class="hljs-number">20</span>,
+  <span class="hljs-attr">say</span>: <span class="hljs-function">() =&gt;</span> &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">a</span>)
+  &#125;
+&#125;
+obj.<span class="hljs-title function_">say</span>() 
+
+<span class="hljs-keyword">var</span> anotherObj = &#123; <span class="hljs-attr">a</span>: <span class="hljs-number">30</span> &#125; 
+obj.<span class="hljs-property">say</span>.<span class="hljs-title function_">apply</span>(anotherObj)</code></pre></div>
+
+<p>输出结果：10  10</p>
+<p>我么知道，箭头函数时不绑定this的，它的this来自原其父级所处的上下文，所以首先会打印全局中的 a 的值10。后面虽然让say方法指向了另外一个对象，但是仍不能改变箭头函数的特性，它的this仍然是指向全局的，所以依旧会输出10。</p>
+<p>但是，如果是普通函数，那么就会有完全不一样的结果：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> a = <span class="hljs-number">10</span>  
+<span class="hljs-keyword">var</span> obj = &#123;  
+  <span class="hljs-attr">a</span>: <span class="hljs-number">20</span>,  
+  <span class="hljs-title function_">say</span>(<span class="hljs-params"></span>)&#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">a</span>)  
+  &#125;  
+&#125;  
+obj.<span class="hljs-title function_">say</span>()   
+<span class="hljs-keyword">var</span> anotherObj=&#123;<span class="hljs-attr">a</span>:<span class="hljs-number">30</span>&#125;   
+obj.<span class="hljs-property">say</span>.<span class="hljs-title function_">apply</span>(anotherObj)</code></pre></div>
+
+<p>输出结果：20 30</p>
+<p>这时，say方法中的this就会指向他所在的对象，输出其中的a的值。</p>
+<h3 id="3-代码输出结果-1"><a href="#3-代码输出结果-1" class="headerlink" title="3. 代码输出结果"></a>3. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">a</span>(<span class="hljs-params"></span>) &#123;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>);
+&#125;
+a.<span class="hljs-title function_">call</span>(<span class="hljs-literal">null</span>);</code></pre></div>
+
+<p>打印结果：window对象</p>
+<p>根据ECMAScript262规范规定：如果第一个参数传入的对象调用者是null或者undefined，call方法将把全局对象（浏览器上是window对象）作为this的值。所以，不管传入null 还是 undefined，其this都是全局对象window。所以，在浏览器上答案是输出 window 对象。</p>
+<p>要注意的是，在严格模式中，null 就是 null，undefined 就是 undefined：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-meta">&#x27;use strict&#x27;</span>;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">a</span>(<span class="hljs-params"></span>) &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>);
+&#125;
+a.<span class="hljs-title function_">call</span>(<span class="hljs-literal">null</span>); <span class="hljs-comment">// null</span>
+a.<span class="hljs-title function_">call</span>(<span class="hljs-literal">undefined</span>); <span class="hljs-comment">// undefined</span></code></pre></div>
+
+<h3 id="4-代码输出结果-1"><a href="#4-代码输出结果-1" class="headerlink" title="4. 代码输出结果"></a>4. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> obj = &#123; 
+  name : <span class="hljs-string">&#x27;cuggz&#x27;</span>, 
+  fun : <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123; 
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span>); 
+  &#125; 
+&#125; 
+obj.<span class="hljs-title function_">fun</span>()     <span class="hljs-comment">// cuggz</span>
+<span class="hljs-keyword">new</span> obj.<span class="hljs-title function_">fun</span>() <span class="hljs-comment">// undefined</span></code></pre></div>
+
+<p>使用new构造函数时，其this指向的是全局环境window。</p>
+<h3 id="6-代码输出结果-1"><a href="#6-代码输出结果-1" class="headerlink" title="6. 代码输出结果"></a>6. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> obj = &#123;
+   <span class="hljs-attr">say</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;
+     <span class="hljs-keyword">var</span> <span class="hljs-title function_">f1</span> = (<span class="hljs-params"></span>) =&gt;  &#123;
+       <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;1111&quot;</span>, <span class="hljs-variable language_">this</span>);
+     &#125;
+     <span class="hljs-title function_">f1</span>();
+   &#125;,
+   <span class="hljs-attr">pro</span>: &#123;
+     <span class="hljs-attr">getPro</span>:<span class="hljs-function">() =&gt;</span>  &#123;
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>);
+     &#125;
+   &#125;
+&#125;
+<span class="hljs-keyword">var</span> o = obj.<span class="hljs-property">say</span>;
+<span class="hljs-title function_">o</span>();
+obj.<span class="hljs-title function_">say</span>();
+obj.<span class="hljs-property">pro</span>.<span class="hljs-title function_">getPro</span>();</code></pre></div>
+
+<p>输出结果：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-number">1111</span> <span class="hljs-variable language_">window</span>对象
+<span class="hljs-number">1111</span> obj对象
+<span class="hljs-variable language_">window</span>对象</code></pre></div>
+
+<p><strong>解析：</strong></p>
+<ol>
+<li>o()，o是在全局执行的，而f1是箭头函数，它是没有绑定this的，它的this指向其父级的this，其父级say方法的this指向的是全局作用域，所以会打印出window；</li>
+<li>obj.say()，谁调用say，say 的this就指向谁，所以此时this指向的是obj对象；</li>
+<li>obj.pro.getPro()，我们知道，箭头函数时不绑定this的，getPro处于pro中，而对象不构成单独的作用域，所以箭头的函数的this就指向了全局作用域window。</li>
+</ol>
+<h3 id="7-代码输出结果-1"><a href="#7-代码输出结果-1" class="headerlink" title="7. 代码输出结果"></a>7. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> myObject = &#123;
+    <span class="hljs-attr">foo</span>: <span class="hljs-string">&quot;bar&quot;</span>,
+    <span class="hljs-attr">func</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;
+        <span class="hljs-keyword">var</span> self = <span class="hljs-variable language_">this</span>;
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">foo</span>);  
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(self.<span class="hljs-property">foo</span>);  
+        (<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;
+            <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">foo</span>);  
+            <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(self.<span class="hljs-property">foo</span>);  
+        &#125;());
+    &#125;
+&#125;;
+myObject.<span class="hljs-title function_">func</span>();</code></pre></div>
+
+<p>输出结果：bar bar undefined bar</p>
+<p><strong>解析：</strong></p>
+<ol>
+<li>首先func是由myObject调用的，this指向myObject。又因为var self &#x3D; this;所以self指向myObject。</li>
+<li>这个立即执行匿名函数表达式是由window调用的，this指向window 。立即执行匿名函数的作用域处于myObject.func的作用域中，在这个作用域找不到self变量，沿着作用域链向上查找self变量，找到了指向 myObject对象的self。</li>
+</ol>
+<h3 id="8-代码输出问题"><a href="#8-代码输出问题" class="headerlink" title="8. 代码输出问题"></a>8. 代码输出问题</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-variable language_">window</span>.<span class="hljs-property">number</span> = <span class="hljs-number">2</span>;
+<span class="hljs-keyword">var</span> obj = &#123;
+ <span class="hljs-attr">number</span>: <span class="hljs-number">3</span>,
+ <span class="hljs-attr">db1</span>: (<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;
+   <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>);
+   <span class="hljs-variable language_">this</span>.<span class="hljs-property">number</span> *= <span class="hljs-number">4</span>;
+   <span class="hljs-keyword">return</span> <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;
+     <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>);
+     <span class="hljs-variable language_">this</span>.<span class="hljs-property">number</span> *= <span class="hljs-number">5</span>;
+   &#125;
+ &#125;)()
+&#125;
+<span class="hljs-keyword">var</span> db1 = obj.<span class="hljs-property">db1</span>;
+<span class="hljs-title function_">db1</span>();
+obj.<span class="hljs-title function_">db1</span>();
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(obj.<span class="hljs-property">number</span>);     <span class="hljs-comment">// 15</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">window</span>.<span class="hljs-property">number</span>);  <span class="hljs-comment">// 40</span></code></pre></div>
+
+<p>这道题目看清起来有点乱，但是实际上是考察this指向的:</p>
+<ol>
+<li>执行db1()时，this指向全局作用域，所以window.number * 4 &#x3D; 8，然后执行匿名函数， 所以window.number * 5 &#x3D; 40；</li>
+<li>执行obj.db1();时，this指向obj对象，执行匿名函数，所以obj.numer * 5 &#x3D; 15。</li>
+</ol>
+<h3 id="9-代码输出结果-1"><a href="#9-代码输出结果-1" class="headerlink" title="9. 代码输出结果"></a>9. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> length = <span class="hljs-number">10</span>;
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">fn</span>(<span class="hljs-params"></span>) &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">length</span>);
+&#125;
+ 
+<span class="hljs-keyword">var</span> obj = &#123;
+  <span class="hljs-attr">length</span>: <span class="hljs-number">5</span>,
+  <span class="hljs-attr">method</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params">fn</span>) &#123;
+    <span class="hljs-title function_">fn</span>();
+    <span class="hljs-variable language_">arguments</span>[<span class="hljs-number">0</span>]();
+  &#125;
+&#125;;
+ 
+obj.<span class="hljs-title function_">method</span>(fn, <span class="hljs-number">1</span>);</code></pre></div>
+
+<p>输出结果： 10 2</p>
+<p><strong>解析：</strong></p>
+<ol>
+<li>第一次执行fn()，this指向window对象，输出10。</li>
+<li>第二次执行arguments<a href="https://link.juejin.cn/?target=">0</a>，相当于arguments调用方法，this指向arguments，而这里传了两个参数，故输出arguments长度为2。</li>
+</ol>
+<h3 id="10-代码输出结果-1"><a href="#10-代码输出结果-1" class="headerlink" title="10. 代码输出结果"></a>10. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> a = <span class="hljs-number">1</span>;
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">printA</span>(<span class="hljs-params"></span>)&#123;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">a</span>);
+&#125;
+<span class="hljs-keyword">var</span> obj=&#123;
+  <span class="hljs-attr">a</span>:<span class="hljs-number">2</span>,
+  <span class="hljs-attr">foo</span>:printA,
+  <span class="hljs-attr">bar</span>:<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;
+    <span class="hljs-title function_">printA</span>();
+  &#125;
+&#125;
+
+obj.<span class="hljs-title function_">foo</span>(); <span class="hljs-comment">// 2</span>
+obj.<span class="hljs-title function_">bar</span>(); <span class="hljs-comment">// 1</span>
+<span class="hljs-keyword">var</span> foo = obj.<span class="hljs-property">foo</span>;
+<span class="hljs-title function_">foo</span>(); <span class="hljs-comment">// 1</span></code></pre></div>
+
+<p>输出结果： 2 1 1</p>
+<p><strong>解析：</strong></p>
+<ol>
+<li>obj.foo()，foo 的this指向obj对象，所以a会输出2；</li>
+<li>obj.bar()，printA在bar方法中执行，所以此时printA的this指向的是window，所以会输出1；</li>
+<li>foo()，foo是在全局对象中执行的，所以其this指向的是window，所以会输出1；</li>
+</ol>
+<h3 id="11-代码输出结果-1"><a href="#11-代码输出结果-1" class="headerlink" title="11. 代码输出结果"></a>11. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> x = <span class="hljs-number">3</span>;
+<span class="hljs-keyword">var</span> y = <span class="hljs-number">4</span>;
+<span class="hljs-keyword">var</span> obj = &#123;
+    <span class="hljs-attr">x</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">y</span>: <span class="hljs-number">6</span>,
+    <span class="hljs-attr">getX</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;
+        <span class="hljs-keyword">var</span> x = <span class="hljs-number">5</span>;
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;
+            <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">x</span>;
+        &#125;();
+    &#125;,
+    <span class="hljs-attr">getY</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;
+        <span class="hljs-keyword">var</span> y = <span class="hljs-number">7</span>;
+        <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">y</span>;
+    &#125;
+&#125;
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(obj.<span class="hljs-title function_">getX</span>()) <span class="hljs-comment">// 3</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(obj.<span class="hljs-title function_">getY</span>()) <span class="hljs-comment">// 6</span></code></pre></div>
+
+<p>输出结果：3  6</p>
+<p><strong>解析：</strong></p>
+<ol>
+<li>我们知道，匿名函数的this是指向全局对象的，所以this指向window，会打印出3；</li>
+<li>getY是由obj调用的，所以其this指向的是obj对象，会打印出6。</li>
+</ol>
+<h3 id="12-代码输出结果-1"><a href="#12-代码输出结果-1" class="headerlink" title="12. 代码输出结果"></a>12. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> a = <span class="hljs-number">10</span>; 
+<span class="hljs-keyword">var</span> obt = &#123; 
+  <span class="hljs-attr">a</span>: <span class="hljs-number">20</span>, 
+  <span class="hljs-attr">fn</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123; 
+    <span class="hljs-keyword">var</span> a = <span class="hljs-number">30</span>; 
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">a</span>)
+  &#125; 
+&#125;
+obt.<span class="hljs-title function_">fn</span>();  <span class="hljs-comment">// 20</span>
+obt.<span class="hljs-property">fn</span>.<span class="hljs-title function_">call</span>(); <span class="hljs-comment">// 10</span>
+(obt.<span class="hljs-property">fn</span>)(); <span class="hljs-comment">// 20</span></code></pre></div>
+
+<p>输出结果： 20  10  20</p>
+<p><strong>解析：</strong></p>
+<ol>
+<li>obt.fn()，fn是由obt调用的，所以其this指向obt对象，会打印出20；</li>
+<li>obt.fn.call()，这里call的参数啥都没写，就表示null，我们知道如果call的参数为undefined或null，那么this就会指向全局对象this，所以会打印出 10；</li>
+<li>(obt.fn)()， 这里给表达式加了括号，而括号的作用是改变表达式的运算顺序，而在这里加与不加括号并无影响；相当于  obt.fn()，所以会打印出 20；</li>
+</ol>
+<h3 id="13-代码输出结果-1"><a href="#13-代码输出结果-1" class="headerlink" title="13. 代码输出结果"></a>13. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">a</span>(<span class="hljs-params">xx</span>)&#123;
+  <span class="hljs-variable language_">this</span>.<span class="hljs-property">x</span> = xx;
+  <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>
+&#125;;
+<span class="hljs-keyword">var</span> x = <span class="hljs-title function_">a</span>(<span class="hljs-number">5</span>);
+<span class="hljs-keyword">var</span> y = <span class="hljs-title function_">a</span>(<span class="hljs-number">6</span>);
+
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(x.<span class="hljs-property">x</span>)  <span class="hljs-comment">// undefined</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(y.<span class="hljs-property">x</span>)  <span class="hljs-comment">// 6</span></code></pre></div>
+
+<p>输出结果： undefined  6</p>
+<p><strong>解析：</strong></p>
+<ol>
+<li>最关键的就是var x &#x3D; a(5)，函数a是在全局作用域调用，所以函数内部的this指向window对象。<strong>所以 this.x &#x3D; 5 就相当于：window.x &#x3D; 5。</strong>之后 return this，也就是说 var x &#x3D; a(5) 中的x变量的值是window，这里的x将函数内部的x的值覆盖了。然后执行console.log(x.x)， 也就是console.log(window.x)，而window对象中没有x属性，所以会输出undefined。</li>
+<li>当指向y.x时，会给全局变量中的x赋值为6，所以会打印出6。</li>
+</ol>
+<h3 id="14-代码输出结果-1"><a href="#14-代码输出结果-1" class="headerlink" title="14. 代码输出结果"></a>14. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">foo</span>(<span class="hljs-params">something</span>)&#123;
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">a</span> = something
+&#125;
+
+<span class="hljs-keyword">var</span> obj1 = &#123;
+    <span class="hljs-attr">foo</span>: foo
+&#125;
+
+<span class="hljs-keyword">var</span> obj2 = &#123;&#125;
+
+obj1.<span class="hljs-title function_">foo</span>(<span class="hljs-number">2</span>); 
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(obj1.<span class="hljs-property">a</span>); <span class="hljs-comment">// 2</span>
+
+obj1.<span class="hljs-property">foo</span>.<span class="hljs-title function_">call</span>(obj2, <span class="hljs-number">3</span>);
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(obj2.<span class="hljs-property">a</span>); <span class="hljs-comment">// 3</span>
+
+<span class="hljs-keyword">var</span> bar = <span class="hljs-keyword">new</span> obj1.<span class="hljs-title function_">foo</span>(<span class="hljs-number">4</span>)
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(obj1.<span class="hljs-property">a</span>); <span class="hljs-comment">// 2</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(bar.<span class="hljs-property">a</span>); <span class="hljs-comment">// 4</span></code></pre></div>
+
+<p>输出结果： 2  3  2  4</p>
+<p><strong>解析：</strong></p>
+<ol>
+<li>首先执行obj1.foo(2); 会在obj中添加a属性，其值为2。之后执行obj1.a，a是右obj1调用的，所以this指向obj，打印出2；</li>
+<li>执行 obj1.foo.call(obj2, 3) 时，会将foo的this指向obj2，后面就和上面一样了，所以会打印出3；</li>
+<li>obj1.a会打印出2；</li>
+<li>最后就是考察this绑定的优先级了，new 绑定是比隐式绑定优先级高，所以会输出4。</li>
+</ol>
+<h3 id="15-代码输出结果-1"><a href="#15-代码输出结果-1" class="headerlink" title="15. 代码输出结果"></a>15. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">foo</span>(<span class="hljs-params">something</span>)&#123;
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">a</span> = something
+&#125;
+
+<span class="hljs-keyword">var</span> obj1 = &#123;&#125;
+
+<span class="hljs-keyword">var</span> bar = foo.<span class="hljs-title function_">bind</span>(obj1);
+<span class="hljs-title function_">bar</span>(<span class="hljs-number">2</span>);
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(obj1.<span class="hljs-property">a</span>); <span class="hljs-comment">// 2</span>
+
+<span class="hljs-keyword">var</span> baz = <span class="hljs-keyword">new</span> <span class="hljs-title function_">bar</span>(<span class="hljs-number">3</span>);
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(obj1.<span class="hljs-property">a</span>); <span class="hljs-comment">// 2</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(baz.<span class="hljs-property">a</span>); <span class="hljs-comment">// 3</span></code></pre></div>
+
+<p>输出结果： 2  2  3</p>
+<p>这道题目和上面题目差不多，主要都是考察this绑定的优先级。记住以下结论即可：<strong>this绑定的优先级：new绑定 &gt; 显式绑定 &gt; 隐式绑定 &gt; 默认绑定。</strong></p>
+<h2 id="三、作用域-amp-变量提升-amp-闭包"><a href="#三、作用域-amp-变量提升-amp-闭包" class="headerlink" title="三、作用域&amp;变量提升&amp;闭包"></a>三、作用域&amp;变量提升&amp;闭包</h2><h3 id="1-代码输出结果-2"><a href="#1-代码输出结果-2" class="headerlink" title="1. 代码输出结果"></a>1. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript">(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;
+   <span class="hljs-keyword">var</span> x = y = <span class="hljs-number">1</span>;
+&#125;)();
+<span class="hljs-keyword">var</span> z;
+
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(y); <span class="hljs-comment">// 1</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(z); <span class="hljs-comment">// undefined</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(x); <span class="hljs-comment">// Uncaught ReferenceError: x is not defined</span></code></pre></div>
+
+<p>这段代码的关键在于：var x &#x3D; y &#x3D; 1; 实际上这里是从右往左执行的，首先执行y &#x3D; 1, 因为y没有使用var声明，所以它是一个全局变量，然后第二步是将y赋值给x，讲一个全局变量赋值给了一个局部变量，最终，x是一个局部变量，y是一个全局变量，所以打印x是报错。</p>
+<h3 id="2-代码输出结果-2"><a href="#2-代码输出结果-2" class="headerlink" title="2. 代码输出结果"></a>2. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> a, b
+(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;
+   <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(a);
+   <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(b);
+   <span class="hljs-keyword">var</span> a = (b = <span class="hljs-number">3</span>);
+   <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(a);
+   <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(b);   
+&#125;)()
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(a);
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(b);</code></pre></div>
+
+<p>输出结果：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-literal">undefined</span> 
+<span class="hljs-literal">undefined</span> 
+<span class="hljs-number">3</span> 
+<span class="hljs-number">3</span> 
+<span class="hljs-literal">undefined</span> 
+<span class="hljs-number">3</span></code></pre></div>
+
+<p>这个题目和上面题目考察的知识点类似，b赋值为3，b此时是一个全局变量，而将3赋值给a，a是一个局部变量，所以最后打印的时候，a仍旧是undefined。</p>
+<h3 id="3-代码输出结果-2"><a href="#3-代码输出结果-2" class="headerlink" title="3. 代码输出结果"></a>3. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> friendName = <span class="hljs-string">&#x27;World&#x27;</span>;
+(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;
+  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> friendName === <span class="hljs-string">&#x27;undefined&#x27;</span>) &#123;
+    <span class="hljs-keyword">var</span> friendName = <span class="hljs-string">&#x27;Jack&#x27;</span>;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;Goodbye &#x27;</span> + friendName);
+  &#125; <span class="hljs-keyword">else</span> &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;Hello &#x27;</span> + friendName);
+  &#125;
+&#125;)();</code></pre></div>
+
+<p>输出结果：Goodbye Jack</p>
+<p>我们知道，在 JavaScript中， Function 和 var 都会被提升（变量提升），所以上面的代码就相当于：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> name = <span class="hljs-string">&#x27;World!&#x27;</span>;
+(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;
+    <span class="hljs-keyword">var</span> name;
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> name === <span class="hljs-string">&#x27;undefined&#x27;</span>) &#123;
+        name = <span class="hljs-string">&#x27;Jack&#x27;</span>;
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;Goodbye &#x27;</span> + name);
+    &#125; <span class="hljs-keyword">else</span> &#123;
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;Hello &#x27;</span> + name);
+    &#125;
+&#125;)();</code></pre></div>
+
+<p>这样，答案就一目了然了。</p>
+<h3 id="4-代码输出结果-2"><a href="#4-代码输出结果-2" class="headerlink" title="4. 代码输出结果"></a>4. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">fn1</span>(<span class="hljs-params"></span>)&#123;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;fn1&#x27;</span>)
+&#125;
+<span class="hljs-keyword">var</span> fn2
+ 
+<span class="hljs-title function_">fn1</span>()
+<span class="hljs-title function_">fn2</span>()
+ 
+fn2 = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;fn2&#x27;</span>)
+&#125;
+ 
+<span class="hljs-title function_">fn2</span>()</code></pre></div>
+
+<p>输出结果：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript">fn1
+<span class="hljs-title class_">Uncaught</span> <span class="hljs-title class_">TypeError</span>: fn2 is not a <span class="hljs-keyword">function</span>
+fn2</code></pre></div>
+
+<p>这里也是在考察变量提升，关键在于第一个fn2()，这时fn2仍是一个undefined的变量，所以会报错fn2不是一个函数。</p>
+<h3 id="5-代码输出结果-1"><a href="#5-代码输出结果-1" class="headerlink" title="5. 代码输出结果"></a>5. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">a</span>(<span class="hljs-params"></span>) &#123;
+    <span class="hljs-keyword">var</span> temp = <span class="hljs-number">10</span>;
+    <span class="hljs-keyword">function</span> <span class="hljs-title function_">b</span>(<span class="hljs-params"></span>) &#123;
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(temp); <span class="hljs-comment">// 10</span>
+    &#125;
+    <span class="hljs-title function_">b</span>();
+&#125;
+<span class="hljs-title function_">a</span>();
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">a</span>(<span class="hljs-params"></span>) &#123;
+    <span class="hljs-keyword">var</span> temp = <span class="hljs-number">10</span>;
+    <span class="hljs-title function_">b</span>();
+&#125;
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">b</span>(<span class="hljs-params"></span>) &#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(temp); <span class="hljs-comment">// 报错 Uncaught ReferenceError: temp is not defined</span>
+&#125;
+<span class="hljs-title function_">a</span>();</code></pre></div>
+
+<p>在上面的两段代码中，第一段是可以正常输出，这个应该没啥问题，关键在于第二段代码，它会报错Uncaught ReferenceError: temp is not defined。这时因为在b方法执行时，temp 的值为undefined。</p>
+<h3 id="6-代码输出结果-2"><a href="#6-代码输出结果-2" class="headerlink" title="6. 代码输出结果"></a>6. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> a=<span class="hljs-number">3</span>;
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">c</span>(<span class="hljs-params"></span>)&#123;
+   <span class="hljs-title function_">alert</span>(a);
+&#125;
+(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;
+ <span class="hljs-keyword">var</span> a=<span class="hljs-number">4</span>;
+ <span class="hljs-title function_">c</span>();
+&#125;)();</code></pre></div>
+
+<p>js中变量的作用域链与定义时的环境有关，与执行时无关。执行环境只会改变this、传递的参数、全局变量等</p>
+<h3 id="7-代码输出问题"><a href="#7-代码输出问题" class="headerlink" title="7.  代码输出问题"></a>7.  代码输出问题</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">fun</span>(<span class="hljs-params">n, o</span>) &#123;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(o)
+  <span class="hljs-keyword">return</span> &#123;
+    <span class="hljs-attr">fun</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params">m</span>)&#123;
+      <span class="hljs-keyword">return</span> <span class="hljs-title function_">fun</span>(m, n);
+    &#125;
+  &#125;;
+&#125;
+<span class="hljs-keyword">var</span> a = <span class="hljs-title function_">fun</span>(<span class="hljs-number">0</span>);  a.<span class="hljs-title function_">fun</span>(<span class="hljs-number">1</span>);  a.<span class="hljs-title function_">fun</span>(<span class="hljs-number">2</span>);  a.<span class="hljs-title function_">fun</span>(<span class="hljs-number">3</span>);
+<span class="hljs-keyword">var</span> b = <span class="hljs-title function_">fun</span>(<span class="hljs-number">0</span>).<span class="hljs-title function_">fun</span>(<span class="hljs-number">1</span>).<span class="hljs-title function_">fun</span>(<span class="hljs-number">2</span>).<span class="hljs-title function_">fun</span>(<span class="hljs-number">3</span>);
+<span class="hljs-keyword">var</span> c = <span class="hljs-title function_">fun</span>(<span class="hljs-number">0</span>).<span class="hljs-title function_">fun</span>(<span class="hljs-number">1</span>);  c.<span class="hljs-title function_">fun</span>(<span class="hljs-number">2</span>);  c.<span class="hljs-title function_">fun</span>(<span class="hljs-number">3</span>);</code></pre></div>
+
+<p>输出结果：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-literal">undefined</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>
+<span class="hljs-literal">undefined</span>  <span class="hljs-number">0</span>  <span class="hljs-number">1</span>  <span class="hljs-number">2</span>
+<span class="hljs-literal">undefined</span>  <span class="hljs-number">0</span>  <span class="hljs-number">1</span>  <span class="hljs-number">1</span></code></pre></div>
+
+<p>这是一道关于闭包的题目，对于fun方法，调用之后返回的是一个对象。我们知道，当调用函数的时候传入的实参比函数声明时指定的形参个数要少，剩下的形参都将设置为undefined值。所以 <code>console.log(o);</code> 会输出undefined。而a就是是fun(0)返回的那个对象。也就是说，函数fun中参数 n 的值是0，而返回的那个对象中，需要一个参数n，而这个对象的作用域中没有n，它就继续沿着作用域向上一级的作用域中寻找n，最后在函数fun中找到了n，n的值是0。了解了这一点，其他运算就很简单了，以此类推。</p>
+<h3 id="8-代码输出结果-1"><a href="#8-代码输出结果-1" class="headerlink" title="8. 代码输出结果"></a>8. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript">f = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;&#125;;   
+g = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;&#125;;   
+(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;   
+   <span class="hljs-keyword">if</span> (<span class="hljs-title function_">g</span>() &amp;&amp; [] == ![]) &#123;   
+      f = <span class="hljs-keyword">function</span> <span class="hljs-title function_">f</span>(<span class="hljs-params"></span>) &#123;<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;&#125;;   
+      <span class="hljs-keyword">function</span> <span class="hljs-title function_">g</span>(<span class="hljs-params"></span>) &#123;<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;&#125;   
+   &#125;   
+&#125;)();   
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title function_">f</span>());</code></pre></div>
+
+<p>输出结果： false</p>
+<p>这里首先定义了两个变量f和g，我们知道变量是可以重新赋值的。后面是一个匿名自执行函数，在 if 条件中调用了函数 g()，由于在匿名函数中，又重新定义了函数g，就覆盖了外部定义的变量g，所以，这里调用的是内部函数 g 方法，返回为 true。第一个条件通过，进入第二个条件。</p>
+<p>第二个条件是[] &#x3D;&#x3D; ![]，先看 ![] ，在 JavaScript 中，当用于布尔运算时，比如在这里，对象的非空引用被视为 true，空引用 null 则被视为 false。由于这里不是一个 null, 而是一个没有元素的数组，所以 [] 被视为 true, 而 ![] 的结果就是 false 了。当一个布尔值参与到条件运算的时候，true 会被看作 1, 而 false 会被看作 0。现在条件变成了 [] &#x3D;&#x3D; 0 的问题了，当一个对象参与条件比较的时候，它会被求值，求值的结果是数组成为一个字符串，[] 的结果就是 ‘’ ，而 ‘’ 会被当作 0 ，所以，条件成立。</p>
+<p>两个条件都成立，所以会执行条件中的代码， f 在定义是没有使用var，所以他是一个全局变量。因此，这里会通过闭包访问到外部的变量 f, 重新赋值，现在执行 f 函数返回值已经成为 false 了。而 g 则不会有这个问题，这里是一个函数内定义的 g，不会影响到外部的 g 函数。所以最后的结果就是 false。</p>
+<h2 id="四、原型-amp-继承"><a href="#四、原型-amp-继承" class="headerlink" title="四、原型&amp;继承"></a>四、原型&amp;继承</h2><h3 id="1-代码输出结果-3"><a href="#1-代码输出结果-3" class="headerlink" title="1. 代码输出结果"></a>1. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">Person</span>(<span class="hljs-params">name</span>) &#123;
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span> = name
+&#125;
+<span class="hljs-keyword">var</span> p2 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Person</span>(<span class="hljs-string">&#x27;king&#x27;</span>);
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(p2.<span class="hljs-property">__proto__</span>) <span class="hljs-comment">//Person.prototype</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(p2.<span class="hljs-property">__proto__</span>.<span class="hljs-property">__proto__</span>) <span class="hljs-comment">//Object.prototype</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(p2.<span class="hljs-property">__proto__</span>.<span class="hljs-property">__proto__</span>.<span class="hljs-property">__proto__</span>) <span class="hljs-comment">// null</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(p2.<span class="hljs-property">__proto__</span>.<span class="hljs-property">__proto__</span>.<span class="hljs-property">__proto__</span>.<span class="hljs-property">__proto__</span>)<span class="hljs-comment">//null后面没有了，报错</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(p2.<span class="hljs-property">__proto__</span>.<span class="hljs-property">__proto__</span>.<span class="hljs-property">__proto__</span>.<span class="hljs-property">__proto__</span>.<span class="hljs-property">__proto__</span>)<span class="hljs-comment">//null后面没有了，报错</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(p2.<span class="hljs-property">constructor</span>)<span class="hljs-comment">//Person</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(p2.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>)<span class="hljs-comment">//undefined p2是实例，没有prototype属性</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Person</span>.<span class="hljs-property">constructor</span>)<span class="hljs-comment">//Function 一个空函数</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Person</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>)<span class="hljs-comment">//打印出Person.prototype这个对象里所有的方法和属性</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Person</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">constructor</span>)<span class="hljs-comment">//Person</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Person</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">__proto__</span>)<span class="hljs-comment">// Object.prototype</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Person</span>.<span class="hljs-property">__proto__</span>) <span class="hljs-comment">//Function.prototype</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Function</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">__proto__</span>)<span class="hljs-comment">//Object.prototype</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Function</span>.<span class="hljs-property">__proto__</span>)<span class="hljs-comment">//Function.prototype</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Object</span>.<span class="hljs-property">__proto__</span>)<span class="hljs-comment">//Function.prototype</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Object</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">__proto__</span>)<span class="hljs-comment">//null</span></code></pre></div>
+
+<p>这道义题目考察原型、原型链的基础，记住就可以了。</p>
+<h3 id="2-代码输出结果-3"><a href="#2-代码输出结果-3" class="headerlink" title="2. 代码输出结果"></a>2. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-comment">// a</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">Foo</span> () &#123;
+ getName = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;
+   <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">1</span>);
+ &#125;
+ <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>;
+&#125;
+<span class="hljs-comment">// b</span>
+<span class="hljs-title class_">Foo</span>.<span class="hljs-property">getName</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;
+ <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">2</span>);
+&#125;
+<span class="hljs-comment">// c</span>
+<span class="hljs-title class_">Foo</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">getName</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;
+ <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">3</span>);
+&#125;
+<span class="hljs-comment">// d</span>
+<span class="hljs-keyword">var</span> getName = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;
+ <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">4</span>);
+&#125;
+<span class="hljs-comment">// e</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">getName</span> () &#123;
+ <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">5</span>);
+&#125;
+
+<span class="hljs-title class_">Foo</span>.<span class="hljs-title function_">getName</span>();           <span class="hljs-comment">// 2</span>
+<span class="hljs-title function_">getName</span>();               <span class="hljs-comment">// 4</span>
+<span class="hljs-title class_">Foo</span>().<span class="hljs-title function_">getName</span>();         <span class="hljs-comment">// 1</span>
+<span class="hljs-title function_">getName</span>();               <span class="hljs-comment">// 1 </span>
+<span class="hljs-keyword">new</span> <span class="hljs-title class_">Foo</span>.<span class="hljs-title function_">getName</span>();       <span class="hljs-comment">// 2</span>
+<span class="hljs-keyword">new</span> <span class="hljs-title class_">Foo</span>().<span class="hljs-title function_">getName</span>();     <span class="hljs-comment">// 3</span>
+<span class="hljs-keyword">new</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Foo</span>().<span class="hljs-title function_">getName</span>(); <span class="hljs-comment">// 3</span></code></pre></div>
+
+<p>输出结果：2  4  1  1  2  3  3</p>
+<p><strong>解析：</strong></p>
+<ol>
+<li><strong>Foo.getName()，</strong> Foo为一个函数对象，对象都可以有属性，b 处定义Foo的getName属性为函数，输出2；</li>
+<li><strong>getName()，</strong> 这里看d、e处，d为函数表达式，e为函数声明，两者区别在于变量提升，函数声明的 5 会被后边函数表达式的 4 覆盖；</li>
+<li>** Foo().getName()，** 这里要看a处，在Foo内部将全局的getName重新赋值为 console.log(1) 的函数，执行Foo()返回 this，这个this指向window，Foo().getName() 即为window.getName()，输出 1；</li>
+<li><strong>getName()，</strong> 上面3中，全局的getName已经被重新赋值，所以这里依然输出 1；</li>
+<li><strong>new Foo.getName()，</strong> 这里等价于 new (Foo.getName())，先执行 Foo.getName()，输出 2，然后new一个实例；</li>
+<li><strong>new Foo().getName()，</strong> 这 里等价于 (new Foo()).getName(), 先new一个Foo的实例，再执行这个实例的getName方法，但是这个实例本身没有这个方法，所以去原型链__protot__上边找，实例.<strong>protot</strong> &#x3D;&#x3D;&#x3D; Foo.prototype，所以输出 3；</li>
+<li><strong>new new Foo().getName()，</strong> 这里等价于new (new Foo().getName())，如上述6，先输出 3，然后new 一个 new Foo().getName() 的实例。</li>
+</ol>
+<h3 id="3-代码输出结果-3"><a href="#3-代码输出结果-3" class="headerlink" title="3. 代码输出结果"></a>3. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> F = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;&#125;;
+<span class="hljs-title class_">Object</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">a</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;a&#x27;</span>);
+&#125;;
+<span class="hljs-title class_">Function</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">b</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;b&#x27;</span>);
+&#125;
+<span class="hljs-keyword">var</span> f = <span class="hljs-keyword">new</span> <span class="hljs-title function_">F</span>();
+f.<span class="hljs-title function_">a</span>();
+f.<span class="hljs-title function_">b</span>();
+F.<span class="hljs-title function_">a</span>();
+F.<span class="hljs-title function_">b</span>()</code></pre></div>
+
+<p>输出结果：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript">a
+<span class="hljs-title class_">Uncaught</span> <span class="hljs-title class_">TypeError</span>: f.<span class="hljs-property">b</span> is not a <span class="hljs-keyword">function</span>
+a
+b</code></pre></div>
+
+<p><strong>解析：</strong></p>
+<ol>
+<li>f 并不是 Function 的实例，因为它本来就不是构造函数，调用的是 Function 原型链上的相关属性和方法，只能访问到 Object 原型链。所以 f.a() 输出 a ，而 f.b() 就报错了。</li>
+<li>F 是个构造函数，而 F 是构造函数 Function 的一个实例。因为 F instanceof Object &#x3D;&#x3D;&#x3D; true，F instanceof Function &#x3D;&#x3D;&#x3D; true，由此可以得出结论：F 是 Object 和 Function 两个的实例，即 F 能访问到 a， 也能访问到 b。所以 F.a() 输出 a ，F.b() 输出 b。</li>
+</ol>
+<h3 id="4-代码输出结果-3"><a href="#4-代码输出结果-3" class="headerlink" title="4. 代码输出结果"></a>4. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">Foo</span>(<span class="hljs-params"></span>)&#123;
+    <span class="hljs-title class_">Foo</span>.<span class="hljs-property">a</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">1</span>);
+    &#125;
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">a</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">2</span>)
+    &#125;
+&#125;
+
+<span class="hljs-title class_">Foo</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">a</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">3</span>);
+&#125;
+
+<span class="hljs-title class_">Foo</span>.<span class="hljs-property">a</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">4</span>);
+&#125;
+
+<span class="hljs-title class_">Foo</span>.<span class="hljs-title function_">a</span>();
+<span class="hljs-keyword">let</span> obj = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Foo</span>();
+obj.<span class="hljs-title function_">a</span>();
+<span class="hljs-title class_">Foo</span>.<span class="hljs-title function_">a</span>();</code></pre></div>
+
+<p>输出结果：4 2 1</p>
+<p><strong>解析：</strong></p>
+<ol>
+<li>Foo.a() 这个是调用 Foo 函数的静态方法 a，虽然 Foo 中有优先级更高的属性方法 a，但 Foo 此时没有被调用，所以此时输出 Foo 的静态方法 a 的结果：4</li>
+<li>let obj &#x3D; new Foo(); 使用了 new 方法调用了函数，返回了函数实例对象，此时 Foo 函数内部的属性方法初始化，原型链建立。</li>
+<li>obj.a() ; 调用 obj 实例上的方法 a，该实例上目前有两个 a 方法：一个是内部属性方法，另一个是原型上的方法。当这两者都存在时，首先查找 ownProperty ，如果没有才去原型链上找，所以调用实例上的 a 输出：2</li>
+<li>Foo.a() ; 根据第2步可知 Foo 函数内部的属性方法已初始化，覆盖了同名的静态方法，所以输出：1</li>
+</ol>
+<h3 id="5-代码输出结果-2"><a href="#5-代码输出结果-2" class="headerlink" title="5. 代码输出结果"></a>5. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">Dog</span>(<span class="hljs-params"></span>) &#123;
+  <span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span> = <span class="hljs-string">&#x27;puppy&#x27;</span>
+&#125;
+<span class="hljs-title class_">Dog</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">bark</span> = <span class="hljs-function">() =&gt;</span> &#123;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;woof!woof!&#x27;</span>)
+&#125;
+<span class="hljs-keyword">const</span> dog = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Dog</span>()
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Dog</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">constructor</span> === <span class="hljs-title class_">Dog</span> &amp;&amp; dog.<span class="hljs-property">constructor</span> === <span class="hljs-title class_">Dog</span> &amp;&amp; dog <span class="hljs-keyword">instanceof</span> <span class="hljs-title class_">Dog</span>)</code></pre></div>
+
+<p>输出结果：true</p>
+<p><strong>解析：</strong> 因为constructor是prototype上的属性，所以dog.constructor实际上就是指向Dog.prototype.constructor；constructor属性指向构造函数。instanceof而实际检测的是类型是否在实例的原型链上。</p>
+<p>constructor是prototype上的属性，这一点很容易被忽略掉。constructor和instanceof 的作用是不同的，感性地来说，constructor的限制比较严格，它只能严格对比对象的构造函数是不是指定的值；而instanceof比较松散，只要检测的类型在原型链上，就会返回true。</p>
+<h3 id="6-代码输出结果-3"><a href="#6-代码输出结果-3" class="headerlink" title="6. 代码输出结果"></a>6. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> A = &#123;<span class="hljs-attr">n</span>: <span class="hljs-number">4399</span>&#125;;
+<span class="hljs-keyword">var</span> B =  <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;<span class="hljs-variable language_">this</span>.<span class="hljs-property">n</span> = <span class="hljs-number">9999</span>&#125;;
+<span class="hljs-keyword">var</span> C =  <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;<span class="hljs-keyword">var</span> n = <span class="hljs-number">8888</span>&#125;;
+B.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span> = A;
+C.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span> = A;
+<span class="hljs-keyword">var</span> b = <span class="hljs-keyword">new</span> <span class="hljs-title function_">B</span>();
+<span class="hljs-keyword">var</span> c = <span class="hljs-keyword">new</span> <span class="hljs-title function_">C</span>();
+A.<span class="hljs-property">n</span>++
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(b.<span class="hljs-property">n</span>);
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(c.<span class="hljs-property">n</span>);</code></pre></div>
+
+<p>输出结果：9999  4400</p>
+<p><strong>解析：</strong></p>
+<ol>
+<li>console.log(b.n)，在查找b.n是首先查找 b 对象自身有没有 n 属性，如果没有会去原型（prototype）上查找，当执行var b &#x3D; new B()时，函数内部this.n&#x3D;9999(此时this指向 b) 返回b对象，b对象有自身的n属性，所以返回 9999。</li>
+<li>console.log(c.n)，同理，当执行var c &#x3D; new C()时，c对象没有自身的n属性，向上查找，找到原型 （prototype）上的 n 属性，因为 A.n++(此时对象A中的n为4400)， 所以返回4400。</li>
+</ol>
+<h3 id="7-代码输出问题-1"><a href="#7-代码输出问题-1" class="headerlink" title="7. 代码输出问题"></a>7. 代码输出问题</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">A</span>(<span class="hljs-params"></span>)&#123;
+&#125;
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">B</span>(<span class="hljs-params">a</span>)&#123;
+　　<span class="hljs-variable language_">this</span>.<span class="hljs-property">a</span> = a;
+&#125;
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">C</span>(<span class="hljs-params">a</span>)&#123;
+　　<span class="hljs-keyword">if</span>(a)&#123;
+<span class="hljs-variable language_">this</span>.<span class="hljs-property">a</span> = a;
+　　&#125;
+&#125;
+A.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">a</span> = <span class="hljs-number">1</span>;
+B.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">a</span> = <span class="hljs-number">1</span>;
+C.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">a</span> = <span class="hljs-number">1</span>;
+ 
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-keyword">new</span> <span class="hljs-title function_">A</span>().<span class="hljs-property">a</span>);
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-keyword">new</span> <span class="hljs-title function_">B</span>().<span class="hljs-property">a</span>);
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-keyword">new</span> <span class="hljs-title function_">C</span>(<span class="hljs-number">2</span>).<span class="hljs-property">a</span>);</code></pre></div>
+
+<p>输出结果：1  undefined  2</p>
+<p><strong>解析：</strong></p>
+<ol>
+<li>console.log(new A().a)，new A()为构造函数创建的对象，本身没有a属性，所以向它的原型去找，发现原型的a属性的属性值为1，故该输出值为1；</li>
+<li>console.log(new B().a)，ew B()为构造函数创建的对象，该构造函数有参数a，但该对象没有传参，故该输出值为undefined;</li>
+<li>console.log(new C(2).a)，new C()为构造函数创建的对象，该构造函数有参数a，且传的实参为2，执行函数内部，发现if为真，执行this.a &#x3D; 2,故属性a的值为2。</li>
+</ol>
+<h3 id="8-代码输出问题-1"><a href="#8-代码输出问题-1" class="headerlink" title="8 代码输出问题"></a>8 代码输出问题</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">Parent</span>(<span class="hljs-params"></span>) &#123;
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">a</span> = <span class="hljs-number">1</span>;
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">b</span> = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-variable language_">this</span>.<span class="hljs-property">a</span>];
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">c</span> = &#123; <span class="hljs-attr">demo</span>: <span class="hljs-number">5</span> &#125;;
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">show</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">a</span> , <span class="hljs-variable language_">this</span>.<span class="hljs-property">b</span> , <span class="hljs-variable language_">this</span>.<span class="hljs-property">c</span>.<span class="hljs-property">demo</span> );
+    &#125;
+&#125;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">Child</span>(<span class="hljs-params"></span>) &#123;
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">a</span> = <span class="hljs-number">2</span>;
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">change</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;
+        <span class="hljs-variable language_">this</span>.<span class="hljs-property">b</span>.<span class="hljs-title function_">push</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">a</span>);
+        <span class="hljs-variable language_">this</span>.<span class="hljs-property">a</span> = <span class="hljs-variable language_">this</span>.<span class="hljs-property">b</span>.<span class="hljs-property">length</span>;
+        <span class="hljs-variable language_">this</span>.<span class="hljs-property">c</span>.<span class="hljs-property">demo</span> = <span class="hljs-variable language_">this</span>.<span class="hljs-property">a</span>++;
+    &#125;
+&#125;
+
+<span class="hljs-title class_">Child</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Parent</span>();
+<span class="hljs-keyword">var</span> parent = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Parent</span>();
+<span class="hljs-keyword">var</span> child1 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Child</span>();
+<span class="hljs-keyword">var</span> child2 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Child</span>();
+child1.<span class="hljs-property">a</span> = <span class="hljs-number">11</span>;
+child2.<span class="hljs-property">a</span> = <span class="hljs-number">12</span>;
+parent.<span class="hljs-title function_">show</span>();
+child1.<span class="hljs-title function_">show</span>();
+child2.<span class="hljs-title function_">show</span>();
+child1.<span class="hljs-title function_">change</span>();
+child2.<span class="hljs-title function_">change</span>();
+parent.<span class="hljs-title function_">show</span>();
+child1.<span class="hljs-title function_">show</span>();
+child2.<span class="hljs-title function_">show</span>();</code></pre></div>
+
+<p>输出结果：</p>
+<div class="code-wrapper"><pre><code class="hljs javascript">parent.<span class="hljs-title function_">show</span>(); <span class="hljs-comment">// 1  [1,2,1] 5</span>
+
+child1.<span class="hljs-title function_">show</span>(); <span class="hljs-comment">// 11 [1,2,1] 5</span>
+child2.<span class="hljs-title function_">show</span>(); <span class="hljs-comment">// 12 [1,2,1] 5</span>
+
+parent.<span class="hljs-title function_">show</span>(); <span class="hljs-comment">// 1 [1,2,1] 5</span>
+
+child1.<span class="hljs-title function_">show</span>(); <span class="hljs-comment">// 5 [1,2,1,11,12] 5</span>
+
+child2.<span class="hljs-title function_">show</span>(); <span class="hljs-comment">// 6 [1,2,1,11,12] 5</span></code></pre></div>
+
+<p>这道题目值得神帝，他涉及到的知识点很多，例如<strong>this的指向、原型、原型链、类的继承、数据类型</strong>等。</p>
+<p><strong>解析：</strong></p>
+<ol>
+<li>parent.show()，可以直接获得所需的值，没啥好说的；</li>
+<li>child1.show()，<code>Child</code>的构造函数原本是指向<code>Child</code>的，题目显式将<code>Child</code>类的原型对象指向了<code>Parent</code>类的一个实例，需要注意<code>Child.prototype</code>指向的是<code>Parent</code>的实例<code>parent</code>，而不是指向<code>Parent</code>这个类。</li>
+<li>child2.show()，这个也没啥好说的；</li>
+<li>parent.show()，<code>parent</code>是一个<code>Parent</code>类的实例，<code>Child.prorotype</code>指向的是<code>Parent</code>类的另一个实例，两者在堆内存中互不影响，所以上述操作不影响<code>parent</code>实例，所以输出结果不变；</li>
+<li>child1.show()，<code>child1</code>执行了<code>change()</code>方法后，发生了怎样的变化呢?</li>
+</ol>
+<ul>
+<li><strong>this.b.push(this.a)，**由于this的动态指向特性，this.b会指向<code>Child.prototype</code>上的**b**数组,this.a会指向<code>child1</code>的</strong>a<strong>属性,所以<code>Child.prototype.b</code>变成了</strong>[1,2,1,11]**;</li>
+<li>**this.a &#x3D; this.b.length，*<em>这条语句中<code>this.a</code>和<code>this.b</code>的指向与上一句一致，故结果为<code>child1.a</code>变为*<em>4</em></em>;</li>
+<li><strong>this.c.demo &#x3D; this.a++，**由于<code>child1</code>自身属性并没有**c**这个属性，所以此处的<code>this.c</code>会指向<code>Child.prototype.c</code>，<code>this.a</code>值为</strong>4<strong>，为原始类型，故赋值操作时会直接赋值，<code>Child.prototype.c.demo</code>的结果为</strong>4<strong>，而<code>this.a</code>随后自增为</strong>5(4 + 1 &#x3D; 5)。**</li>
+</ul>
+<ol>
+<li><code>child2</code>执行了<code>change()</code>方法, 而<code>child2</code>和<code>child1</code>均是<code>Child</code>类的实例，所以他们的原型链指向同一个原型对象<code>Child.prototype</code>,也就是同一个<code>parent</code>实例，所以<code>child2.change()</code>中所有影响到原型对象的语句都会影响<code>child1</code>的最终输出结果。</li>
+</ol>
+<ul>
+<li><strong>this.b.push(this.a)，**由于this的动态指向特性，this.b会指向<code>Child.prototype</code>上的**b**数组,this.a会指向<code>child2</code>的</strong>a<strong>属性,所以<code>Child.prototype.b</code>变成了</strong>[1,2,1,11,12]**;</li>
+<li>**this.a &#x3D; this.b.length，*<em>这条语句中<code>this.a</code>和<code>this.b</code>的指向与上一句一致，故结果为<code>child2.a</code>变为*<em>5</em></em>;</li>
+<li><strong>this.c.demo &#x3D; this.a++，**由于<code>child2</code>自身属性并没有**c**这个属性，所以此处的<code>this.c</code>会指向<code>Child.prototype.c</code>，故执行结果为<code>Child.prototype.c.demo</code>的值变为<code>child2.a</code>的值</strong>5<strong>，而<code>child2.a</code>最终自增为</strong>6(5 + 1 &#x3D; 6)。**</li>
+</ul>
+<h3 id="9-代码输出结果-2"><a href="#9-代码输出结果-2" class="headerlink" title="9. 代码输出结果"></a>9. 代码输出结果</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">SuperType</span>(<span class="hljs-params"></span>)&#123;
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">property</span> = <span class="hljs-literal">true</span>;
+&#125;
+
+<span class="hljs-title class_">SuperType</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">getSuperValue</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;
+    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">property</span>;
+&#125;;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">SubType</span>(<span class="hljs-params"></span>)&#123;
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">subproperty</span> = <span class="hljs-literal">false</span>;
+&#125;
+
+<span class="hljs-title class_">SubType</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">SuperType</span>();
+<span class="hljs-title class_">SubType</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">getSubValue</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)&#123;
+    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">subproperty</span>;
+&#125;;
+
+<span class="hljs-keyword">var</span> instance = <span class="hljs-keyword">new</span> <span class="hljs-title class_">SubType</span>();
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(instance.<span class="hljs-title function_">getSuperValue</span>());</code></pre></div>
+
+<p>输出结果：true</p>
+<p>实际上，这段代码就是在实现原型链继承，SubType继承了SuperType，本质是重写了SubType的原型对象，代之以一个新类型的实例。SubType的原型被重写了，所以instance.constructor指向的是SuperType。具体如下： <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8823cf14d07040379eb890c09255c35d~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="image.png"></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/blog/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" class="category-chain-item">前端面试题</a>
+  
+  
+    <span>></span>
+    
+  <a href="/blog/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/javascript/" class="category-chain-item">javascript</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/blog/tags/javascript/">#javascript</a>
+      
+    </div>
+  
+</div>
+
+
+              
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/blog/interview-performance.html" title="面试题汇总之性能优化">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">面试题汇总之性能优化</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/blog/interview-HandwriteenCode.html" title="面试题汇总之手写代码">
+                        <span class="hidden-mobile">面试题汇总之手写代码</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>枫🍁川</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>前端小白</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+<script type="text/javascript" src="/js/click-love.js"></script>
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/blog/js/events.js" ></script>
+<script  src="/blog/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/blog/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/blog/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/blog/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<script src="/blog/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/blog/live2dw/assets/chitose.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
