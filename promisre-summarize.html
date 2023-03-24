@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/blog/img/maple_leaf.png">
-  <link rel="icon" href="/blog/img/maple_leaf.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/maple_leaf.png">
+  <link rel="icon" href="/img/maple_leaf.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,7 +19,7 @@
     <meta name="description" content="检验一下你是真的完全掌握了Promise？ 相信大家对**Promise都十分熟悉了吧，但你们想想，是不是就那么几个api，可是你真的了解Promise**吗？  本文就带大家彻底盘点Promise ~ Promise 简介Promise 是一种处理异步代码而不会陷入回调地狱的方式。 多年来，Promise 已成为语言的一部分(在ES2015中进行了标准化和引入)，并且最近变化更加集成，在ES20">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Promise 知识点总结">
-<meta property="og:url" content="https://destiny-yyc.github.io/promisre-summarize.html">
+<meta property="og:url" content="https://destiny-yyc.github.io/blog/promisre-summarize.html">
 <meta property="og:site_name" content="枫🍁川的博客">
 <meta property="og:description" content="检验一下你是真的完全掌握了Promise？ 相信大家对**Promise都十分熟悉了吧，但你们想想，是不是就那么几个api，可是你真的了解Promise**吗？  本文就带大家彻底盘点Promise ~ Promise 简介Promise 是一种处理异步代码而不会陷入回调地狱的方式。 多年来，Promise 已成为语言的一部分(在ES2015中进行了标准化和引入)，并且最近变化更加集成，在ES20">
 <meta property="og:locale" content="zh_CN">
@@ -67,12 +67,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/blog/css/main.css" />
+<link  rel="stylesheet" href="/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/blog/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/blog/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
 
 
@@ -81,15 +81,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"destiny-yyc.github.io","root":"/blog/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/blog/local-search.xml"};
+    var CONFIG = {"hostname":"destiny-yyc.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/blog/js/utils.js" ></script>
-  <script  src="/blog/js/color-schema.js" ></script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
   
 
 
@@ -106,7 +106,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/blog/">
+    <a class="navbar-brand" href="/">
       <strong>枫🍁川的博客</strong>
     </a>
 
@@ -125,7 +125,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/blog/archives/">
+              <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -137,7 +137,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/blog/categories/">
+              <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -149,7 +149,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/blog/tags/">
+              <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -161,7 +161,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/blog/about/">
+              <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -190,7 +190,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/blog/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -304,7 +304,7 @@
 <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;p3&#x27;</span>, p3)</code></pre></div>
 
 <p>输出结果：</p>
-<p><img src="https://s1.ax1x.com/2023/03/22/ppdtuy8.png" srcset="/blog/img/loading.gif" lazyload></p>
+<p><img src="https://s1.ax1x.com/2023/03/22/ppdtuy8.png" srcset="/img/loading.gif" lazyload></p>
 <p><strong>这里包含了四个知识点：</strong></p>
 <ol>
 <li>执行了<code>resolve</code>，Promise状态会变成<code>fulfilled</code>，即<strong>已完成状态</strong>。</li>
@@ -331,7 +331,7 @@ myPromise2.<span class="hljs-title function_">then</span>(<span class="hljs-func
 &#125;)</code></pre></div>
 
 <p>输出结果：</p>
-<p><img src="https://s1.ax1x.com/2023/03/23/ppwiAfI.png" srcset="/blog/img/loading.gif" lazyload></p>
+<p><img src="https://s1.ax1x.com/2023/03/23/ppwiAfI.png" srcset="/img/loading.gif" lazyload></p>
 <p><strong>这里包含了三个知识点：</strong></p>
 <ol>
 <li>Promise的初始化状态是<code>pending</code>。</li>
@@ -343,7 +343,7 @@ myPromise2.<span class="hljs-title function_">then</span>(<span class="hljs-func
 <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;myPromise =&gt;&quot;</span>, myPromise0)</code></pre></div>
 
 <p>输出结果：</p>
-<p><img src="https://s1.ax1x.com/2023/03/23/ppwkiRI.png" srcset="/blog/img/loading.gif" lazyload></p>
+<p><img src="https://s1.ax1x.com/2023/03/23/ppwkiRI.png" srcset="/img/loading.gif" lazyload></p>
 <p>这个里包含了一个知识点：</p>
 <ul>
 <li>规定必须给<code>Promise</code>对象传入一个执行函数，否则将会报错。</li>
@@ -698,7 +698,7 @@ promise
 <span class="hljs-comment">// 123</span></code></pre></div>
 
 <p>在浏览器中运行上面这段代码，等待两秒后，你会看到控制台正常打印”123”，并没有因为<code>someAsyncThing()</code>方法里的错误阻塞代码运行。</p>
-<p><img src="https://s1.ax1x.com/2023/03/23/ppwM0Et.png" srcset="/blog/img/loading.gif" lazyload></p>
+<p><img src="https://s1.ax1x.com/2023/03/23/ppwM0Et.png" srcset="/img/loading.gif" lazyload></p>
 <p>上面代码中，<code>someAsyncThing()</code>函数产生的 Promise 对象，内部有语法错误。浏览器运行到这一行，会打印出错误提示<code>ReferenceError: x is not defined</code>，但是不会退出进程、终止脚本执行，2 秒之后还是会输出123。这就是说，Promise 内部的错误不会影响到 Promise 外部的代码，通俗的说法就是“Promise 会吃掉错误”。</p>
 <h1 id="处理错误"><a href="#处理错误" class="headerlink" title="处理错误"></a>处理错误</h1><p>在上一章节的示例中，有个 <code>catch</code> 被附加到了 promise 链上。</p>
 <p>当 promise 链中的任何内容失败并引发错误或拒绝 promise 时，则控制权会转到链中最近的 <code>catch()</code> 语句。</p>
@@ -739,9 +739,9 @@ promise
 <p>如果你想在 <code>promise</code> 执行完毕后无论其结果怎样都做一些处理或清理时，<code>finally()</code> 方法可能是有用的。</p>
 <p>◾ 由于无法知道<code>promise</code>的最终状态，所以<code>finally</code>的回调函数中不接收任何参数，它仅用于无论最终结果如何都要执行的情况。</p>
 <p>◾ 与<code>Promise.resolve(2).then(() =&gt; &#123;&#125;, () =&gt; &#123;&#125;)</code> （resolved的结果为<code>undefined</code>）不同，<code>Promise.resolve(2).finally(() =&gt; &#123;&#125;)</code> resolved的结果为 <code>2</code>。</p>
-<p><img src="https://s1.ax1x.com/2023/03/23/ppwMD4f.png" srcset="/blog/img/loading.gif" lazyload></p>
+<p><img src="https://s1.ax1x.com/2023/03/23/ppwMD4f.png" srcset="/img/loading.gif" lazyload></p>
 <p>◾ 同样，<code>Promise.reject(3).then(() =&gt; &#123;&#125;, () =&gt; &#123;&#125;)</code> (fulfilled的结果为<code>undefined</code>), <code>Promise.reject(3).finally(() =&gt; &#123;&#125;)</code> rejected 的结果为 <code>3</code>。</p>
-<p><img src="https://s1.ax1x.com/2023/03/23/ppwM55V.png" srcset="/blog/img/loading.gif" lazyload></p>
+<p><img src="https://s1.ax1x.com/2023/03/23/ppwM55V.png" srcset="/img/loading.gif" lazyload></p>
 <h1 id="并发-promise-all"><a href="#并发-promise-all" class="headerlink" title="并发 promise.all()"></a>并发 promise.all()</h1><p>可以使用<code>Promise.all()</code>，<strong>发起多个并发请求</strong>，然后在所有 promise 都被解决后执行一些操作。</p>
 <div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">getUserAccount</span>(<span class="hljs-params"></span>) &#123;
   <span class="hljs-keyword">return</span> axios.<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;/user/12345&#x27;</span>);
@@ -812,9 +812,9 @@ promise
 
 <p>现代浏览器原生支持fetch，所以我们可以直接在浏览器上运行上面的代码：</p>
 <p>为了演示效果，这里<code>setTimeout</code>时间设小一点，可以看到定时器先完成，然后 <code>race()</code> 方法以定时器的结果执行了回调</p>
-<p><img src="https://s1.ax1x.com/2023/03/23/ppwQp8O.png" srcset="/blog/img/loading.gif" lazyload></p>
+<p><img src="https://s1.ax1x.com/2023/03/23/ppwQp8O.png" srcset="/img/loading.gif" lazyload></p>
 <p>把<code>setTimeout</code>设大一点，这次接口先请求完成，所以 <code>race()</code> 以接口的结果执行了回调</p>
-<p><img src="https://s1.ax1x.com/2023/03/23/ppwQiKH.png" srcset="/blog/img/loading.gif" lazyload></p>
+<p><img src="https://s1.ax1x.com/2023/03/23/ppwQiKH.png" srcset="/img/loading.gif" lazyload></p>
 <p>◾ 下面是一个例子，如果指定时间内没有获得结果，就将 Promise 的状态变为<code>reject</code>，否则变为<code>resolve</code>。</p>
 <div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> p = <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">race</span>([
   <span class="hljs-title function_">fetch</span>(<span class="hljs-string">&#x27;/resource-that-may-take-a-while&#x27;</span>),
@@ -856,7 +856,7 @@ allSettledPromise.<span class="hljs-title function_">then</span>(<span class="hl
 <span class="hljs-comment">// ]</span></code></pre></div>
 
 <p>上面代码中，<code>Promise.allSettled()</code>的返回值<code>allSettledPromise</code>，状态只可能变成<code>fulfilled</code>。它的监听函数接收到的参数是数组<code>results</code>。该数组的每个成员都是一个对象，对应传入<code>Promise.allSettled()</code>的两个 Promise 实例。每个对象都有<code>status</code>属性，该属性的值只可能是字符串<code>fulfilled</code>或字符串<code>rejected</code>。<code>fulfilled</code>时，对象有<code>value</code>属性，<code>rejected</code>时有<code>reason</code>属性，对应两种状态的返回值。</p>
-<p><img src="https://s1.ax1x.com/2023/03/23/ppwQuRS.png" srcset="/blog/img/loading.gif" lazyload></p>
+<p><img src="https://s1.ax1x.com/2023/03/23/ppwQuRS.png" srcset="/img/loading.gif" lazyload></p>
 <p>◾ 下面是返回值用法的例子。</p>
 <div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> promises = [ <span class="hljs-title function_">fetch</span>(<span class="hljs-string">&#x27;index.html&#x27;</span>), <span class="hljs-title function_">fetch</span>(<span class="hljs-string">&#x27;https://does-not-exist/&#x27;</span>) ];
 <span class="hljs-keyword">const</span> results = <span class="hljs-keyword">await</span> <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">allSettled</span>(promises);
@@ -936,12 +936,12 @@ allSettledPromise.<span class="hljs-title function_">then</span>(<span class="hl
     
       <span class="category-chain">
         
-  <a href="/blog/categories/javascript/" class="category-chain-item">javascript</a>
+  <a href="/categories/javascript/" class="category-chain-item">javascript</a>
   
   
     <span>></span>
     
-  <a href="/blog/categories/javascript/es6/" class="category-chain-item">es6</a>
+  <a href="/categories/javascript/es6/" class="category-chain-item">es6</a>
   
   
 
@@ -958,7 +958,7 @@ allSettledPromise.<span class="hljs-title function_">then</span>(<span class="hl
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/blog/tags/promise/">#promise</a>
+        <a href="/tags/promise/">#promise</a>
       
     </div>
   
@@ -972,7 +972,7 @@ allSettledPromise.<span class="hljs-title function_">then</span>(<span class="hl
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/blog/interview-vue.html" title="面试题汇总之Vue">
+                      <a href="/interview-vue.html" title="面试题汇总之Vue">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">面试题汇总之Vue</span>
                         <span class="visible-mobile">上一篇</span>
@@ -982,7 +982,7 @@ allSettledPromise.<span class="hljs-title function_">then</span>(<span class="hl
                   <article class="post-next col-6">
                     
                     
-                      <a href="/blog/interview-javascript.html" title="面试题汇总之React">
+                      <a href="/interview-javascript.html" title="面试题汇总之React">
                         <span class="hidden-mobile">面试题汇总之React</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -1133,8 +1133,8 @@ allSettledPromise.<span class="hljs-title function_">then</span>(<span class="hl
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/blog/js/events.js" ></script>
-<script  src="/blog/js/plugins.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -1156,7 +1156,7 @@ allSettledPromise.<span class="hljs-title function_">then</span>(<span class="hl
 
 
   
-    <script  src="/blog/js/img-lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -1228,7 +1228,7 @@ allSettledPromise.<span class="hljs-title function_">then</span>(<span class="hl
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/blog/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
 
   <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
@@ -1238,7 +1238,7 @@ allSettledPromise.<span class="hljs-title function_">then</span>(<span class="hl
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/blog/js/boot.js" ></script>
+<script  src="/js/boot.js" ></script>
 
 
   
@@ -1246,5 +1246,5 @@ allSettledPromise.<span class="hljs-title function_">then</span>(<span class="hl
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
-<script src="/blog/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/blog/live2dw/assets/chitose.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/chitose.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
 </html>

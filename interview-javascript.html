@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/blog/img/maple_leaf.png">
-  <link rel="icon" href="/blog/img/maple_leaf.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/maple_leaf.png">
+  <link rel="icon" href="/img/maple_leaf.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,7 +19,7 @@
     <meta name="description" content="一、数据类型1. JavaScript有哪些数据类型，它们的区别？JavaScript共有八种数据类型，分别是 **Undefined、Null、Boolean、Number、String、Object、Symbol、BigInt**。 其中 Symbol 和 BigInt 是ES6 中新增的数据类型：  Symbol 代表创建后独一无二且不可变的数据类型，它主要是为了解决可能出现的全局变量冲突">
 <meta property="og:type" content="article">
 <meta property="og:title" content="面试题汇总之React">
-<meta property="og:url" content="https://destiny-yyc.github.io/interview-javascript.html">
+<meta property="og:url" content="https://destiny-yyc.github.io/blog/interview-javascript.html">
 <meta property="og:site_name" content="枫🍁川的博客">
 <meta property="og:description" content="一、数据类型1. JavaScript有哪些数据类型，它们的区别？JavaScript共有八种数据类型，分别是 **Undefined、Null、Boolean、Number、String、Object、Symbol、BigInt**。 其中 Symbol 和 BigInt 是ES6 中新增的数据类型：  Symbol 代表创建后独一无二且不可变的数据类型，它主要是为了解决可能出现的全局变量冲突">
 <meta property="og:locale" content="zh_CN">
@@ -67,12 +67,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/blog/css/main.css" />
+<link  rel="stylesheet" href="/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/blog/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/blog/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
 
 
@@ -81,15 +81,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"destiny-yyc.github.io","root":"/blog/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/blog/local-search.xml"};
+    var CONFIG = {"hostname":"destiny-yyc.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/blog/js/utils.js" ></script>
-  <script  src="/blog/js/color-schema.js" ></script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
   
 
 
@@ -106,7 +106,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/blog/">
+    <a class="navbar-brand" href="/">
       <strong>枫🍁川的博客</strong>
     </a>
 
@@ -125,7 +125,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/blog/archives/">
+              <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -137,7 +137,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/blog/categories/">
+              <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -149,7 +149,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/blog/tags/">
+              <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -161,7 +161,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/blog/about/">
+              <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -190,7 +190,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/blog/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -269,7 +269,7 @@
             
               <div class="markdown-body">
                 
-                <p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fc9240467b46494ca8fdc2d35d9f729e~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="JavaScript面试题.png"></p>
+                <p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fc9240467b46494ca8fdc2d35d9f729e~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="JavaScript面试题.png"></p>
 <h2 id="一、数据类型"><a href="#一、数据类型" class="headerlink" title="一、数据类型"></a>一、数据类型</h2><h3 id="1-JavaScript有哪些数据类型，它们的区别？"><a href="#1-JavaScript有哪些数据类型，它们的区别？" class="headerlink" title="1. JavaScript有哪些数据类型，它们的区别？"></a>1. JavaScript有哪些数据类型，它们的区别？</h3><p>JavaScript共有八种数据类型，分别是 **<code>Undefined</code><strong>、</strong><code>Null</code><strong>、</strong><code>Boolean</code><strong>、</strong><code>Number</code><strong>、</strong><code>String</code><strong>、</strong><code>Object</code><strong>、</strong><code>Symbol</code><strong>、</strong><code>BigInt</code>**。</p>
 <p>其中 <strong>Symbol</strong> 和 <strong>BigInt</strong> 是ES6 中新增的数据类型：</p>
 <ul>
@@ -422,7 +422,7 @@
 <p>计算机是通过二进制的方式存储数据的，所以计算机计算0.1+0.2的时候，实际上是计算的两个数的二进制的和。0.1的二进制是<code>0.0001100110011001100...</code>（1100循环），0.2的二进制是：<code>0.00110011001100...</code>（1100循环），这两个数的二进制都是无限循环的数。那JavaScript是如何处理无限循环的二进制小数呢？</p>
 <p>一般我们认为数字包括整数和小数，但是在 JavaScript 中只有一种数字类型：Number，它的实现遵循IEEE 754标准，使用64位固定长度来表示，也就是标准的double双精度浮点数。在二进制科学表示法中，双精度浮点数的小数部分最多只能保留52位，再加上前面的1，其实就是保留53位有效数字，剩余的需要舍去，遵从“0舍1入”的原则。</p>
 <p>根据这个原则，0.1和0.2的二进制数相加，再转化为十进制数就是：<code>0.30000000000000004</code>。</p>
-<p>下面看一下<strong>双精度数是如何保存</strong>的： <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0cb225cf71d748a8b2d6a5615e402711~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="img"></p>
+<p>下面看一下<strong>双精度数是如何保存</strong>的： <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0cb225cf71d748a8b2d6a5615e402711~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="img"></p>
 <ul>
 <li>第一部分（蓝色）：用来存储符号位（sign），用来区分正负数，0表示正数，占用1位</li>
 <li>第二部分（绿色）：用来存储指数（exponent），占用11位</li>
@@ -898,10 +898,10 @@ p.<span class="hljs-property">a</span> <span class="hljs-comment">// &#x27;a&#x2
 <h4 id="1）数组的解构"><a href="#1）数组的解构" class="headerlink" title="1）数组的解构"></a><strong>1）数组的解构</strong></h4><p>在解构数组时，以元素的位置为匹配条件来提取想要的数据的：</p>
 <div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> [a, b, c] = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]</code></pre></div>
 
-<p>最终，a、b、c分别被赋予了数组第0、1、2个索引位的值： <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e55fc36b191340e69698782fbd67ef4f~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="img"> 数组里的0、1、2索引位的元素值，精准地被映射到了左侧的第0、1、2个变量里去，这就是数组解构的工作模式。还可以通过给左侧变量数组设置空占位的方式，实现对数组中某几个元素的精准提取：</p>
+<p>最终，a、b、c分别被赋予了数组第0、1、2个索引位的值： <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e55fc36b191340e69698782fbd67ef4f~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="img"> 数组里的0、1、2索引位的元素值，精准地被映射到了左侧的第0、1、2个变量里去，这就是数组解构的工作模式。还可以通过给左侧变量数组设置空占位的方式，实现对数组中某几个元素的精准提取：</p>
 <div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> [a,,c] = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]</code></pre></div>
 
-<p>通过把中间位留空，可以顺利地把数组第一位和最后一位的值赋给 a、c 两个变量： <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a14ffbb3df2646a4a84f4a0c7d62d975~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="img"></p>
+<p>通过把中间位留空，可以顺利地把数组第一位和最后一位的值赋给 a、c 两个变量： <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a14ffbb3df2646a4a84f4a0c7d62d975~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="img"></p>
 <h4 id="2）对象的解构"><a href="#2）对象的解构" class="headerlink" title="2）对象的解构"></a><strong>2）对象的解构</strong></h4><p>对象解构比数组结构稍微复杂一些，也更显强大。在解构对象时，是以属性的名称为匹配条件，来提取想要的数据的。现在定义一个对象：</p>
 <div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> stu = &#123;
   <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Bob&#x27;</span>,
@@ -912,7 +912,7 @@ p.<span class="hljs-property">a</span> <span class="hljs-comment">// &#x27;a&#x2
 <div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> &#123; name, age &#125; = stu</code></pre></div>
 
 <p>这样就得到了 name 和 age 两个和 stu 平级的变量：</p>
-<p> <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1ed2565845f2415b8243c8c355b2c6d6~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="img"></p>
+<p> <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1ed2565845f2415b8243c8c355b2c6d6~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p>注意，对象解构严格以属性名作为定位依据，所以就算调换了 name 和 age 的位置，结果也是一样的：</p>
 <div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> &#123; age, name &#125; = stu</code></pre></div>
 
@@ -1864,7 +1864,7 @@ obj[<span class="hljs-title class_">Symbol</span>.<span class="hljs-property">it
 <h2 id="四、原型与原型链"><a href="#四、原型与原型链" class="headerlink" title="四、原型与原型链"></a>四、原型与原型链</h2><h3 id="1-对原型、原型链的理解"><a href="#1-对原型、原型链的理解" class="headerlink" title="1. 对原型、原型链的理解"></a>1. 对原型、原型链的理解</h3><p>在JavaScript中是使用构造函数来新建一个对象的，每一个构造函数的内部都有一个 prototype 属性，它的属性值是一个对象，这个对象包含了可以由该构造函数的所有实例共享的属性和方法。当使用构造函数新建一个对象后，在这个对象的内部将包含一个指针，这个指针指向构造函数的 prototype 属性对应的值，在 ES5 中这个指针被称为对象的原型。一般来说不应该能够获取到这个值的，但是现在浏览器中都实现了 <strong>proto</strong> 属性来访问这个属性，但是最好不要使用这个属性，因为它不是规范中规定的。ES5 中新增了一个 Object.getPrototypeOf() 方法，可以通过这个方法来获取对象的原型。</p>
 <p>当访问一个对象的属性时，如果这个对象内部不存在这个属性，那么它就会去它的原型对象里找这个属性，这个原型对象又会有自己的原型，于是就这样一直找下去，也就是原型链的概念。原型链的尽头一般来说都是 Object.prototype 所以这就是新建的对象为什么能够使用 toString() 等方法的原因。</p>
 <p><strong>特点：</strong> JavaScript 对象是通过引用来传递的，创建的每个新对象实体中并没有一份属于自己的原型副本。当修改原型时，与之相关的对象也会继承这一改变。 </p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c68fcad75ea54d62a9404aa02cafc65c~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c68fcad75ea54d62a9404aa02cafc65c~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="img"></p>
 <h3 id="2-原型修改、重写"><a href="#2-原型修改、重写" class="headerlink" title="2. 原型修改、重写"></a>2. 原型修改、重写</h3><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">Person</span>(<span class="hljs-params">name</span>) &#123;
     <span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span> = name
 &#125;
@@ -1898,7 +1898,7 @@ p.<span class="hljs-property">__proto__</span>.<span class="hljs-property">const
 p1.<span class="hljs-property">__proto__</span>.<span class="hljs-property">constructor</span> <span class="hljs-comment">// Person</span>
 <span class="hljs-title class_">Person</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">constructor</span>  <span class="hljs-comment">// Person</span></code></pre></div>
 
-<h3 id="4-原型链的终点是什么？如何打印出原型链的终点？"><a href="#4-原型链的终点是什么？如何打印出原型链的终点？" class="headerlink" title="4. 原型链的终点是什么？如何打印出原型链的终点？"></a>4. 原型链的终点是什么？如何打印出原型链的终点？</h3><p>由于<code>Object</code>是构造函数，原型链终点是<code>Object.prototype.__proto__</code>，而<code>Object.prototype.__proto__=== null // true</code>，所以，原型链的终点是<code>null</code>。原型链上的所有原型都是对象，所有的对象最终都是由<code>Object</code>构造的，而<code>Object.prototype</code>的下一级是<code>Object.prototype.__proto__</code>。 <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/30821909377545248d244b0a4e965bb1~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="img"></p>
+<h3 id="4-原型链的终点是什么？如何打印出原型链的终点？"><a href="#4-原型链的终点是什么？如何打印出原型链的终点？" class="headerlink" title="4. 原型链的终点是什么？如何打印出原型链的终点？"></a>4. 原型链的终点是什么？如何打印出原型链的终点？</h3><p>由于<code>Object</code>是构造函数，原型链终点是<code>Object.prototype.__proto__</code>，而<code>Object.prototype.__proto__=== null // true</code>，所以，原型链的终点是<code>null</code>。原型链上的所有原型都是对象，所有的对象最终都是由<code>Object</code>构造的，而<code>Object.prototype</code>的下一级是<code>Object.prototype.__proto__</code>。 <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/30821909377545248d244b0a4e965bb1~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="img"></p>
 <h3 id="5-如何获得对象非原型链上的属性？"><a href="#5-如何获得对象非原型链上的属性？" class="headerlink" title="5. 如何获得对象非原型链上的属性？"></a>5. 如何获得对象非原型链上的属性？</h3><p>使用后<code>hasOwnProperty()</code>方法来判断属性是否属于原型链的属性：</p>
 <div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">iterate</span>(<span class="hljs-params">obj</span>)&#123;
    <span class="hljs-keyword">var</span> res=[];
@@ -2188,7 +2188,7 @@ p1.<span class="hljs-property">__proto__</span>.<span class="hljs-property">cons
 &#125;
 <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title function_">func1</span>())</code></pre></div>
 
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/40194bdc07024b78b6da8bb43d84a7d8~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="img"> func1的运行结果其实就是一个Promise对象。因此也可以使用then来处理后续逻辑。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/40194bdc07024b78b6da8bb43d84a7d8~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="img"> func1的运行结果其实就是一个Promise对象。因此也可以使用then来处理后续逻辑。</p>
 <div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-title function_">func1</span>().<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;
     <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(res);  <span class="hljs-comment">// 30</span>
 &#125;)</code></pre></div>
@@ -2456,7 +2456,7 @@ fs.<span class="hljs-title function_">readFile</span>(<span class="hljs-string">
 <span class="hljs-keyword">let</span> result = <span class="hljs-title function_">testAsy</span>(); 
 <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(result)</code></pre></div>
 
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/507e439801c043739c4667567e5f8562~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/507e439801c043739c4667567e5f8562~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p>所以，async 函数返回的是一个 Promise 对象。async 函数（包含函数语句、函数表达式、Lambda表达式）会返回一个 Promise 对象，如果在函数中 <code>return</code> 一个直接量，async 会把这个直接量通过 <code>Promise.resolve()</code> 封装成 Promise 对象。</p>
 <p>async 函数返回的是一个 Promise 对象，所以在最外层不能用 await 获取其返回值的情况下，当然应该用原来的方式：<code>then()</code> 链来处理这个 Promise 对象，就像这样：</p>
 <div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">testAsy</span>(<span class="hljs-params"></span>)&#123;
@@ -2652,7 +2652,7 @@ obj2.<span class="hljs-property">a</span> =  <span class="hljs-literal">null</sp
     
       <span class="category-chain">
         
-  <a href="/blog/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" class="category-chain-item">前端面试题</a>
+  <a href="/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" class="category-chain-item">前端面试题</a>
   
   
 
@@ -2667,7 +2667,7 @@ obj2.<span class="hljs-property">a</span> =  <span class="hljs-literal">null</sp
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/blog/tags/react/">#react</a>
+        <a href="/tags/react/">#react</a>
       
     </div>
   
@@ -2681,7 +2681,7 @@ obj2.<span class="hljs-property">a</span> =  <span class="hljs-literal">null</sp
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/blog/promisre-summarize.html" title="Promise 知识点总结">
+                      <a href="/promisre-summarize.html" title="Promise 知识点总结">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">Promise 知识点总结</span>
                         <span class="visible-mobile">上一篇</span>
@@ -2691,7 +2691,7 @@ obj2.<span class="hljs-property">a</span> =  <span class="hljs-literal">null</sp
                   <article class="post-next col-6">
                     
                     
-                      <a href="/blog/interview-css.html" title="面试题汇总之Css">
+                      <a href="/interview-css.html" title="面试题汇总之Css">
                         <span class="hidden-mobile">面试题汇总之Css</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -2842,8 +2842,8 @@ obj2.<span class="hljs-property">a</span> =  <span class="hljs-literal">null</sp
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/blog/js/events.js" ></script>
-<script  src="/blog/js/plugins.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -2865,7 +2865,7 @@ obj2.<span class="hljs-property">a</span> =  <span class="hljs-literal">null</sp
 
 
   
-    <script  src="/blog/js/img-lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -2937,7 +2937,7 @@ obj2.<span class="hljs-property">a</span> =  <span class="hljs-literal">null</sp
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/blog/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
 
   <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
@@ -2947,7 +2947,7 @@ obj2.<span class="hljs-property">a</span> =  <span class="hljs-literal">null</sp
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/blog/js/boot.js" ></script>
+<script  src="/js/boot.js" ></script>
 
 
   
@@ -2955,5 +2955,5 @@ obj2.<span class="hljs-property">a</span> =  <span class="hljs-literal">null</sp
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
-<script src="/blog/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/blog/live2dw/assets/chitose.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/chitose.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
 </html>

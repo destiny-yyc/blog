@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/blog/img/maple_leaf.png">
-  <link rel="icon" href="/blog/img/maple_leaf.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/maple_leaf.png">
+  <link rel="icon" href="/img/maple_leaf.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,7 +19,7 @@
     <meta name="description" content="对未来最好的馈赠，就是珍惜现在的时光，努力的付出，勇敢的面对，做一切想做的事，完成一个个眼前的目标，不辜负当下。  前言作为一名开发人员，阅读源码是非常好的学习方式，尤其vue又是当下很受欢迎的前端框架，随着使用的人越来越多，不断推动着源码地完善。在源码中有着各位大佬多年沉淀下来的精华，而这些精华就非常值得我们学习。或许刚开始我们看不懂或者看着很懵圈，但只要坚持不断的摸索，总有掌握的一天。小时候">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue 源码解读库 mini-vue">
-<meta property="og:url" content="https://destiny-yyc.github.io/vue-sound-code.html">
+<meta property="og:url" content="https://destiny-yyc.github.io/blog/vue-sound-code.html">
 <meta property="og:site_name" content="枫🍁川的博客">
 <meta property="og:description" content="对未来最好的馈赠，就是珍惜现在的时光，努力的付出，勇敢的面对，做一切想做的事，完成一个个眼前的目标，不辜负当下。  前言作为一名开发人员，阅读源码是非常好的学习方式，尤其vue又是当下很受欢迎的前端框架，随着使用的人越来越多，不断推动着源码地完善。在源码中有着各位大佬多年沉淀下来的精华，而这些精华就非常值得我们学习。或许刚开始我们看不懂或者看着很懵圈，但只要坚持不断的摸索，总有掌握的一天。小时候">
 <meta property="og:locale" content="zh_CN">
@@ -59,12 +59,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/blog/css/main.css" />
+<link  rel="stylesheet" href="/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/blog/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/blog/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
 
 
@@ -73,15 +73,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"destiny-yyc.github.io","root":"/blog/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/blog/local-search.xml"};
+    var CONFIG = {"hostname":"destiny-yyc.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/blog/js/utils.js" ></script>
-  <script  src="/blog/js/color-schema.js" ></script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
   
 
 
@@ -98,7 +98,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/blog/">
+    <a class="navbar-brand" href="/">
       <strong>枫🍁川的博客</strong>
     </a>
 
@@ -117,7 +117,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/blog/archives/">
+              <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -129,7 +129,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/blog/categories/">
+              <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -141,7 +141,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/blog/tags/">
+              <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -153,7 +153,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/blog/about/">
+              <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -182,7 +182,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/blog/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -268,7 +268,7 @@
 <h1 id="读源码的理由"><a href="#读源码的理由" class="headerlink" title="读源码的理由"></a>读源码的理由</h1><p>源码的阅读很多人其实是为了面试，想找一个更满意的工作。但是我们也忽略了一个重要的东西，那就是在我们不断阅读源码或者熟读某个主流框架源码的同时，其实这个过程也在潜移默化改变我们的编程能力和程序的设计能力。</p>
 <p>下面我们就正式开始我们的Vue源码之旅吧，</p>
 <h1 id="mini-vue"><a href="#mini-vue" class="headerlink" title="mini-vue"></a>mini-vue</h1><p>下载<a target="_blank" rel="noopener" href="https://github.com/vuejs/vue">Vue官方源码</a>后，发现只是这一个<code>renderer.ts</code>文件就有两千多行代码，这怎么看嘛？但是为了，源码是绕不过的啊！</p>
-<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/75fe1d3798df49d3b71725b1a0e9b9a2~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload></p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/75fe1d3798df49d3b71725b1a0e9b9a2~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload></p>
 <p>不过，最近我在**<code>github</code><strong>找到一个库，叫做</strong><code>mini-vue</code><strong>，用来学习Vue3 源码可以办难度降低到最低，而且</strong><code>mini-vue</code>**这个库</p>
 <p>主要特点就是把<strong>Vue3源码中最核心的逻辑剥离出来，只留下核心逻辑</strong>，而且带有<strong>详细的中文注释以及完善的输出</strong>，可以帮助你快速理解框架核心运行流程。</p>
 <p>最后，**<code>mini-vue</code>**学习完后，再去看<code>vue </code>的源码就不会感觉像之前的那么懵了。</p>
@@ -290,7 +290,7 @@
     
       <span class="category-chain">
         
-  <a href="/blog/categories/vue%E6%BA%90%E7%A0%81/" class="category-chain-item">vue源码</a>
+  <a href="/categories/vue%E6%BA%90%E7%A0%81/" class="category-chain-item">vue源码</a>
   
   
 
@@ -305,7 +305,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/blog/tags/vue/">#vue</a>
+        <a href="/tags/vue/">#vue</a>
       
     </div>
   
@@ -323,7 +323,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/blog/interview-performance.html" title="面试题汇总之性能优化">
+                      <a href="/interview-performance.html" title="面试题汇总之性能优化">
                         <span class="hidden-mobile">面试题汇总之性能优化</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -474,8 +474,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/blog/js/events.js" ></script>
-<script  src="/blog/js/plugins.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -497,7 +497,7 @@
 
 
   
-    <script  src="/blog/js/img-lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -569,7 +569,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/blog/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
 
   <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
@@ -579,7 +579,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/blog/js/boot.js" ></script>
+<script  src="/js/boot.js" ></script>
 
 
   
@@ -587,5 +587,5 @@
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
-<script src="/blog/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/blog/live2dw/assets/chitose.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/chitose.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
 </html>
