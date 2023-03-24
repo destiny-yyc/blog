@@ -13,8 +13,9 @@ timezone: Asia/Shanghai
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://destiny-yyc.gitee.io
-root: /
+# url: https://destiny-yyc.gitee.io
+url: https://destiny-yyc.github.io
+root: /blog
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -105,8 +106,8 @@ theme: fluid
 deploy:
   type: git
   repo:
-    gitee: https://gitee.com/destiny-yyc/destiny-yyc.git
-    github: git@github.com:destiny-yyc/destiny-yyc.github.io.git
+    gitee: https://gitee.com/destiny-yyc/blog.git
+    github: git@github.com:destiny-yyc/blog.git
   branch: master
 
 # Live2D
