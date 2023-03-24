@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/maple_leaf.png">
-  <link rel="icon" href="/img/maple_leaf.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/blog/img/maple_leaf.png">
+  <link rel="icon" href="/blog/img/maple_leaf.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,7 +19,7 @@
     <meta name="description" content="一、HTTP协议1. GET和POST的请求的区别Post 和 Get 是 HTTP 请求的两种方法，其区别如下：  应用场景： GET 请求是一个幂等的请求，一般 Get 请求用于对服务器资源不会产生影响的场景，比如说请求一个网页的资源。而 Post 不是一个幂等的请求，一般用于对服务器资源会产生影响的情景，比如注册用户这一类的操作。 是否缓存： 因为两者应用场景不同，浏览器一般会对 Get">
 <meta property="og:type" content="article">
 <meta property="og:title" content="面试题汇总之计算机网络">
-<meta property="og:url" content="https://destiny-yyc.github.io/blog/interview-network.html">
+<meta property="og:url" content="https://destiny-yyc.github.io/interview-network.html">
 <meta property="og:site_name" content="枫🍁川的博客">
 <meta property="og:description" content="一、HTTP协议1. GET和POST的请求的区别Post 和 Get 是 HTTP 请求的两种方法，其区别如下：  应用场景： GET 请求是一个幂等的请求，一般 Get 请求用于对服务器资源不会产生影响的场景，比如说请求一个网页的资源。而 Post 不是一个幂等的请求，一般用于对服务器资源会产生影响的情景，比如注册用户这一类的操作。 是否缓存： 因为两者应用场景不同，浏览器一般会对 Get">
 <meta property="og:locale" content="zh_CN">
@@ -79,12 +79,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/blog/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/blog/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/blog/css/highlight-dark.css" />
   
 
 
@@ -93,15 +93,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"destiny-yyc.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"destiny-yyc.github.io","root":"/blog/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/blog/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/blog/js/utils.js" ></script>
+  <script  src="/blog/js/color-schema.js" ></script>
   
 
 
@@ -118,7 +118,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/blog/">
       <strong>枫🍁川的博客</strong>
     </a>
 
@@ -137,7 +137,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/blog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -149,7 +149,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/blog/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -161,7 +161,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/blog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -173,7 +173,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/blog/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -202,7 +202,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/blog/img/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -281,7 +281,7 @@
             
               <div class="markdown-body">
                 
-                <p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0d8a4290ff7b4a9b899da84865960dce~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="计算机网络面试题.png"></p>
+                <p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0d8a4290ff7b4a9b899da84865960dce~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="计算机网络面试题.png"></p>
 <h2 id="一、HTTP协议"><a href="#一、HTTP协议" class="headerlink" title="一、HTTP协议"></a>一、HTTP协议</h2><h3 id="1-GET和POST的请求的区别"><a href="#1-GET和POST的请求的区别" class="headerlink" title="1. GET和POST的请求的区别"></a>1. GET和POST的请求的区别</h3><p>Post 和 Get 是 HTTP 请求的两种方法，其区别如下：</p>
 <ul>
 <li><strong>应用场景：</strong> GET 请求是一个幂等的请求，一般 Get 请求用于对服务器资源不会产生影响的场景，比如说请求一个网页的资源。而 Post 不是一个幂等的请求，一般用于对服务器资源会产生影响的情景，比如注册用户这一类的操作。</li>
@@ -453,7 +453,7 @@
 <li>首部表在HTTP&#x2F;2的连接存续期内始终存在，由客户端和服务器共同渐进地更新；</li>
 <li>每个新的首部键值对要么被追加到当前表的末尾，要么替换表中之前的值。</li>
 </ul>
-<p>例如下图中的两个请求， 请求一发送了所有的头部字段，第二个请求则只需要发送差异数据，这样可以减少冗余数据，降低开销。 <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bda10d6c69e74996b6505777d29b9a74~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>例如下图中的两个请求， 请求一发送了所有的头部字段，第二个请求则只需要发送差异数据，这样可以减少冗余数据，降低开销。 <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bda10d6c69e74996b6505777d29b9a74~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="img"></p>
 <h3 id="15-HTTP请求报文的是什么样的？"><a href="#15-HTTP请求报文的是什么样的？" class="headerlink" title="15. HTTP请求报文的是什么样的？"></a>15. HTTP请求报文的是什么样的？</h3><p>请求报⽂有4部分组成:</p>
 <ul>
 <li>请求⾏</li>
@@ -461,13 +461,13 @@
 <li>空⾏</li>
 <li>请求体</li>
 </ul>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4fb5bb2cb1664850b52e32d57af74f2f~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="image.png"> <strong>其中：</strong> （1）请求⾏包括：请求⽅法字段、URL字段、HTTP协议版本字段。它们⽤空格分隔。例如，GET &#x2F;index.html HTTP&#x2F;1.1。 （2）请求头部:请求头部由关键字&#x2F;值对组成，每⾏⼀对，关键字和值⽤英⽂冒号“:”分隔</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4fb5bb2cb1664850b52e32d57af74f2f~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="image.png"> <strong>其中：</strong> （1）请求⾏包括：请求⽅法字段、URL字段、HTTP协议版本字段。它们⽤空格分隔。例如，GET &#x2F;index.html HTTP&#x2F;1.1。 （2）请求头部:请求头部由关键字&#x2F;值对组成，每⾏⼀对，关键字和值⽤英⽂冒号“:”分隔</p>
 <ul>
 <li>User-Agent：产⽣请求的浏览器类型。</li>
 <li>Accept：客户端可识别的内容类型列表。</li>
 <li>Host：请求的主机名，允许多个域名同处⼀个IP地址，即虚拟主机。</li>
 </ul>
-<p>（3）请求体: post put等请求携带的数据 <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eacc55d7152149e99730346f1edfc9ab~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>（3）请求体: post put等请求携带的数据 <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eacc55d7152149e99730346f1edfc9ab~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="image.png"></p>
 <h3 id="16-HTTP响应报文的是什么样的？"><a href="#16-HTTP响应报文的是什么样的？" class="headerlink" title="16. HTTP响应报文的是什么样的？"></a>16. HTTP响应报文的是什么样的？</h3><p>请求报⽂有4部分组成:</p>
 <ul>
 <li>响应⾏</li>
@@ -475,7 +475,7 @@
 <li>空⾏</li>
 <li>响应体</li>
 </ul>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1b0183eb91ce451aa17bd515d047062d~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1b0183eb91ce451aa17bd515d047062d~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="image.png"></p>
 <ul>
 <li>响应⾏：由网络协议版本，状态码和状态码的原因短语组成，例如 HTTP&#x2F;1.1 200 OK 。</li>
 <li>响应头：响应部⾸组成</li>
@@ -497,13 +497,13 @@
 <li><strong>不安全</strong></li>
 </ul>
 <p>（1）通信使用明文（不加密），内容可能会被窃听； （2）不验证通信方的身份，因此有可能遭遇伪装； （3）无法证明报文的完整性，所以有可能已遭篡改；</p>
-<h3 id="18-说一下HTTP-3-0"><a href="#18-说一下HTTP-3-0" class="headerlink" title="18. 说一下HTTP 3.0"></a>18. 说一下HTTP 3.0</h3><p>HTTP&#x2F;3基于UDP协议实现了类似于TCP的多路复用数据流、传输可靠性等功能，这套功能被称为QUIC协议。 <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/45a0a2ec0ef143b49d79256cea543418~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h3 id="18-说一下HTTP-3-0"><a href="#18-说一下HTTP-3-0" class="headerlink" title="18. 说一下HTTP 3.0"></a>18. 说一下HTTP 3.0</h3><p>HTTP&#x2F;3基于UDP协议实现了类似于TCP的多路复用数据流、传输可靠性等功能，这套功能被称为QUIC协议。 <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/45a0a2ec0ef143b49d79256cea543418~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="img"></p>
 <ol>
 <li>流量控制、传输可靠性功能：QUIC在UDP的基础上增加了一层来保证数据传输可靠性，它提供了数据包重传、拥塞控制、以及其他一些TCP中的特性。</li>
 <li>集成TLS加密功能：目前QUIC使用TLS1.3，减少了握手所花费的RTT数。</li>
 <li>多路复用：同一物理连接上可以有多个独立的逻辑数据流，实现了数据流的单独传输，解决了TCP的队头阻塞问题。</li>
 </ol>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/48df233ce8e541efa165160c169b7a70~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/48df233ce8e541efa165160c169b7a70~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="img"></p>
 <ol>
 <li>快速握手：由于基于UDP，可以实现使用0 ~ 1个RTT来建立连接。</li>
 </ol>
@@ -517,7 +517,7 @@
 <li>在HTTP&#x2F;1.0 每发起一个请求，都要新建一次 TCP 连接（三次握手），而且是串行请求，做了无畏的 TCP 连接建立和断开，增加了通信开销。该版本使用的非持续的连接，但是可以在请求时，加上 Connection: keep-a live 来要求服务器不要关闭 TCP 连接。</li>
 <li>在HTTP&#x2F;1.1 提出了<strong>长连接</strong>的通信方式，也叫持久连接。这种方式的好处在于减少了 TCP 连接的重复建立和断开所造成的额外开销，减轻了服务器端的负载。该版本及以后版本默认采用的是持续的连接。目前对于同一个域，大多数浏览器支持同时建立 6 个持久连接。</li>
 </ul>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f756e23ecf3a4d2a80d632b5fa8b0b6d~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f756e23ecf3a4d2a80d632b5fa8b0b6d~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="img"></p>
 <ul>
 <li><strong>管道网络传输</strong></li>
 </ul>
@@ -549,7 +549,7 @@
 <li>Etag、If-None-Match</li>
 <li>Last-Modified、If-Modified-Since</li>
 </ul>
-<h2 id="二、HTTPS协议"><a href="#二、HTTPS协议" class="headerlink" title="二、HTTPS协议"></a>二、HTTPS协议</h2><h3 id="1-什么是HTTPS协议？"><a href="#1-什么是HTTPS协议？" class="headerlink" title="1. 什么是HTTPS协议？"></a>1. 什么是HTTPS协议？</h3><p>超文本传输安全协议（Hypertext Transfer Protocol Secure，简称：HTTPS）是一种通过计算机网络进行安全通信的传输协议。HTTPS经由HTTP进行通信，利用SSL&#x2F;TLS来加密数据包。HTTPS的主要目的是提供对网站服务器的身份认证，保护交换数据的隐私与完整性。 <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/10885a9d4d574d7caf3fee1416f623ca~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="img"> HTTP协议采用<strong>明文传输</strong>信息，存在<strong>信息窃听</strong>、<strong>信息篡改</strong>和<strong>信息劫持</strong>的风险，而协议TLS&#x2F;SSL具有<strong>身份验证</strong>、<strong>信息加密</strong>和<strong>完整性校验</strong>的功能，可以避免此类问题发生。</p>
+<h2 id="二、HTTPS协议"><a href="#二、HTTPS协议" class="headerlink" title="二、HTTPS协议"></a>二、HTTPS协议</h2><h3 id="1-什么是HTTPS协议？"><a href="#1-什么是HTTPS协议？" class="headerlink" title="1. 什么是HTTPS协议？"></a>1. 什么是HTTPS协议？</h3><p>超文本传输安全协议（Hypertext Transfer Protocol Secure，简称：HTTPS）是一种通过计算机网络进行安全通信的传输协议。HTTPS经由HTTP进行通信，利用SSL&#x2F;TLS来加密数据包。HTTPS的主要目的是提供对网站服务器的身份认证，保护交换数据的隐私与完整性。 <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/10885a9d4d574d7caf3fee1416f623ca~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="img"> HTTP协议采用<strong>明文传输</strong>信息，存在<strong>信息窃听</strong>、<strong>信息篡改</strong>和<strong>信息劫持</strong>的风险，而协议TLS&#x2F;SSL具有<strong>身份验证</strong>、<strong>信息加密</strong>和<strong>完整性校验</strong>的功能，可以避免此类问题发生。</p>
 <p>安全层的主要职责就是<strong>对发起的HTTP请求的数据进行加密操作</strong> 和 <strong>对接收到的HTTP的内容进行解密操作</strong>。</p>
 <h3 id="2-TLS-x2F-SSL的工作原理"><a href="#2-TLS-x2F-SSL的工作原理" class="headerlink" title="2. TLS&#x2F;SSL的工作原理"></a>2. TLS&#x2F;SSL的工作原理</h3><p><strong>TLS&#x2F;SSL</strong>全称<strong>安全传输层协议</strong>（Transport Layer Security）, 是介于TCP和HTTP之间的一层安全协议，不影响原有的TCP协议和HTTP协议，所以使用HTTPS基本上不需要对HTTP页面进行太多的改造。</p>
 <p>TLS&#x2F;SSL的功能实现主要依赖三类基本算法：<strong>散列函数hash</strong>、<strong>对称加密</strong>、<strong>非对称加密</strong>。这三类算法的作用如下：</p>
@@ -558,7 +558,7 @@
 <li>对称加密算法采用协商的秘钥对数据加密</li>
 <li>非对称加密实现身份认证和秘钥协商</li>
 </ul>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5696ee8ccb0d44b08b812a7c964695b7~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5696ee8ccb0d44b08b812a7c964695b7~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="img"></p>
 <h4 id="（1）散列函数hash"><a href="#（1）散列函数hash" class="headerlink" title="（1）散列函数hash"></a>（1）散列函数hash</h4><p>常见的散列函数有MD5、SHA1、SHA256。该函数的特点是单向不可逆，对输入数据非常敏感，输出的长度固定，任何数据的修改都会改变散列函数的结果，可以用于防止信息篡改并验证数据的完整性。</p>
 <p><strong>特点：</strong> 在信息传输过程中，散列函数不能三都实现信息防篡改，由于传输是明文传输，中间人可以修改信息后重新计算信息的摘要，所以需要对传输的信息和信息摘要进行加密。</p>
 <h4 id="（2）对称加密"><a href="#（2）对称加密" class="headerlink" title="（2）对称加密"></a>（2）对称加密</h4><p>对称加密的方法是，双方使用同一个秘钥对数据进行加密和解密。但是对称加密的存在一个问题，就是如何保证秘钥传输的安全性，因为秘钥还是会通过网络传输的，一旦秘钥被其他人获取到，那么整个加密过程就毫无作用了。 这就要用到非对称加密的方法。</p>
@@ -570,7 +570,7 @@
 <p>综合上述算法特点，TLS&#x2F;SSL的工作方式就是客户端使用非对称加密与服务器进行通信，实现身份的验证并协商对称加密使用的秘钥。对称加密算法采用协商秘钥对信息以及信息摘要进行加密通信，不同节点之间采用的对称秘钥不同，从而保证信息只能通信双方获取。这样就解决了两个方法各自存在的问题。</p>
 <h3 id="3-数字证书是什么？"><a href="#3-数字证书是什么？" class="headerlink" title="3. 数字证书是什么？"></a>3. 数字证书是什么？</h3><p>现在的方法也不一定是安全的，因为没有办法确定得到的公钥就一定是安全的公钥。可能存在一个中间人，截取了对方发给我们的公钥，然后将他自己的公钥发送给我们，当我们使用他的公钥加密后发送的信息，就可以被他用自己的私钥解密。然后他伪装成我们以同样的方法向对方发送信息，这样我们的信息就被窃取了，然而自己还不知道。为了解决这样的问题，可以使用数字证书。</p>
 <p>首先使用一种 Hash 算法来对公钥和其他信息进行加密，生成一个信息摘要，然后让有公信力的认证中心（简称 CA ）用它的私钥对消息摘要加密，形成签名。最后将原始的信息和签名合在一起，称为数字证书。当接收方收到数字证书的时候，先根据原始信息使用同样的 Hash 算法生成一个摘要，然后使用公证处的公钥来对数字证书中的摘要进行解密，最后将解密的摘要和生成的摘要进行对比，就能发现得到的信息是否被更改了。</p>
-<p>这个方法最要的是认证中心的可靠性，一般浏览器里会内置一些顶层的认证中心的证书，相当于我们自动信任了他们，只有这样才能保证数据的安全。 <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/90da1f506e7040aaba5e1536c1f6c373~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>这个方法最要的是认证中心的可靠性，一般浏览器里会内置一些顶层的认证中心的证书，相当于我们自动信任了他们，只有这样才能保证数据的安全。 <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/90da1f506e7040aaba5e1536c1f6c373~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="img"></p>
 <h3 id="4-HTTPS通信（握手）过程"><a href="#4-HTTPS通信（握手）过程" class="headerlink" title="4. HTTPS通信（握手）过程"></a>4. HTTPS通信（握手）过程</h3><p>HTTPS的通信过程如下：</p>
 <ol>
 <li>客户端向服务器发起请求，请求中包含使用的协议版本号、生成的一个随机数、以及客户端支持的加密方法。</li>
@@ -806,7 +806,7 @@
 <li>如果 Type &#x3D; CNAME，则 Name 为别名，Value 为该主机的规范主机名。该条记录用于向查询的主机返回一个主机名 对应的规范主机名，从而告诉查询主机去查询这个主机名的 IP 地址。主机别名主要是为了通过给一些复杂的主机名提供 一个便于记忆的简单的别名。</li>
 <li>如果 Type &#x3D; MX，则 Name 为一个邮件服务器的别名，Value 为邮件服务器的规范主机名。它的作用和 CNAME 是一 样的，都是为了解决规范主机名不利于记忆的缺点。</li>
 </ul>
-<h2 id="五、网络模型"><a href="#五、网络模型" class="headerlink" title="五、网络模型"></a>五、网络模型</h2><h3 id="1-OSI七层模型"><a href="#1-OSI七层模型" class="headerlink" title="1. OSI七层模型"></a>1. OSI七层模型</h3><p><code>ISO</code>为了更好的使网络应用更为普及，推出了<code>OSI</code>参考模型。 <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c1e8e168d9f249788c74c5b50e0528e2~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h2 id="五、网络模型"><a href="#五、网络模型" class="headerlink" title="五、网络模型"></a>五、网络模型</h2><h3 id="1-OSI七层模型"><a href="#1-OSI七层模型" class="headerlink" title="1. OSI七层模型"></a>1. OSI七层模型</h3><p><code>ISO</code>为了更好的使网络应用更为普及，推出了<code>OSI</code>参考模型。 <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c1e8e168d9f249788c74c5b50e0528e2~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="img"></p>
 <h4 id="（1）应用层"><a href="#（1）应用层" class="headerlink" title="（1）应用层"></a>（1）应用层</h4><p><code>OSI</code>参考模型中最靠近用户的一层，是为计算机用户提供应用接口，也为用户直接提供各种网络服务。我们常见应用层的网络服务协议有：<code>HTTP</code>，<code>HTTPS</code>，<code>FTP</code>，<code>POP3</code>、<code>SMTP</code>等。</p>
 <ul>
 <li>在客户端与服务器中经常会有数据的请求，这个时候就是会用到<code>http(hyper text transfer protocol)(超文本传输协议)</code>或者<code>https</code>.在后端设计数据接口时，我们常常使用到这个协议。</li>
@@ -821,7 +821,7 @@
 <h4 id="（6）数据链路层"><a href="#（6）数据链路层" class="headerlink" title="（6）数据链路层"></a>（6）数据链路层</h4><p>将比特组合成字节,再将字节组合成帧,使用链路层地址 (以太网使用MAC地址)来访问介质,并进行差错检测。 网络层与数据链路层的对比，通过上面的描述，我们或许可以这样理解，网络层是规划了数据包的传输路线，而数据链路层就是传输路线。不过，在数据链路层上还增加了差错控制的功能。</p>
 <h4 id="（7）物理层"><a href="#（7）物理层" class="headerlink" title="（7）物理层"></a>（7）物理层</h4><p>实际最终信号的传输是通过物理层实现的。通过物理介质传输比特流。规定了电平、速度和电缆针脚。常用设备有（各种物理设备）集线器、中继器、调制解调器、网线、双绞线、同轴电缆。这些都是物理层的传输介质。</p>
 <p><strong>OSI七层模型通信特点：对等通信</strong> 对等通信，为了使数据分组从源传送到目的地，源端OSI模型的每一层都必须与目的端的对等层进行通信，这种通信方式称为对等层通信。在每一层通信过程中，使用本层自己协议进行通信。</p>
-<h3 id="2-TCP-x2F-IP五层协议"><a href="#2-TCP-x2F-IP五层协议" class="headerlink" title="2. TCP&#x2F;IP五层协议"></a>2. TCP&#x2F;IP五层协议</h3><p><code>TCP/IP</code>五层协议和<code>OSI</code>的七层协议对应关系如下： <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/48cd77d608714c298366f4dac77f33fb~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h3 id="2-TCP-x2F-IP五层协议"><a href="#2-TCP-x2F-IP五层协议" class="headerlink" title="2. TCP&#x2F;IP五层协议"></a>2. TCP&#x2F;IP五层协议</h3><p><code>TCP/IP</code>五层协议和<code>OSI</code>的七层协议对应关系如下： <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/48cd77d608714c298366f4dac77f33fb~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="img"></p>
 <ul>
 <li><p>**应用层 (application layer)**：直接为应用进程提供服务。应用层协议定义的是应用进程间通讯和交互的规则，不同的应用有着不同的应用层协议，如 HTTP协议（万维网服务）、FTP协议（文件传输）、SMTP协议（电子邮件）、DNS（域名查询）等。</p>
 </li>
@@ -840,8 +840,8 @@
 </li>
 </ul>
 <p>从上图中可以看出，<code>TCP/IP</code>模型比<code>OSI</code>模型更加简洁，它把<code>应用层/表示层/会话层</code>全部整合为了<code>应用层</code>。</p>
-<p>在每一层都工作着不同的设备，比如我们常用的交换机就工作在数据链路层的，一般的路由器是工作在网络层的。 <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8a89b9ddb9d541a880fee0dccd1c03e9~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="img"> 在每一层实现的协议也各不同，即每一层的服务也不同，下图列出了每层主要的传输协议： <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2db9226a6cdb4ee48daecd9bc4181b64~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="img"></p>
-<p>同样，<code>TCP/IP</code>五层协议的通信方式也是对等通信： <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2c0d79ff592242a8af294ce32177c8e3~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>在每一层都工作着不同的设备，比如我们常用的交换机就工作在数据链路层的，一般的路由器是工作在网络层的。 <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8a89b9ddb9d541a880fee0dccd1c03e9~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="img"> 在每一层实现的协议也各不同，即每一层的服务也不同，下图列出了每层主要的传输协议： <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2db9226a6cdb4ee48daecd9bc4181b64~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="img"></p>
+<p>同样，<code>TCP/IP</code>五层协议的通信方式也是对等通信： <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2c0d79ff592242a8af294ce32177c8e3~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="image.png"></p>
 <h2 id="六、TCP与UDP"><a href="#六、TCP与UDP" class="headerlink" title="六、TCP与UDP"></a>六、TCP与UDP</h2><h3 id="1-TCP-和-UDP的概念及特点"><a href="#1-TCP-和-UDP的概念及特点" class="headerlink" title="1. TCP 和 UDP的概念及特点"></a>1. TCP 和 UDP的概念及特点</h3><p>TCP 和 UDP都是传输层协议，他们都属于TCP&#x2F;IP协议族：</p>
 <p><strong>（1）UDP</strong></p>
 <p>UDP的全称是<strong>用户数据报协议</strong>，在网络中它与TCP协议一样用于处理数据包，是一种无连接的协议。在OSI模型中，在传输层，处于IP协议的上一层。UDP有不提供数据包分组、组装和不能对数据包进行排序的缺点，也就是说，当报文发送之后，是无法得知其是否安全完整到达的。</p>
@@ -861,7 +861,7 @@
 <p>首先不可靠性体现在无连接上，通信都不需要建立连接，想发就发，这样的情况肯定不可靠。</p>
 <p>并且收到什么数据就传递什么数据，并且也不会备份数据，发送数据也不会关心对方是否已经正确接收到数据了。</p>
 <p>再者网络环境时好时坏，但是 UDP 因为没有拥塞控制，一直会以恒定的速度发送数据。即使网络条件不好，也不会对发送速率进行调整。这样实现的弊端就是在网络条件不好的情况下可能会导致丢包，但是优点也很明显，在某些实时性要求高的场景（比如电话会议）就需要使用 UDP 而不是 TCP。</p>
-<p><strong>5）头部开销小，传输数据报文时是很高效的。</strong> <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/14d246d14aac47919989fc620fbb17dd~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><strong>5）头部开销小，传输数据报文时是很高效的。</strong> <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/14d246d14aac47919989fc620fbb17dd~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="img"></p>
 <p>UDP 头部包含了以下几个数据：</p>
 <ul>
 <li>两个十六位的端口号，分别为源端口（可选字段）和目标端口</li>
@@ -957,7 +957,7 @@
 <ul>
 <li>拥塞避免未必能够完全避免拥塞，是说在拥塞避免阶段将拥塞窗口控制为按线性增长，使网络不容易出现阻塞。</li>
 <li>思路： 让拥塞窗口cwnd缓慢的增大，即每经过一个返回时间RTT就把发送方的拥塞控制窗口加一</li>
-<li>无论是在慢开始阶段还是在拥塞避免阶段，只要发送方判断网络出现拥塞，就把慢开始门限设置为出现拥塞时的发送窗口大小的一半。然后把拥塞窗口设置为1，执行慢开始算法。如图所示: <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/06b60b174bb242b498d244002caded1c~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="img"> 其中，判断网络出现拥塞的根据就是没有收到确认，虽然没有收到确认可能是其他原因的分组丢失，但是因为无法判定，所以都当做拥塞来处理。</li>
+<li>无论是在慢开始阶段还是在拥塞避免阶段，只要发送方判断网络出现拥塞，就把慢开始门限设置为出现拥塞时的发送窗口大小的一半。然后把拥塞窗口设置为1，执行慢开始算法。如图所示: <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/06b60b174bb242b498d244002caded1c~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="img"> 其中，判断网络出现拥塞的根据就是没有收到确认，虽然没有收到确认可能是其他原因的分组丢失，但是因为无法判定，所以都当做拥塞来处理。</li>
 </ul>
 <p><strong>（3）快速重传</strong></p>
 <ul>
@@ -967,7 +967,7 @@
 <p><strong>（4）快速恢复</strong></p>
 <ul>
 <li>当发送方连续收到三个重复确认时，就执行“乘法减小”算法，把ssthresh门限减半。但是接下去并不执行慢开始算法。</li>
-<li>考虑到如果网络出现拥塞的话就不会收到好几个重复的确认，所以发送方现在认为网络可能没有出现拥塞。所以此时不执行慢开始算法，而是将cwnd设置为ssthresh的大小，然后执行拥塞避免算法。 <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d0f5339da8c741d19f416cac2af18e4f~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="img"></li>
+<li>考虑到如果网络出现拥塞的话就不会收到好几个重复的确认，所以发送方现在认为网络可能没有出现拥塞。所以此时不执行慢开始算法，而是将cwnd设置为ssthresh的大小，然后执行拥塞避免算法。 <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d0f5339da8c741d19f416cac2af18e4f~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="img"></li>
 </ul>
 <h3 id="7-TCP的流量控制机制"><a href="#7-TCP的流量控制机制" class="headerlink" title="7. TCP的流量控制机制"></a>7. TCP的流量控制机制</h3><p>一般来说，流量控制就是为了让发送方发送数据的速度不要太快，要让接收方来得及接收。TCP采用大小可变的<strong>滑动窗口</strong>进行流量控制，窗口大小的单位是字节。这里说的窗口大小其实就是每次传输的数据大小。</p>
 <ul>
@@ -981,7 +981,7 @@
 <p>接收方使用的是累计确认的机制，对于所有按序到达的报文段，接收方返回一个报文段的肯定回答。如果收到了一个乱序的报文 段，那么接方会直接丢弃，并返回一个最近的按序到达的报文段的肯定回答。使用累计确认保证了返回的确认号之前的报文段都 已经按序到达了，所以发送窗口可以移动到已确认报文段的后面。</p>
 <p>发送窗口的大小是变化的，它是由接收窗口剩余大小和网络中拥塞程度来决定的，TCP 就是通过控制发送窗口的长度来控制报文 段的发送速率。</p>
 <p>但是 TCP 协议并不完全和滑动窗口协议相同，因为许多的 TCP 实现会将失序的报文段给缓存起来，并且发生重传时，只会重 传一个报文段，因此 TCP 协议的可靠传输机制更像是窗口滑动协议和选择重传协议的一个混合体。</p>
-<h3 id="9-TCP的三次握手和四次挥手"><a href="#9-TCP的三次握手和四次挥手" class="headerlink" title="9. TCP的三次握手和四次挥手"></a>9. TCP的三次握手和四次挥手</h3><h4 id="（1）三次握手"><a href="#（1）三次握手" class="headerlink" title="（1）三次握手"></a>（1）三次握手</h4><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/55a81db348584e57abdd01c9555f1d5f~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="img"> 三次握手（Three-way Handshake）其实就是指建立一个TCP连接时，需要客户端和服务器总共发送3个包。进行三次握手的主要作用就是为了确认双方的接收能力和发送能力是否正常、指定自己的初始化序列号为后面的可靠性传送做准备。实质上其实就是连接服务器指定端口，建立TCP连接，并同步连接双方的序列号和确认号，交换TCP窗口大小信息。</p>
+<h3 id="9-TCP的三次握手和四次挥手"><a href="#9-TCP的三次握手和四次挥手" class="headerlink" title="9. TCP的三次握手和四次挥手"></a>9. TCP的三次握手和四次挥手</h3><h4 id="（1）三次握手"><a href="#（1）三次握手" class="headerlink" title="（1）三次握手"></a>（1）三次握手</h4><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/55a81db348584e57abdd01c9555f1d5f~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="img"> 三次握手（Three-way Handshake）其实就是指建立一个TCP连接时，需要客户端和服务器总共发送3个包。进行三次握手的主要作用就是为了确认双方的接收能力和发送能力是否正常、指定自己的初始化序列号为后面的可靠性传送做准备。实质上其实就是连接服务器指定端口，建立TCP连接，并同步连接双方的序列号和确认号，交换TCP窗口大小信息。</p>
 <p>刚开始客户端处于 Closed 的状态，服务端处于 Listen 状态。</p>
 <ul>
 <li>第一次握手：客户端给服务端发一个 SYN 报文，并指明客户端的初始化序列号 ISN，此时客户端处于 SYN_SEND 状态。</li>
@@ -1016,7 +1016,7 @@
 <li><strong>第三次握手：</strong> 当客户端收到连接同意的应答后，还要向服务端发送一个确认报文。客户端发完这个报文段后便进入 ESTABLISHED 状态，服务端收到这个应答后也进入 ESTABLISHED 状态，此时连接建立成功。</li>
 </ul>
 <p>TCP 三次握手的建立连接的过程就是相互确认初始序号的过程，告诉对方，什么样序号的报文段能够被正确接收。 第三次握手的作用是客户端对服务器端的初始序号的确认。如果只使用两次握手，那么服务器就没有办法知道自己的序号是否 已被确认。同时这样也是为了防止失效的请求报文段被服务器接收，而出现错误的情况。</p>
-<h4 id="（2）四次挥手"><a href="#（2）四次挥手" class="headerlink" title="（2）四次挥手"></a>（2）四次挥手</h4><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a4190d0d324b427cb63154d3f84e47bc~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="img"> 刚开始双方都处于 ESTABLISHED 状态，假如是客户端先发起关闭请求。四次挥手的过程如下：</p>
+<h4 id="（2）四次挥手"><a href="#（2）四次挥手" class="headerlink" title="（2）四次挥手"></a>（2）四次挥手</h4><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a4190d0d324b427cb63154d3f84e47bc~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="img"> 刚开始双方都处于 ESTABLISHED 状态，假如是客户端先发起关闭请求。四次挥手的过程如下：</p>
 <ul>
 <li>第一次挥手： 客户端会发送一个 FIN 报文，报文中会指定一个序列号。此时客户端处于 FIN_WAIT1 状态。</li>
 </ul>
@@ -1124,7 +1124,7 @@ ws.<span class="hljs-property">onclose</span> = <span class="hljs-keyword">funct
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" class="category-chain-item">前端面试题</a>
+  <a href="/blog/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" class="category-chain-item">前端面试题</a>
   
   
 
@@ -1139,7 +1139,7 @@ ws.<span class="hljs-property">onclose</span> = <span class="hljs-keyword">funct
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/network/">#network</a>
+        <a href="/blog/tags/network/">#network</a>
       
     </div>
   
@@ -1153,7 +1153,7 @@ ws.<span class="hljs-property">onclose</span> = <span class="hljs-keyword">funct
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/interview-browser.html" title="面试题汇总之浏览器原理">
+                      <a href="/blog/interview-browser.html" title="面试题汇总之浏览器原理">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">面试题汇总之浏览器原理</span>
                         <span class="visible-mobile">上一篇</span>
@@ -1163,7 +1163,7 @@ ws.<span class="hljs-property">onclose</span> = <span class="hljs-keyword">funct
                   <article class="post-next col-6">
                     
                     
-                      <a href="/interview-react.html" title="面试题汇总之React">
+                      <a href="/blog/interview-react.html" title="面试题汇总之React">
                         <span class="hidden-mobile">面试题汇总之React</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -1314,8 +1314,8 @@ ws.<span class="hljs-property">onclose</span> = <span class="hljs-keyword">funct
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/blog/js/events.js" ></script>
+<script  src="/blog/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -1337,7 +1337,7 @@ ws.<span class="hljs-property">onclose</span> = <span class="hljs-keyword">funct
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/blog/js/img-lazyload.js" ></script>
   
 
 
@@ -1409,7 +1409,7 @@ ws.<span class="hljs-property">onclose</span> = <span class="hljs-keyword">funct
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/blog/js/local-search.js" ></script>
 
   <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
@@ -1419,7 +1419,7 @@ ws.<span class="hljs-property">onclose</span> = <span class="hljs-keyword">funct
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+<script  src="/blog/js/boot.js" ></script>
 
 
   
@@ -1427,5 +1427,5 @@ ws.<span class="hljs-property">onclose</span> = <span class="hljs-keyword">funct
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/chitose.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+<script src="/blog/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/blog/live2dw/assets/chitose.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
 </html>

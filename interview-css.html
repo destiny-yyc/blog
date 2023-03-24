@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/maple_leaf.png">
-  <link rel="icon" href="/img/maple_leaf.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/blog/img/maple_leaf.png">
+  <link rel="icon" href="/blog/img/maple_leaf.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,7 +19,7 @@
     <meta name="description" content="一、CSS基础1. CSS选择器及其优先级   选择器 格式 优先级权重    id选择器 #id 100   类选择器 #classname 10   属性选择器 a[ref&#x3D;“eee”] 10   伪类选择器 li:last-child 10   标签选择器 div 1   伪元素选择器 li:after 1   相邻兄弟选择器 h1+p 0   子选择器 ul&gt;li 0">
 <meta property="og:type" content="article">
 <meta property="og:title" content="面试题汇总之Css">
-<meta property="og:url" content="https://destiny-yyc.github.io/blog/interview-css.html">
+<meta property="og:url" content="https://destiny-yyc.github.io/interview-css.html">
 <meta property="og:site_name" content="枫🍁川的博客">
 <meta property="og:description" content="一、CSS基础1. CSS选择器及其优先级   选择器 格式 优先级权重    id选择器 #id 100   类选择器 #classname 10   属性选择器 a[ref&#x3D;“eee”] 10   伪类选择器 li:last-child 10   标签选择器 div 1   伪元素选择器 li:after 1   相邻兄弟选择器 h1+p 0   子选择器 ul&gt;li 0">
 <meta property="og:locale" content="zh_CN">
@@ -78,12 +78,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/blog/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/blog/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/blog/css/highlight-dark.css" />
   
 
 
@@ -92,15 +92,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"destiny-yyc.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"destiny-yyc.github.io","root":"/blog/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/blog/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/blog/js/utils.js" ></script>
+  <script  src="/blog/js/color-schema.js" ></script>
   
 
 
@@ -117,7 +117,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/blog/">
       <strong>枫🍁川的博客</strong>
     </a>
 
@@ -136,7 +136,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/blog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -148,7 +148,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/blog/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -160,7 +160,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/blog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -172,7 +172,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/blog/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -201,7 +201,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/blog/img/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -280,7 +280,7 @@
             
               <div class="markdown-body">
                 
-                <p><img src="https://s1.ax1x.com/2023/03/24/pp0rnX9.png" srcset="/img/loading.gif" lazyload></p>
+                <p><img src="https://s1.ax1x.com/2023/03/24/pp0rnX9.png" srcset="/blog/img/loading.gif" lazyload></p>
 <h2 id="一、CSS基础"><a href="#一、CSS基础" class="headerlink" title="一、CSS基础"></a>一、CSS基础</h2><h3 id="1-CSS选择器及其优先级"><a href="#1-CSS选择器及其优先级" class="headerlink" title="1. CSS选择器及其优先级"></a>1. CSS选择器及其优先级</h3><table>
 <thead>
 <tr>
@@ -534,7 +534,7 @@
 <li>settimeout任务被放入异步队列，只有当主线程任务执行完后才会执行队列中的任务，因此实际执行时间总是比设定时间要晚；</li>
 <li>settimeout的固定时间间隔不一定与屏幕刷新间隔时间相同，会引起丢帧。</li>
 </ul>
-<h3 id="11-对盒模型的理解"><a href="#11-对盒模型的理解" class="headerlink" title="11. 对盒模型的理解"></a>11. 对盒模型的理解</h3><p>CSS3中的盒模型有以下两种：标准盒子模型、IE盒子模型 <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4544d45b5a0c47a58c0c33a7d8fbac09~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="img"> <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4040de9fef1a49f4ae0ae66039edcfe0~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="img"> 盒模型都是由四个部分组成的，分别是margin、border、padding和content。</p>
+<h3 id="11-对盒模型的理解"><a href="#11-对盒模型的理解" class="headerlink" title="11. 对盒模型的理解"></a>11. 对盒模型的理解</h3><p>CSS3中的盒模型有以下两种：标准盒子模型、IE盒子模型 <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4544d45b5a0c47a58c0c33a7d8fbac09~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="img"> <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4040de9fef1a49f4ae0ae66039edcfe0~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="img"> 盒模型都是由四个部分组成的，分别是margin、border、padding和content。</p>
 <p>标准盒模型和IE盒模型的区别在于设置width和height时，所对应的范围不同：</p>
 <ul>
 <li>标准盒模型的width和height属性的范围只包含了content，</li>
@@ -604,7 +604,7 @@
 </ul>
 <h3 id="18-什么是物理像素，逻辑像素和像素密度，为什么在移动端开发时需要用到-3x-2x这种图片？"><a href="#18-什么是物理像素，逻辑像素和像素密度，为什么在移动端开发时需要用到-3x-2x这种图片？" class="headerlink" title="18. 什么是物理像素，逻辑像素和像素密度，为什么在移动端开发时需要用到@3x, @2x这种图片？"></a>18. 什么是物理像素，逻辑像素和像素密度，为什么在移动端开发时需要用到@3x, @2x这种图片？</h3><p>以 iPhone XS 为例，当写 CSS 代码时，针对于单位 px，其宽度为 414px &amp; 896px，也就是说当赋予一个 DIV元素宽度为 414px，这个 DIV 就会填满手机的宽度；</p>
 <p>而如果有一把尺子来实际测量这部手机的物理像素，实际为 1242*2688 物理像素；经过计算可知，1242&#x2F;414&#x3D;3，也就是说，在单边上，一个逻辑像素&#x3D;3个物理像素，就说这个屏幕的像素密度为 3，也就是常说的 3 倍屏。</p>
-<p>对于图片来说，为了保证其不失真，1 个图片像素至少要对应一个物理像素，假如原始图片是 500300 像素，那么在 3 倍屏上就要放一个 1500900 像素的图片才能保证 1 个物理像素至少对应一个图片像素，才能不失真。 <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5f1da1cbae9b45528cc2b33f74eb32f2~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="img"> 当然，也可以针对所有屏幕，都只提供最高清图片。虽然低密度屏幕用不到那么多图片像素，而且会因为下载多余的像素造成带宽浪费和下载延迟，但从结果上说能保证图片在所有屏幕上都不会失真。</p>
+<p>对于图片来说，为了保证其不失真，1 个图片像素至少要对应一个物理像素，假如原始图片是 500300 像素，那么在 3 倍屏上就要放一个 1500900 像素的图片才能保证 1 个物理像素至少对应一个图片像素，才能不失真。 <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5f1da1cbae9b45528cc2b33f74eb32f2~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="img"> 当然，也可以针对所有屏幕，都只提供最高清图片。虽然低密度屏幕用不到那么多图片像素，而且会因为下载多余的像素造成带宽浪费和下载延迟，但从结果上说能保证图片在所有屏幕上都不会失真。</p>
 <p>还可以使用 CSS 媒体查询来判断不同的像素密度，从而选择不同的图片:</p>
 <div class="code-wrapper"><pre><code class="hljs javascript">my-image &#123; <span class="hljs-attr">background</span>: (low.<span class="hljs-property">png</span>); &#125;
 @media only screen and (min-device-pixel-<span class="hljs-attr">ratio</span>: <span class="hljs-number">1.5</span>) &#123;
@@ -725,7 +725,7 @@
 </ul>
 <p>基于这三个方向，可以衍生出一些具有典型意义的子问题，这里我们逐个来看：</p>
 <p><strong>（1）预处理器：为什么要用预处理器？它的出现是为了解决什么问题？</strong></p>
-<p>预处理器，其实就是 CSS 世界的“轮子”。预处理器支持我们写一种类似 CSS、但实际并不是 CSS 的语言，然后把它编译成 CSS 代码： <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3d58c5313e884e38b1545a5896613250~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="img"> 那为什么写 CSS 代码写得好好的，偏偏要转去写“类 CSS”呢？这就和本来用 JS 也可以实现所有功能，但最后却写 React 的 jsx 或者 Vue 的模板语法一样——为了爽！要想知道有了预处理器有多爽，首先要知道的是传统 CSS 有多不爽。随着前端业务复杂度的提高，前端工程中对 CSS 提出了以下的诉求：</p>
+<p>预处理器，其实就是 CSS 世界的“轮子”。预处理器支持我们写一种类似 CSS、但实际并不是 CSS 的语言，然后把它编译成 CSS 代码： <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3d58c5313e884e38b1545a5896613250~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="img"> 那为什么写 CSS 代码写得好好的，偏偏要转去写“类 CSS”呢？这就和本来用 JS 也可以实现所有功能，但最后却写 React 的 jsx 或者 Vue 的模板语法一样——为了爽！要想知道有了预处理器有多爽，首先要知道的是传统 CSS 有多不爽。随着前端业务复杂度的提高，前端工程中对 CSS 提出了以下的诉求：</p>
 <ol>
 <li>宏观设计上：我们希望能优化 CSS 文件的目录结构，对现有的 CSS 文件实现复用；</li>
 <li>编码优化上：我们希望能写出结构清晰、简明易懂的 CSS，需要它具有一目了然的嵌套层级关系，而不是无差别的一铺到底写法；我们希望它具有变量特征、计算能力、循环能力等等更强的可编程性，这样我们可以少写一些无用的代码；</li>
@@ -741,7 +741,7 @@
 <li>支持将 CSS 文件模块化，实现复用。</li>
 </ul>
 <p><strong>（2）PostCss：PostCss 是如何工作的？我们在什么场景下会使用 PostCss？</strong></p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2911f98bbacf4b1cbffbb9e1527a4977~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="img"> 它和预处理器的不同就在于，预处理器处理的是 类CSS，而 PostCss 处理的就是 CSS 本身。Babel 可以将高版本的 JS 代码转换为低版本的 JS 代码。PostCss 做的是类似的事情：它可以编译尚未被浏览器广泛支持的先进的 CSS 语法，还可以自动为一些需要额外兼容的语法增加前缀。更强的是，由于 PostCss 有着强大的插件机制，支持各种各样的扩展，极大地强化了 CSS 的能力。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2911f98bbacf4b1cbffbb9e1527a4977~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="img"> 它和预处理器的不同就在于，预处理器处理的是 类CSS，而 PostCss 处理的就是 CSS 本身。Babel 可以将高版本的 JS 代码转换为低版本的 JS 代码。PostCss 做的是类似的事情：它可以编译尚未被浏览器广泛支持的先进的 CSS 语法，还可以自动为一些需要额外兼容的语法增加前缀。更强的是，由于 PostCss 有着强大的插件机制，支持各种各样的扩展，极大地强化了 CSS 的能力。</p>
 <p>PostCss 在业务中的使用场景非常多：</p>
 <ul>
 <li>提高 CSS 代码的可读性：PostCss 其实可以做类似预处理器能做的工作；</li>
@@ -770,7 +770,7 @@
 <li><code>imgs.offsetTop</code> 是元素顶部距离文档顶部的高度（包括滚动条的距离）；</li>
 <li>内容达到显示区域的：<code>img.offsetTop &lt; window.innerHeight + document.body.scrollTop;</code></li>
 </ul>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c57fc165a4ce4d5b9a2885867d4f1cab~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c57fc165a4ce4d5b9a2885867d4f1cab~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="img"></p>
 <h3 id="30-z-index属性在什么情况下会失效"><a href="#30-z-index属性在什么情况下会失效" class="headerlink" title="30. z-index属性在什么情况下会失效"></a>30. z-index属性在什么情况下会失效</h3><p>通常 z-index 的使用是在有两个重叠的标签，在一定的情况下控制其中一个在另一个的上方或者下方出现。z-index值越大就越是在上层。z-index元素的position属性需要是relative，absolute或是fixed。</p>
 <p>z-index属性在下列情况下会失效：</p>
 <ul>
@@ -1256,7 +1256,7 @@
 <li>子元素变为行内盒子：<code>display: inline-block</code></li>
 <li>子元素加入浮动属性或定位</li>
 </ul>
-<h3 id="5-元素的层叠顺序"><a href="#5-元素的层叠顺序" class="headerlink" title="5. 元素的层叠顺序"></a>5. 元素的层叠顺序</h3><p>层叠顺序，英文称作 stacking order，表示元素发生层叠时有着特定的垂直显示顺序。下面是盒模型的层叠规则： <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fbc59ae1adb5454c8c7f60582df10ff9~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="img"> 对于上图，由上到下分别是： （1）背景和边框：建立当前层叠上下文元素的背景和边框。 （2）负的z-index：当前层叠上下文中，z-index属性值为负的元素。 （3）块级盒：文档流内非行内级非定位后代元素。 （4）浮动盒：非定位浮动元素。 （5）行内盒：文档流内行内级非定位后代元素。 （6）z-index:0：层叠级数为0的定位元素。 （7）正z-index：z-index属性值为正的定位元素。</p>
+<h3 id="5-元素的层叠顺序"><a href="#5-元素的层叠顺序" class="headerlink" title="5. 元素的层叠顺序"></a>5. 元素的层叠顺序</h3><p>层叠顺序，英文称作 stacking order，表示元素发生层叠时有着特定的垂直显示顺序。下面是盒模型的层叠规则： <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fbc59ae1adb5454c8c7f60582df10ff9~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="img"> 对于上图，由上到下分别是： （1）背景和边框：建立当前层叠上下文元素的背景和边框。 （2）负的z-index：当前层叠上下文中，z-index属性值为负的元素。 （3）块级盒：文档流内非行内级非定位后代元素。 （4）浮动盒：非定位浮动元素。 （5）行内盒：文档流内行内级非定位后代元素。 （6）z-index:0：层叠级数为0的定位元素。 （7）正z-index：z-index属性值为正的定位元素。</p>
 <p><strong>注意:</strong> 当定位元素z-index:auto，生成盒在当前层叠上下文中的层级为 0，不会建立新的层叠上下文，除非是根元素。</p>
 <h3 id="6-position的属性有哪些，区别是什么"><a href="#6-position的属性有哪些，区别是什么" class="headerlink" title="6. position的属性有哪些，区别是什么"></a>6. position的属性有哪些，区别是什么</h3><p>position有以下属性值：</p>
 <table>
@@ -1291,15 +1291,15 @@
 <ul>
 <li><strong>relative：</strong> 元素的定位永远是相对于元素自身位置的，和其他元素没关系，也不会影响其他元素。</li>
 </ul>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6523548b65834c578202acc5e6388af4~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6523548b65834c578202acc5e6388af4~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="img"></p>
 <ul>
 <li><strong>fixed：</strong> 元素的定位是相对于 window （或者 iframe）边界的，和其他元素没有关系。但是它具有破坏性，会导致其他元素位置的变化。</li>
 </ul>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4b35e646aa3c4d9cac803753d8b67c39~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4b35e646aa3c4d9cac803753d8b67c39~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="img"></p>
 <ul>
 <li><strong>absolute：</strong> 元素的定位相对于前两者要复杂许多。如果为 absolute 设置了 top、left，浏览器会根据什么去确定它的纵向和横向的偏移量呢？答案是浏览器会递归查找该元素的所有父元素，如果找到一个设置了<code>position:relative/absolute/fixed</code>的元素，就以该元素为基准定位，如果没找到，就以浏览器边界定位。如下两个图所示：</li>
 </ul>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d6d4f199b3f842f090890eea32318e11~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="img"> <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d2c7150bd7614a548f04a2919f1ea12a~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d6d4f199b3f842f090890eea32318e11~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="img"> <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d2c7150bd7614a548f04a2919f1ea12a~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="img"></p>
 <h3 id="7-display、float、position的关系"><a href="#7-display、float、position的关系" class="headerlink" title="7. display、float、position的关系"></a>7. <strong>display、float、position的关系</strong></h3><p>（1）首先判断display属性是否为none，如果为none，则position和float属性的值不影响元素最后的表现。</p>
 <p>（2）然后判断position的值是否为absolute或者fixed，如果是，则float属性失效，并且display的值应该被设置为table或者block，具体转换需要看初始转换值。</p>
 <p>（3）如果position的值不为absolute或者fixed，则判断float属性的值是否为none，如果不是，则display的值则按上面的规则转换。注意，如果position的值为relative并且float属性的值存在，则relative相对于浮动后的最终位置定位。</p>
@@ -1327,7 +1327,7 @@
     <span class="hljs-attribute">border-color</span>: orange blue red green;
 &#125;</code></pre></div>
 
-<p>将元素的长宽都设置为0，显示出来的效果是这样的： <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cba8731fea9842a8b8103c2b387fe64f~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="img"> 所以可以根据border这个特性来绘制三角形： <strong>（1）三角1</strong></p>
+<p>将元素的长宽都设置为0，显示出来的效果是这样的： <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cba8731fea9842a8b8103c2b387fe64f~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="img"> 所以可以根据border这个特性来绘制三角形： <strong>（1）三角1</strong></p>
 <div class="code-wrapper"><pre><code class="hljs css"><span class="hljs-selector-tag">div</span> &#123;
   <span class="hljs-attribute">width</span>: <span class="hljs-number">0</span>;
   <span class="hljs-attribute">height</span>: <span class="hljs-number">0</span>;
@@ -1336,7 +1336,7 @@
   <span class="hljs-attribute">border-left</span>: <span class="hljs-number">50px</span> solid transparent;
 &#125;</code></pre></div>
 
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ab996951a0cc42cf9e6d9e12eb827f8b~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="img"> <strong>（2）三角2</strong></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ab996951a0cc42cf9e6d9e12eb827f8b~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="img"> <strong>（2）三角2</strong></p>
 <div class="code-wrapper"><pre><code class="hljs css"><span class="hljs-selector-tag">div</span> &#123;
     <span class="hljs-attribute">width</span>: <span class="hljs-number">0</span>;
     <span class="hljs-attribute">height</span>: <span class="hljs-number">0</span>;
@@ -1345,7 +1345,7 @@
     <span class="hljs-attribute">border-left</span>: <span class="hljs-number">50px</span> solid transparent;
 &#125;</code></pre></div>
 
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/531c6c250dd8446fb0f264e7b3df6fba~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="img"> <strong>（3）三角3</strong></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/531c6c250dd8446fb0f264e7b3df6fba~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="img"> <strong>（3）三角3</strong></p>
 <div class="code-wrapper"><pre><code class="hljs css"><span class="hljs-selector-tag">div</span> &#123;
     <span class="hljs-attribute">width</span>: <span class="hljs-number">0</span>;
     <span class="hljs-attribute">height</span>: <span class="hljs-number">0</span>;
@@ -1354,7 +1354,7 @@
     <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">50px</span> solid transparent;
 &#125;</code></pre></div>
 
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e4beaf4e4a0140ad9e7252f8a6e4e8e6~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="img"> <strong>（4）三角4</strong></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e4beaf4e4a0140ad9e7252f8a6e4e8e6~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="img"> <strong>（4）三角4</strong></p>
 <div class="code-wrapper"><pre><code class="hljs css"><span class="hljs-selector-tag">div</span> &#123;
     <span class="hljs-attribute">width</span>: <span class="hljs-number">0</span>;
     <span class="hljs-attribute">height</span>: <span class="hljs-number">0</span>;
@@ -1363,7 +1363,7 @@
     <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">50px</span> solid transparent;
 &#125;</code></pre></div>
 
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/445f50ad19164b0f863ad8dfef2a29b1~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="img"> <strong>（5）三角5</strong></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/445f50ad19164b0f863ad8dfef2a29b1~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="img"> <strong>（5）三角5</strong></p>
 <div class="code-wrapper"><pre><code class="hljs css"><span class="hljs-selector-tag">div</span> &#123;
     <span class="hljs-attribute">width</span>: <span class="hljs-number">0</span>;
     <span class="hljs-attribute">height</span>: <span class="hljs-number">0</span>;
@@ -1371,7 +1371,7 @@
     <span class="hljs-attribute">border-right</span>: <span class="hljs-number">100px</span> solid transparent;
 &#125;</code></pre></div>
 
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a1ac630463164e42a027b54bb95f56ba~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="img"> 还有很多，就不一一实现了，总体的原则就是通过上下左右边框来控制三角形的方向，用边框的宽度比来控制三角形的角度。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a1ac630463164e42a027b54bb95f56ba~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="img"> 还有很多，就不一一实现了，总体的原则就是通过上下左右边框来控制三角形的方向，用边框的宽度比来控制三角形的角度。</p>
 <h3 id="2-实现一个扇形"><a href="#2-实现一个扇形" class="headerlink" title="2. 实现一个扇形"></a>2. 实现一个扇形</h3><p>用CSS实现扇形的思路和三角形基本一致，就是多了一个圆角的样式，实现一个90°的扇形：</p>
 <div class="code-wrapper"><pre><code class="hljs css"><span class="hljs-selector-tag">div</span>&#123;
     <span class="hljs-attribute">border</span>: <span class="hljs-number">100px</span> solid transparent;
@@ -1381,7 +1381,7 @@
     <span class="hljs-attribute">border-top-color</span>: red;
 &#125;</code></pre></div>
 
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/db5e46aea0ce4805a0c2bbec2743546e~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/db5e46aea0ce4805a0c2bbec2743546e~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="img"></p>
 <h3 id="3-实现一个宽高自适应的正方形"><a href="#3-实现一个宽高自适应的正方形" class="headerlink" title="3. 实现一个宽高自适应的正方形"></a>3. 实现一个宽高自适应的正方形</h3><ul>
 <li>利用vw来实现：</li>
 </ul>
@@ -1436,7 +1436,7 @@
 <h3 id="6-如何解决-1px-问题？"><a href="#6-如何解决-1px-问题？" class="headerlink" title="6. 如何解决 1px 问题？"></a>6. 如何解决 1px 问题？</h3><p>1px 问题指的是：在一些 <code>Retina屏幕</code> 的机型上，移动端页面的 1px 会变得很粗，呈现出不止 1px 的效果。原因很简单——CSS 中的 1px 并不能和移动设备上的 1px 划等号。它们之间的比例关系有一个专门的属性来描述：</p>
 <div class="code-wrapper"><pre><code class="hljs html">window.devicePixelRatio = 设备的物理像素 / CSS像素。</code></pre></div>
 
-<p>打开 Chrome 浏览器，启动移动端调试模式，在控制台去输出这个 <code>devicePixelRatio</code> 的值。这里选中 iPhone6&#x2F;7&#x2F;8 这系列的机型，输出的结果就是2： <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a8af7dca29f84b7e9d1f94232713ef07~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="img"> 这就意味着设置的 1px CSS 像素，在这个设备上实际会用 2 个物理像素单元来进行渲染，所以实际看到的一定会比 1px 粗一些。 <strong>解决1px 问题的三种思路：</strong></p>
+<p>打开 Chrome 浏览器，启动移动端调试模式，在控制台去输出这个 <code>devicePixelRatio</code> 的值。这里选中 iPhone6&#x2F;7&#x2F;8 这系列的机型，输出的结果就是2： <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a8af7dca29f84b7e9d1f94232713ef07~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="img"> 这就意味着设置的 1px CSS 像素，在这个设备上实际会用 2 个物理像素单元来进行渲染，所以实际看到的一定会比 1px 粗一些。 <strong>解决1px 问题的三种思路：</strong></p>
 <h4 id="思路一：直接写-0-5px"><a href="#思路一：直接写-0-5px" class="headerlink" title="思路一：直接写 0.5px"></a>思路一：直接写 0.5px</h4><p>如果之前 1px 的样式这样写：</p>
 <div class="code-wrapper"><pre><code class="hljs css"><span class="hljs-attribute">border</span>:<span class="hljs-number">1px</span> solid <span class="hljs-number">#333</span></code></pre></div>
 
@@ -1496,7 +1496,7 @@ metaEl.<span class="hljs-title function_">setAttribute</span>(<span class="hljs-
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" class="category-chain-item">前端面试题</a>
+  <a href="/blog/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" class="category-chain-item">前端面试题</a>
   
   
 
@@ -1511,7 +1511,7 @@ metaEl.<span class="hljs-title function_">setAttribute</span>(<span class="hljs-
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Css/">#Css</a>
+        <a href="/blog/tags/Css/">#Css</a>
       
     </div>
   
@@ -1525,7 +1525,7 @@ metaEl.<span class="hljs-title function_">setAttribute</span>(<span class="hljs-
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/interview-javascript.html" title="面试题汇总之React">
+                      <a href="/blog/interview-javascript.html" title="面试题汇总之React">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">面试题汇总之React</span>
                         <span class="visible-mobile">上一篇</span>
@@ -1535,7 +1535,7 @@ metaEl.<span class="hljs-title function_">setAttribute</span>(<span class="hljs-
                   <article class="post-next col-6">
                     
                     
-                      <a href="/interview-html.html" title="面试题汇总之Html">
+                      <a href="/blog/interview-html.html" title="面试题汇总之Html">
                         <span class="hidden-mobile">面试题汇总之Html</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -1686,8 +1686,8 @@ metaEl.<span class="hljs-title function_">setAttribute</span>(<span class="hljs-
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/blog/js/events.js" ></script>
+<script  src="/blog/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -1709,7 +1709,7 @@ metaEl.<span class="hljs-title function_">setAttribute</span>(<span class="hljs-
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/blog/js/img-lazyload.js" ></script>
   
 
 
@@ -1781,7 +1781,7 @@ metaEl.<span class="hljs-title function_">setAttribute</span>(<span class="hljs-
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/blog/js/local-search.js" ></script>
 
   <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
@@ -1791,7 +1791,7 @@ metaEl.<span class="hljs-title function_">setAttribute</span>(<span class="hljs-
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+<script  src="/blog/js/boot.js" ></script>
 
 
   
@@ -1799,5 +1799,5 @@ metaEl.<span class="hljs-title function_">setAttribute</span>(<span class="hljs-
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/chitose.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+<script src="/blog/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/blog/live2dw/assets/chitose.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
 </html>

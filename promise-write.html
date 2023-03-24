@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/maple_leaf.png">
-  <link rel="icon" href="/img/maple_leaf.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/blog/img/maple_leaf.png">
+  <link rel="icon" href="/blog/img/maple_leaf.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,7 +19,7 @@
     <meta name="description" content="resolve和reject咱们来看一段Promise的代码： let p1 &#x3D; new Promise((resolve, reject) &#x3D;&gt; &amp;#123;     resolve(&amp;#x27;成功&amp;#x27;)     reject(&amp;#x27;失败&amp;#x27;) &amp;#125;) console.log(&amp;#x27;p1&amp;#x27;, p1)  let p2 &#x3D; new Promise">
 <meta property="og:type" content="article">
 <meta property="og:title" content="手写 Promise">
-<meta property="og:url" content="https://destiny-yyc.github.io/blog/promise-write.html">
+<meta property="og:url" content="https://destiny-yyc.github.io/promise-write.html">
 <meta property="og:site_name" content="枫🍁川的博客">
 <meta property="og:description" content="resolve和reject咱们来看一段Promise的代码： let p1 &#x3D; new Promise((resolve, reject) &#x3D;&gt; &amp;#123;     resolve(&amp;#x27;成功&amp;#x27;)     reject(&amp;#x27;失败&amp;#x27;) &amp;#125;) console.log(&amp;#x27;p1&amp;#x27;, p1)  let p2 &#x3D; new Promise">
 <meta property="og:locale" content="zh_CN">
@@ -63,12 +63,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="/blog/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/blog/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/blog/css/highlight-dark.css" />
   
 
 
@@ -77,15 +77,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"destiny-yyc.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"destiny-yyc.github.io","root":"/blog/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/blog/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="/blog/js/utils.js" ></script>
+  <script  src="/blog/js/color-schema.js" ></script>
   
 
 
@@ -102,7 +102,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/blog/">
       <strong>枫🍁川的博客</strong>
     </a>
 
@@ -121,7 +121,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/blog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -133,7 +133,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/blog/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -145,7 +145,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/blog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -157,7 +157,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/blog/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -186,7 +186,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/blog/img/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -284,7 +284,7 @@
 <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;p3&#x27;</span>, p3)</code></pre></div>
 
 <p>那么会输出什么呢？请看：</p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/db87e7956fa24650bb60902bc3f113b4~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/db87e7956fa24650bb60902bc3f113b4~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload></p>
 <p><strong>这里暴露出了四个知识点：</strong></p>
 <ul>
 <li>1、执行了<code>resolve</code>，Promise状态会变成<code>fulfilled</code></li>
@@ -359,7 +359,7 @@
 <li><code>fulfilled</code>：成功状态</li>
 <li><code>rejected</code>：失败状态</li>
 </ul>
-<p>一旦状态从<code>pending</code>变为<code>fulfilled或者rejected</code>，那么此Promise实例的状态就定死了。 <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2c9636d819ef4bc78af95fb80c9a7be4~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="截屏2021-08-01 下午12.33.10.png"></p>
+<p>一旦状态从<code>pending</code>变为<code>fulfilled或者rejected</code>，那么此Promise实例的状态就定死了。 <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2c9636d819ef4bc78af95fb80c9a7be4~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="截屏2021-08-01 下午12.33.10.png"></p>
 <p>其实实现起来也很容易，加个判断条件就行：</p>
 <div class="code-wrapper"><pre><code class="hljs javascript">    <span class="hljs-title function_">resolve</span>(<span class="hljs-params">value</span>) &#123;
         <span class="hljs-comment">// state是不可变的</span>
@@ -387,7 +387,7 @@
 &#125;)
 <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(test1) <span class="hljs-comment">// MyPromise &#123; PromiseState: &#x27;fulfilled&#x27;, PromiseResult: &#x27;成功&#x27; &#125;</span></code></pre></div>
 
-<h3 id="3-throw"><a href="#3-throw" class="headerlink" title="3. throw"></a>3. throw</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fa2e17b24a124dadba540e86350f1302~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="截屏2021-08-01 下午12.57.17.png"></p>
+<h3 id="3-throw"><a href="#3-throw" class="headerlink" title="3. throw"></a>3. throw</h3><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fa2e17b24a124dadba540e86350f1302~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="截屏2021-08-01 下午12.57.17.png"></p>
 <p>Promise中有<code>throw</code>的话，就相当于执行了<code>reject</code>。这就要使用<code>try catch</code>了</p>
 <div class="code-wrapper"><pre><code class="hljs javascript">+        <span class="hljs-keyword">try</span> &#123;
             <span class="hljs-comment">// 执行传进来的函数</span>
@@ -462,7 +462,7 @@
 &#125;).<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(res), <span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(err))</code></pre></div>
 
 <p>我们不能确保1秒后才执行then函数，但是我们可以保证1秒后再执行then里的回调，可能这里大家有点懵逼，我同样用一张图给大家讲讲吧：</p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6ba5a2544b1144548cdc63362fa27d23~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="截屏2021-08-01 下午9.05.24.png"></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6ba5a2544b1144548cdc63362fa27d23~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="截屏2021-08-01 下午9.05.24.png"></p>
 <p>也就是在这1秒时间内，我们可以先把then里的两个回调保存起来，然后等到1秒过后，执行了resolve或者reject，咱们再去判断状态，并且判断要去执行刚刚保存的两个回调中的哪一个回调。</p>
 <p>那么问题来了，我们怎么知道当前1秒还没走完甚至还没开始走呢？其实很好判断，只要状态是<code>pending</code>，那就证明定时器还没跑完，因为如果定时器跑完的话，那状态肯定就不是<code>pending</code>，而是<code>fulfilled或者rejected</code></p>
 <p>那是用什么来保存这些回调呢？建议使用<code>数组</code>，因为一个promise实例可能会<code>多次then</code>，用数组就一个一个保存了</p>
@@ -550,7 +550,7 @@
 <li>4、如果返回值非promise对象，新promise对象就是成功，值为此返回值</li>
 </ul>
 <p>咱们知道then是Promise上的方法，那如何实现then完还能再then呢？很简单，then执行后返回一个<code>Promise对象</code>就行了，就能保证then完还能继续执行then：</p>
-<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/62a3c3afcf0a4262a1a7e52231c34dbc~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp" srcset="/img/loading.gif" lazyload alt="截屏2021-08-01 下午9.06.02.png"></p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/62a3c3afcf0a4262a1a7e52231c34dbc~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp" srcset="/blog/img/loading.gif" lazyload alt="截屏2021-08-01 下午9.06.02.png"></p>
 <p>代码实现：</p>
 <div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-title function_">then</span>(<span class="hljs-params">onFulfilled, onRejected</span>) &#123;
     <span class="hljs-comment">// 接收两个回调 onFulfilled, onRejected</span>
@@ -787,12 +787,12 @@
     
       <span class="category-chain">
         
-  <a href="/categories/javascript/" class="category-chain-item">javascript</a>
+  <a href="/blog/categories/javascript/" class="category-chain-item">javascript</a>
   
   
     <span>></span>
     
-  <a href="/categories/javascript/es6/" class="category-chain-item">es6</a>
+  <a href="/blog/categories/javascript/es6/" class="category-chain-item">es6</a>
   
   
 
@@ -809,7 +809,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/promise/">#promise</a>
+        <a href="/blog/tags/promise/">#promise</a>
       
     </div>
   
@@ -823,7 +823,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/interview-react.html" title="面试题汇总之React">
+                      <a href="/blog/interview-react.html" title="面试题汇总之React">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">面试题汇总之React</span>
                         <span class="visible-mobile">上一篇</span>
@@ -833,7 +833,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/interview-summarize.html" title="面试题总结">
+                      <a href="/blog/interview-summarize.html" title="面试题总结">
                         <span class="hidden-mobile">面试题总结</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -984,8 +984,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="/blog/js/events.js" ></script>
+<script  src="/blog/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -1007,7 +1007,7 @@
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="/blog/js/img-lazyload.js" ></script>
   
 
 
@@ -1079,7 +1079,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="/blog/js/local-search.js" ></script>
 
   <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
@@ -1089,7 +1089,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+<script  src="/blog/js/boot.js" ></script>
 
 
   
@@ -1097,5 +1097,5 @@
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/chitose.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+<script src="/blog/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/blog/live2dw/assets/chitose.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
 </html>
